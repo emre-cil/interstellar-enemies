@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
-        <activity android:name=".RegisterPage"></activity>
-        <activity android:name=".LoginPage" />
+        <activity android:name=".HomePage"></activity>
+        <activity android:name=".SignInPage" />
+        <activity android:name=".RegisterPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

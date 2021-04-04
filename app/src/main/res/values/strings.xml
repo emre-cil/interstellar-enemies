@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InterstellarEnemies</string>
+    <string name="forgot"><u>Reset</u></string>
+    <string name="signup"><u>Sign up</u></string>
 </resources>

@@ -4,15 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2D2A2E"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textSignUp"
+        android:layout_width="243dp"
+        android:layout_height="56dp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:onClick="signUpClick"
+        android:clickable="true"
+        android:text="@string/signup"
+        android:textColor="#83ac5d"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="316sp"
+        android:layout_height="156sp"
+        android:layout_marginTop="40sp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="Interstellar Enemies"
+        android:textColor="#F92672"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="236sp"
+        android:layout_height="55sp"
+        android:layout_marginTop="28sp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="Login with"
+        android:textColor="#83ac5d"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52sp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="No account yet?"
+        android:textColor="#83ac5d"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="62sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="76dp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="Shhh!"
+        android:textColor="#F92672"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSignUp"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="48sp"
+        android:layout_marginTop="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/google_brands" />
+
+    <ImageView
+        android:id="@+id/emailView"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginTop="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/envelope__1_" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80sp"
+        android:layout_height="98sp"
+        android:layout_marginTop="28sp"
+        android:layout_marginEnd="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/facebook_brands" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

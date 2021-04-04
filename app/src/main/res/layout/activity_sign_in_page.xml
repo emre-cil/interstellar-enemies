@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2D2A2E"
-    tools:context=".RegisterPage">
+    tools:context=".SignInPage">
 
     <TextView
         android:id="@+id/textView5"
@@ -22,11 +22,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="300sp"
+        android:layout_height="45sp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="@string/forgot"
+        android:textColor="#83ac5d"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="300sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="44dp"
+        android:background="#00000000"
+        android:fontFamily="@font/vt323"
+        android:text="Forgot Password?"
+        android:textColor="#83ac5d"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPass" />
+
     <EditText
-        android:id="@+id/RegisterEmail"
+        android:id="@+id/LoginEmail"
         android:layout_width="300sp"
         android:layout_height="60sp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:fontFamily="@font/vt323"
         android:hint="E-mail"
@@ -43,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/RegisterEmailPass"
+        android:id="@+id/LoginPass"
         android:layout_width="300sp"
         android:layout_height="60sp"
         android:layout_marginTop="20dp"
@@ -55,39 +84,20 @@
         android:textColorHint="#83AC5D"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterEmail" />
-
-    <EditText
-        android:id="@+id/RegisterEmailPassConfirm"
-        android:layout_width="300sp"
-        android:layout_height="60sp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/vt323"
-
-        android:hint="Password Again"
-        android:inputType="textPassword"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#83AC5D"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterEmailPass" />
+        app:layout_constraintTop_toBottomOf="@+id/LoginEmail" />
 
     <Button
-        android:id="@+id/signUpBut"
+        android:id="@+id/signInBut"
         android:layout_width="143dp"
         android:layout_height="67dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/vt323"
-        android:text="Sign Up"
+        android:text="Sign In"
         android:textSize="30sp"
         app:backgroundTint="#F92672"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterEmailPassConfirm"
-        app:layout_constraintVertical_bias="0.569" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>
