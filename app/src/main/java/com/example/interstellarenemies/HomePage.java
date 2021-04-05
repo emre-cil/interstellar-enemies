@@ -1,12 +1,16 @@
 package com.example.interstellarenemies;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomePage extends AppCompatActivity {
 
@@ -19,9 +23,19 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Intent i  = getIntent();
-        TextView text = findViewById(R.id.textView7);
-//        text.setText(((FirebaseUser)i.getStringExtra("login::user")).getUserName());
+        Intent goMain = new Intent(this, MainActivity.class);
+
+        Button signOutBut = findViewById(R.id.signOutBut);
+        signOutBut.setOnClickListener((View v)->{
+
+            MainActivity.getmAuth().signOut();
+            MainActivity.getmGoogleSignInClient().signOut();
+         FirebaseAuth.getInstance().signOut();
+            startActivity(goMain);
+        });
+
+
+
 
     }
 }

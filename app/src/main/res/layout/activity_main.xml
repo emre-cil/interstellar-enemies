@@ -12,16 +12,16 @@
         android:layout_width="243dp"
         android:layout_height="56dp"
         android:background="#00000000"
+        android:clickable="true"
         android:fontFamily="@font/vt323"
         android:onClick="signUpClick"
-        android:clickable="true"
         android:text="@string/signup"
         android:textColor="#83ac5d"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textNoAccount" />
 
     <TextView
         android:id="@+id/textView"
@@ -54,9 +54,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textNoAccount"
         android:layout_width="250dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_marginTop="52sp"
         android:background="#00000000"
         android:fontFamily="@font/vt323"
@@ -83,10 +83,10 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSignUp"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/googleSignImage"
         android:layout_width="80sp"
         android:layout_height="80sp"
         android:layout_marginStart="48sp"
@@ -97,21 +97,21 @@
 
     <ImageView
         android:id="@+id/emailView"
-        android:layout_width="80sp"
-        android:layout_height="80sp"
-        android:layout_marginTop="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        android:layout_width="104dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/facebookSignImage"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/googleSignImage"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/envelope__1_" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="80sp"
-        android:layout_height="98sp"
-        android:layout_marginTop="28sp"
-        android:layout_marginEnd="48sp"
+        android:id="@+id/facebookSignImage"
+        android:layout_width="87dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/facebook_brands" />

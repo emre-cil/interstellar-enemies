@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
-        <activity android:name=".HomePage"></activity>
+        <activity android:name=".ResetPassPage"></activity>
+        <activity android:name=".HomePage" />
         <activity android:name=".SignInPage" />
         <activity android:name=".RegisterPage" />
         <activity android:name=".MainActivity">

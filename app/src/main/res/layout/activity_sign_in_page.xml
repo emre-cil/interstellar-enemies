@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/resetUnderLined"
         android:layout_width="300sp"
         android:layout_height="45sp"
         android:background="#00000000"
@@ -99,5 +99,5 @@
         app:backgroundTint="#F92672"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/resetUnderLined" />
 </androidx.constraintlayout.widget.ConstraintLayout>

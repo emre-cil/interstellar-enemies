@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 public class RegisterPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
@@ -30,15 +31,13 @@ public class RegisterPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         Button signUpButton = findViewById(R.id.signUpBut);
-
-
         signUpButton.setOnClickListener((View v) -> {
             createUser();
             /**
              * TODO: login with cached email
              */
-
 
         });
     }
