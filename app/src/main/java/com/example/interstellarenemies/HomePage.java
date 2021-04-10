@@ -33,9 +33,5 @@ public class HomePage extends AppCompatActivity {
          FirebaseAuth.getInstance().signOut();
             startActivity(goMain);
         });
-
-
-
-
     }
 }

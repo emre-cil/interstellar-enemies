@@ -3,35 +3,20 @@ package com.example.interstellarenemies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.*;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.android.gms.tasks.*;
+import com.google.firebase.auth.*;
 
 import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1337;
-
-
     private static FirebaseAuth mAuth;
 
     public static FirebaseAuth getmAuth() {
@@ -68,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //Email signUp Text
-        TextView signUpGo = findViewById(R.id.textSignUp);
-        signUpGo.setOnClickListener((View v) -> {
-            goToPage(RegisterPage.class);
-        });
+
 
         //Email signIn Image
         ImageView emailSignIn = findViewById(R.id.emailView);
@@ -91,10 +72,11 @@ public class MainActivity extends AppCompatActivity {
         view.setSystemUiVisibility(uiOptions);
     }
 
-    public void goToPage(Class<?> o){
+    public void goToPage(Class<?> o) {
         Intent i = new Intent(this, o);
         startActivity(i);
     }
+
     //========================Google Sign========================
     private void initGoogleSign() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -123,11 +105,10 @@ public class MainActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 //NOTE: User did not select an account so do nothing.
-
-
             }
         }
     }
+
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         Intent homePage = new Intent(this, HomePage.class);
@@ -148,5 +129,4 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
     //===========================================================
-
 }
