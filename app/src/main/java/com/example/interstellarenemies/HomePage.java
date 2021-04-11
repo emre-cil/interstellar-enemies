@@ -23,15 +23,32 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Intent goMain = new Intent(this, MainActivity.class);
+        /**
+         * TODO: sayfalarda geri donus olmayacak.
+         */
+        Intent goSinglePlayer = new Intent(this, SinglePlayerPage.class);
+        Intent goJoinPlanet = new Intent(this, JoinPlanetPage.class);
+        Intent goCreatePlanet = new Intent(this, CreatePlanetPage.class);
 
-        Button signOutBut = findViewById(R.id.signOutBut);
-        signOutBut.setOnClickListener((View v)->{
+        Button singlePlayerBut = findViewById(R.id.singlePlayerBut);
+        Button joinPlanetBut = findViewById(R.id.joinAPlanetBut);
+        Button createPlanetBut = findViewById(R.id.createAPlanetBut);
 
-            MainActivity.getmAuth().signOut();
-            MainActivity.getmGoogleSignInClient().signOut();
-         FirebaseAuth.getInstance().signOut();
-            startActivity(goMain);
+        //go single player page
+        singlePlayerBut.setOnClickListener((View v)->{
+            startActivity(goSinglePlayer);
         });
+
+        //go join a planet page
+        joinPlanetBut.setOnClickListener((View v)->{
+            startActivity(goJoinPlanet);
+        });
+
+        //go create a planet page
+        createPlanetBut.setOnClickListener((View v)->{
+            startActivity(goCreatePlanet);
+        });
+
+
     }
 }

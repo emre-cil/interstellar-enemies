@@ -22,5 +22,9 @@
     <string name="sign_up_">Sign Up</string>
     <string name="reset_password">Reset Password</string>
     <string name="send_code">Send Code</string>
+    <string name="single_player">Single Player</string>
+    <string name="join_a_planet">Join a Planet</string>
+    <string name="create_a_planet">Create a Planet</string>
+    <string name="walkthrough">Walkthrough</string>
 
 </resources>
