@@ -20,14 +20,13 @@ public class SinglePlayerPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        /**
+        /*
          * it can be add to side tab.
          */
         Intent goMain = new Intent(this, MainActivity.class);
         Button signOutBut = findViewById(R.id.signOutBut);
 
-        signOutBut.setOnClickListener((
-                View v)->{
+        signOutBut.setOnClickListener((View v)->{
             MainActivity.getmAuth().signOut();
             MainActivity.getmGoogleSignInClient().signOut();
             FirebaseAuth.getInstance().signOut();

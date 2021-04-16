@@ -1,11 +1,14 @@
 package com.example.interstellarenemies;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
-import com.google.android.gms.tasks.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPassPage extends AppCompatActivity {
@@ -30,15 +33,12 @@ public class ResetPassPage extends AppCompatActivity {
         Intent signInPage = new Intent(this, SignInPage.class);
 
         mAuth.sendPasswordResetEmail(emailAddress)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(ResetPassPage.this, "Password reset link sent your email address", Toast.LENGTH_SHORT).show();
-                            startActivity(signInPage);
-                        } else
-                            Toast.makeText(ResetPassPage.this, "Email address not found.", Toast.LENGTH_SHORT).show();
-                    }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ResetPassPage.this, "Password reset link sent your email address", Toast.LENGTH_SHORT).show();
+                        startActivity(signInPage);
+                    } else
+                        Toast.makeText(ResetPassPage.this, "Email address not found.", Toast.LENGTH_SHORT).show();
                 });
     }
 }

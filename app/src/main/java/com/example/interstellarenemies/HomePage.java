@@ -1,16 +1,12 @@
 package com.example.interstellarenemies;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomePage extends AppCompatActivity {
 
@@ -23,7 +19,7 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        /**
+        /*
          * TODO: sayfalarda geri donus olmayacak.
          */
         Intent goSinglePlayer = new Intent(this, SinglePlayerPage.class);
@@ -35,19 +31,13 @@ public class HomePage extends AppCompatActivity {
         Button createPlanetBut = findViewById(R.id.createAPlanetBut);
 
         //go single player page
-        singlePlayerBut.setOnClickListener((View v)->{
-            startActivity(goSinglePlayer);
-        });
+        singlePlayerBut.setOnClickListener((View v)-> startActivity(goSinglePlayer));
 
         //go join a planet page
-        joinPlanetBut.setOnClickListener((View v)->{
-            startActivity(goJoinPlanet);
-        });
+        joinPlanetBut.setOnClickListener((View v)-> startActivity(goJoinPlanet));
 
         //go create a planet page
-        createPlanetBut.setOnClickListener((View v)->{
-            startActivity(goCreatePlanet);
-        });
+        createPlanetBut.setOnClickListener((View v)-> startActivity(goCreatePlanet));
 
 
     }

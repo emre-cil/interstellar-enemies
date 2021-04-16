@@ -1,17 +1,22 @@
 package com.example.interstellarenemies;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.*;
-import com.google.firebase.auth.*;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 
@@ -57,19 +62,14 @@ public class MainActivity extends AppCompatActivity {
 
         //Email signIn Image
         ImageView emailSignIn = findViewById(R.id.emailView);
-        emailSignIn.setOnClickListener((View v) -> {
-            goToPage(SignInPage.class);
-        });
+        emailSignIn.setOnClickListener((View v) -> goToPage(SignInPage.class));
 
         //Google signIn Image
         ImageView googleSignIn = findViewById(R.id.googleSignImage);
-        googleSignIn.setOnClickListener((View v) -> {
-            signInGoogle();
-        });
+        googleSignIn.setOnClickListener((View v) -> signInGoogle());
 
         View view = getWindow().getDecorView();
-        int uiOptions = SYSTEM_UI_FLAG_FULLSCREEN;
-        view.setSystemUiVisibility(uiOptions);
+        view.setSystemUiVisibility(SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
     public void goToPage(Class<?> o) {
@@ -115,16 +115,13 @@ public class MainActivity extends AppCompatActivity {
         homePage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homePage.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            startActivity(homePage);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        startActivity(homePage);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
