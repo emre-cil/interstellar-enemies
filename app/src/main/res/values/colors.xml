@@ -5,6 +5,18 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!-- Interstellar Enemies Colors -->
+    <color name="black">#2D2A2E</color>
+    <color name="black.dark">#1C1C1C</color>
+    <color name="black.absolute">#000000</color>
+
+    <color name="white">#FEDFED</color>
+    <color name="white.absolute">#FFFFFF</color>
+
+    <color name="purple">#F92672</color>
+    <color name="yellow">#FED123</color>
+    <color name="green">#83ac5d</color>
+    <color name="cyan">#009688</color>
+    <!-- End of IE Colors -->
 </resources>

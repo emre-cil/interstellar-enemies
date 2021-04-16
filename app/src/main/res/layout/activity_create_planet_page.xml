@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2D2A2E"
+    android:background="@color/black"
     tools:context=".CreatePlanetPage">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="create a planet page"
-        android:textColor="#009688"
+        android:textColor="@color/cyan"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="246dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

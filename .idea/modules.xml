@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/InterstellarEnemies.iml" filepath="$PROJECT_DIR$/.idea/modules/InterstellarEnemies.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InterstellarEnemies.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InterstellarEnemies.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1048614916/cse234-term-project-37.InterstellarEnemies.iml" filepath="$PROJECT_DIR$/.idea/modules/1048614916/cse234-term-project-37.InterstellarEnemies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1556336022/cse234-term-project-37.InterstellarEnemies.app.iml" filepath="$PROJECT_DIR$/.idea/modules/1556336022/cse234-term-project-37.InterstellarEnemies.app.iml" />
     </modules>
   </component>
 </project>

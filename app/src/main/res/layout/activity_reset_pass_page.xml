@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2d2a2e"
+    android:background="@color/black"
     tools:context=".ResetPassPage">
 
 
@@ -16,7 +16,7 @@
         android:fontFamily="@font/vt323"
         android:text="@string/reset_password"
         android:textAlignment="center"
-        android:textColor="#F92672"
+        android:textColor="@color/purple"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +34,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#83AC5D"
+        android:textColor="@color/white.absolute"
+        android:textColorHint="@color/green"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/resetPassBut"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:fontFamily="@font/vt323"
         android:text="@string/send_code"
         android:textSize="30sp"
-        app:backgroundTint="#F92672"
+        app:backgroundTint="@color/purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
