@@ -1,5 +1,6 @@
 package com.example.interstellarenemies;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,31 +16,40 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.UUID;
 
 class AnnouncementObject {
     private String header;
     private String content;
 
-    public AnnouncementObject(String header, String content) {
+    @NonNull
+    private final Date date;
+    @NonNull
+    private final UUID uuid;
+
+    public AnnouncementObject(String header, String content, Date date) {
         this.header = header;
         this.content = content;
+        this.uuid = UUID.randomUUID();
+        this.date = date;
     }
 
     public String getHeader() {
         return header;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public UUID getUUID() {
+        return uuid;
+    }
+
+    public Date getDate() {
+        return date;
     }
 }
 
@@ -71,6 +81,7 @@ public class Announcements extends AppCompatActivity {
     private final ArrayList<AnnouncementObject> listItems = new ArrayList<>();
     private AnnouncementAdapter adapter;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +99,7 @@ public class Announcements extends AppCompatActivity {
         //  but when we click on an item in the list,
         //  it should show content and header. (Not implemented yet.)
         for (int i = 0; i < 1000; i++) {
-            annList.add(new AnnouncementObject(i + ": HEADER", (i + 1) * (i + 1) + ": CONTENT"));
+            annList.add(new AnnouncementObject(i + ": HEADER", i + ": CONTENT", new Date()));
         }
 
         adapter.addAll(annList);
@@ -97,7 +108,17 @@ public class Announcements extends AppCompatActivity {
             AnnouncementObject ao = listItems.get(position);
             //TODO:
             // Show popup information about announcement.
-            Toast.makeText(this, String.format("Header: %s\nContent: %s\n", ao.getHeader(), ao.getContent()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                String.format(
+                    "Header: %s\n" +
+                    "Content: %s\n" +
+                    "UUID: %s\n" +
+                    "Date: %s\n",
+                    ao.getHeader(),
+                    ao.getContent(),
+                    ao.getUUID().toString(),
+                    ao.getDate().toString()
+                ), Toast.LENGTH_SHORT).show();
         });
     }
 
