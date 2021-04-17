@@ -2,6 +2,7 @@ package com.example.interstellarenemies;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +24,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     NavigationView navigationView;
     Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +38,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+
+
 
         /*---Tool Bar---*/
         setSupportActionBar(toolbar);
 
         /*---Navigation Drawer Menu---*/
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setCheckedItem(R.id.nav_home);
-        navigationView.setNavigationItemSelectedListener(this);
 
+       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+       drawerLayout.addDrawerListener(toggle);
+       toggle.getDrawerArrowDrawable().setColor(getColor(R.color.yellow));
+       toggle.getDrawerArrowDrawable().setBarThickness(10);
+        toggle.getDrawerArrowDrawable().setBarLength(75);
+
+        toggle.syncState();
+
+       navigationView.setCheckedItem(R.id.nav_home);
+       navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -54,7 +65,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Intent page = null;
         switch (item.getItemId()) {
             case R.id.nav_home:
-                page = new Intent(this, HomePage.class);
                 break;
             case R.id.nav_shop:
                 // page = new Intent(this, ShopPage.class);
@@ -65,6 +75,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         if (page != null) {
+            navigationView.setCheckedItem(item.getItemId());
             startActivity(page);
         }
         return true;

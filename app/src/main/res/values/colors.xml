@@ -7,8 +7,9 @@
     <color name="teal_700">#FF018786</color>
 
     <!-- Interstellar Enemies Colors -->
+    <color name="black.light">#443F46</color>
     <color name="black">#2D2A2E</color>
-    <color name="black.dark">#1C1C1C</color>
+    <color name="black.dark">#E11C1C1C</color>
     <color name="black.absolute">#000000</color>
 
     <color name="white">#FEDFED</color>
@@ -18,5 +19,8 @@
     <color name="yellow">#FED123</color>
     <color name="green">#83ac5d</color>
     <color name="cyan">#009688</color>
+    <color name="transparent">#00000000</color>
     <!-- End of IE Colors -->
+
+
 </resources>
