@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1078205186136-21ppaqhfc6nf494clea0oiho0fkgcurg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interstellarenemies",
+            "certificate_hash": "3b45056e6f7628df44e98f389f5c0711840ec160"
+          }
+        },
+        {
+          "client_id": "1078205186136-m90eu0p04rcb3cchi5hckqip5hikifcs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interstellarenemies",
+            "certificate_hash": "464f80d3849db29a9531ac09cf3be02fc2bc9706"
+          }
+        },
+        {
           "client_id": "1078205186136-4vibm03ktamav6fuumd69k6rgno4ipl4.apps.googleusercontent.com",
           "client_type": 3
         }
