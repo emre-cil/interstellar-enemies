@@ -130,7 +130,9 @@
         android:text="@string/sign_in"
         android:textSize="30sp"
         app:backgroundTint="@color/purple"
+        app:layout_constraintBottom_toTopOf="@+id/textNoAccount2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resetUnderLined" />
+        app:layout_constraintTop_toBottomOf="@+id/resetUnderLined"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

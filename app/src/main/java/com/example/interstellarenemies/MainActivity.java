@@ -3,6 +3,7 @@ package com.example.interstellarenemies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+
         Intent homePage = new Intent(this, HomePage.class);
         homePage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homePage.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

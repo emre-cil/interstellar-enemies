@@ -26,5 +26,14 @@
     <string name="join_a_planet">Join a Planet</string>
     <string name="create_a_planet">Create a Planet</string>
     <string name="walkthrough">Walkthrough</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="home">Home</string>
+    <string name="shop">Shop</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="announcements">Announcements</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
 
 </resources>
