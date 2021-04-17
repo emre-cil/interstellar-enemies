@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-
 public class RegisterPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
 

@@ -3,18 +3,15 @@ package com.example.interstellarenemies;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -50,29 +47,36 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setCheckedItem(R.id.nav_home);
         navigationView.setNavigationItemSelectedListener(this);
 
-
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        Intent page = null;
+        switch (item.getItemId()) {
             case R.id.nav_home:
+                page = new Intent(this, HomePage.class);
                 break;
             case R.id.nav_shop:
-              //  Intent intent ---> start activity
+                // page = new Intent(this, ShopPage.class);
+                break;
+            case R.id.nav_announcements:
+                page = new Intent(this, Announcements.class);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
+        if (page != null) {
+            startActivity(page);
+        }
         return true;
     }
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        else
+        } else {
             super.onBackPressed();
-
+        }
     }
 
     @Override
@@ -97,8 +101,5 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //go create a planet page
         createPlanetBut.setOnClickListener((View v) -> startActivity(goCreatePlanet));
-
-
     }
-
 }

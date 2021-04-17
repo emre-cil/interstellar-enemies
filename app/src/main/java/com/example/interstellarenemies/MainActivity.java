@@ -3,7 +3,6 @@ package com.example.interstellarenemies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,6 +23,7 @@ import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1337;
     private static FirebaseAuth mAuth;
+    private static GoogleSignInClient mGoogleSignInClient;
 
     public static FirebaseAuth getmAuth() {
         return mAuth;
@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public static GoogleSignInClient getmGoogleSignInClient() {
         return mGoogleSignInClient;
     }
-
-    private static GoogleSignInClient mGoogleSignInClient;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
