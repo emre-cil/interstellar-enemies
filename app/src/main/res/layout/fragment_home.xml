@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2D2A2E">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <Button
+            android:id="@+id/joinAPlanetBut"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:shadowColor="@color/black"
+            android:text="@string/join_a_planet"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.539"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+        <Button
+            android:id="@+id/createAPlanetBut"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:shadowColor="@color/black"
+            android:text="@string/create_a_planet"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.715"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+        <Button
+            android:id="@+id/walkthroughBut"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            android:fontFamily="@font/vt323"
+            android:shadowColor="@color/black"
+            android:text="@string/walkthrough"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="25sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.09"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.863"
+            app:layout_constraintWidth_percent="0.50"
+            tools:ignore="TextViewEdits" />
+
+        <Button
+            android:id="@+id/singlePlayerBut"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:cursorVisible="false"
+            android:fontFamily="@font/vt323"
+
+            android:includeFontPadding="false"
+            android:shadowColor="@color/black.absolute"
+            android:text="@string/single_player"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.363"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+        <ImageView
+            android:id="@+id/homeLogoImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/singlePlayerBut"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.18"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintWidth_percent="0.35"
+            app:srcCompat="@drawable/planet_svg_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

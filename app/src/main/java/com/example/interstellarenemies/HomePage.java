@@ -19,6 +19,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+/**
+ * This class is not actually HomePage anymore.
+ *  Bu sayfa artik fragmentlarin kontrolu icin kullaniliyor.
+ */
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -40,24 +44,27 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
 
-
-
         /*---Tool Bar---*/
         setSupportActionBar(toolbar);
 
         /*---Navigation Drawer Menu---*/
         navigationView.bringToFront();
 
-       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-       drawerLayout.addDrawerListener(toggle);
-       toggle.getDrawerArrowDrawable().setColor(getColor(R.color.yellow));
-       toggle.getDrawerArrowDrawable().setBarThickness(10);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.getDrawerArrowDrawable().setColor(getColor(R.color.yellow));
+        toggle.getDrawerArrowDrawable().setBarThickness(10);
         toggle.getDrawerArrowDrawable().setBarLength(75);
 
         toggle.syncState();
 
-       navigationView.setCheckedItem(R.id.nav_home);
-       navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
     }
 
     @Override
@@ -65,19 +72,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Intent page = null;
         switch (item.getItemId()) {
             case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
                 break;
             case R.id.nav_shop:
-                // page = new Intent(this, ShopPage.class);
-                break;
-            case R.id.nav_announcements:
-                page = new Intent(this, Announcements.class);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ShopFragment()).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
-        if (page != null) {
-            navigationView.setCheckedItem(item.getItemId());
-            startActivity(page);
-        }
         return true;
     }
 
@@ -88,29 +91,5 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        /*
-         * TODO: sayfalarda geri donus olmayacak.
-         */
-        Intent goSinglePlayer = new Intent(this, SinglePlayerPage.class);
-        Intent goJoinPlanet = new Intent(this, JoinPlanetPage.class);
-        Intent goCreatePlanet = new Intent(this, CreatePlanetPage.class);
-
-        Button singlePlayerBut = findViewById(R.id.singlePlayerBut);
-        Button joinPlanetBut = findViewById(R.id.joinAPlanetBut);
-        Button createPlanetBut = findViewById(R.id.createAPlanetBut);
-
-        //go single player page
-        singlePlayerBut.setOnClickListener((View v) -> startActivity(goSinglePlayer));
-
-        //go join a planet page
-        joinPlanetBut.setOnClickListener((View v) -> startActivity(goJoinPlanet));
-
-        //go create a planet page
-        createPlanetBut.setOnClickListener((View v) -> startActivity(goCreatePlanet));
     }
 }
