@@ -89,7 +89,7 @@
             app:cornerRadius="0sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.11"
+            app:layout_constraintHeight_percent="0.09"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -125,13 +125,16 @@
 
         <ImageView
             android:id="@+id/homeLogoImage"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/singlePlayerBut"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.18"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintWidth_percent="0.35"
             app:srcCompat="@drawable/planet_svg_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

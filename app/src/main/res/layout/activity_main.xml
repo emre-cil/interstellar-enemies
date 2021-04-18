@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".MainActivity">
-    
-    
+
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="293dp"
-        android:layout_height="193dp"
+        android:layout_width="0dp"
+        android:layout_height="0sp"
         android:layout_marginTop="40sp"
         android:background="#00000000"
         android:fontFamily="@font/vt323"
         android:text="@string/interstellar_enemies"
         android:textAlignment="viewStart"
         android:textColor="@color/purple"
-        android:textSize="60sp"
+        android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.23"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="229dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:background="#00000000"
         android:fontFamily="@font/vt323"
         android:text="@string/login_or_sign_up"
@@ -38,15 +39,16 @@
         android:textColor="@color/green"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHeight_percent="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintWidth_percent="0.65" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="62sp"
         android:layout_height="40sp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="25dp"
         android:background="#00000000"
         android:fontFamily="@font/vt323"
         android:text="@string/shhh"
@@ -59,22 +61,28 @@
 
     <ImageView
         android:id="@+id/emailView"
-        android:layout_width="104dp"
-        android:layout_height="98dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.14"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintWidth_percent="0.23"
         app:srcCompat="@drawable/envelope__1_" />
 
     <ImageView
         android:id="@+id/googleSignImage"
-        android:layout_width="103dp"
-        android:layout_height="94dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/emailView"
+        app:layout_constraintEnd_toStartOf="@+id/emailView"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/emailView"
+        app:layout_constraintWidth_percent="0.23"
         app:srcCompat="@drawable/google_brands" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
