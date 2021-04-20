@@ -76,18 +76,21 @@ public class HomeFragment extends Fragment {
          *
          */
         Intent goSinglePlayer = new Intent(getActivity().getApplicationContext(), SinglePlayerPage.class);
-        Intent goJoinPlanet = new Intent(getActivity().getApplicationContext(), JoinPlanetPage.class);
         Intent goCreatePlanet = new Intent(getActivity().getApplicationContext(), CreatePlanetPage.class);
 
         Button singlePlayerBut = getActivity().findViewById(R.id.singlePlayerBut);
-        Button joinPlanetBut = getActivity().findViewById(R.id.joinAPlanetBut);
         Button createPlanetBut = getActivity().findViewById(R.id.createAPlanetBut);
 
         //go single player page
-        singlePlayerBut.setOnClickListener((View v) -> startActivity(goSinglePlayer));
+        singlePlayerBut.setOnClickListener((View v) -> {
+            startActivity(goSinglePlayer);
+        });
 
         //go join a planet page
-        joinPlanetBut.setOnClickListener((View v) -> startActivity(goJoinPlanet));
+        getActivity().findViewById(R.id.joinAPlanetBut).setOnClickListener((View v) -> {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new JoinPlanetFragment()).commit();
+        });
 
         //go create a planet page
         createPlanetBut.setOnClickListener((View v) -> startActivity(goCreatePlanet));

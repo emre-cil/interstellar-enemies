@@ -10,14 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
 
-        <activity
-            android:name=".Announcements"
-            android:screenOrientation="portrait" />
         <activity android:name=".CreatePlanetPage"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".JoinPlanetPage"
-            android:screenOrientation="portrait" />
         <activity android:name=".SinglePlayerPage"
             android:screenOrientation="portrait" />
         <activity
