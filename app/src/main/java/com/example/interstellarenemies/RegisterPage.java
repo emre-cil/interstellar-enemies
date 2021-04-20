@@ -45,8 +45,11 @@ public class RegisterPage extends AppCompatActivity {
         } else {
             mAuth.createUserWithEmailAndPassword(email, pass).
                     addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful())
+                        if (task.isSuccessful()) {
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(mainIntent);
+                        }
                         else
                             Toast.makeText(RegisterPage.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     });

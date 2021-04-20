@@ -79,6 +79,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ShopFragment()).commit();
                 break;
+            case R.id.nav_announcements:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AnnouncementFragment()).commit();
+                break;
+            case R.id.nav_messages:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new MessagesFragment()).commit();
+                break;
+            case R.id.nav_leaderboard:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new LeaderboardFragment()).commit();
+                break;
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ProfileFragment()).commit();
+                break;
+            case R.id.nav_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new SettingsFragment()).commit();
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
