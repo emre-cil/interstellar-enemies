@@ -16,12 +16,17 @@
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
-        android:layout_gravity="start" />
+        app:itemTextColor="@color/yellow"
+        app:itemIconTint="@color/purple"
+        android:layout_gravity="start" >
+
+    </com.google.android.material.navigation.NavigationView>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="#2D2A2E">
 
         <include
@@ -30,17 +35,11 @@
 
         <FrameLayout
             android:id="@+id/fragment_container"
-            android:layout_width="414dp"
-            android:layout_height="673dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            android:layout_width="match_parent"
+            android:layout_height="673dp">
 
         </FrameLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
