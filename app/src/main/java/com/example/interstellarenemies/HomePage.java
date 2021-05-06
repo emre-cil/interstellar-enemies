@@ -1,6 +1,7 @@
 package com.example.interstellarenemies;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -67,6 +68,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
