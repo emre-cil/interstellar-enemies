@@ -29,202 +29,235 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.8" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+        <TextView
+            android:id="@+id/leaderBoardText2"
             android:layout_width="0sp"
-            android:layout_height="0sp"
-
-
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.60"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
-            app:layout_constraintWidth_percent="0.25">
-
-            <TextView
-                android:id="@+id/leaderBoardScore1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="30sp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/leaderBoardScore2"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="30sp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/leaderBoardScore3"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="30sp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/leaderBoardScore4"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="30sp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/leaderBoardScore5"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="30sp"
-                tools:ignore="RtlCompat" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="0dp"
             android:layout_height="0dp"
-
-
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-            app:layout_constraintHeight_percent="0.60"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="1. First"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText3"
+            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore2"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-            app:layout_constraintWidth_percent="0.55">
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText1"
+            app:layout_constraintWidth_percent="0.60" />
 
-            <TextView
-                android:id="@+id/leaderBoardText1"
+        <TextView
+            android:id="@+id/leaderBoardText3"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="1. First"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText4"
+            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore3"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText2"
+            app:layout_constraintWidth_percent="0.60" />
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="1. First"
-                android:textSize="30sp"
-                android:textColor="@color/yellow"
-               />
+        <TextView
+            android:id="@+id/leaderBoardScore4"
 
-            <TextView
-                android:id="@+id/leaderBoardText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="1. First"
-                android:textColor="@color/yellow"
-                android:textSize="30sp" />
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
 
-            <TextView
-                android:id="@+id/leaderBoardText3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="1. First"
-                android:textColor="@color/yellow"
-                android:textSize="30sp" />
+            android:gravity="center_vertical"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/leaderBoardText4"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore3"
+            app:layout_constraintWidth_percent="0.25"
+            tools:ignore="RtlCompat" />
 
-            <TextView
-                android:id="@+id/leaderBoardText4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="1. First"
-                android:textColor="@color/yellow"
-                android:textSize="30sp" />
+        <TextView
+            android:id="@+id/leaderBoardText4"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="1. First"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText5"
+            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore4"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText3"
+            app:layout_constraintWidth_percent="0.60" />
 
-            <TextView
-                android:id="@+id/leaderBoardText5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/black.light"
-                android:fontFamily="@font/vt323"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:text="1. First"
-                android:textColor="@color/yellow"
-                android:textSize="30sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/leaderBoardText5"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="1. First"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore5"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText4"
+            app:layout_constraintWidth_percent="0.60" />
+
+        <TextView
+            android:id="@+id/leaderBoardScore1"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+
+            android:gravity="center_vertical"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/leaderBoardText1"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
+            app:layout_constraintWidth_percent="0.25"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/leaderBoardText1"
+
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="1. First"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText2"
+            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore1"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
+            app:layout_constraintWidth_percent="0.60" />
+
+        <TextView
+            android:id="@+id/leaderBoardScore5"
+
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+
+            android:fontFamily="@font/vt323"
+            android:gravity="center_vertical"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/leaderBoardText5"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore4"
+            app:layout_constraintWidth_percent="0.25"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/leaderBoardScore2"
+
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+
+            android:gravity="center_vertical"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/leaderBoardText2"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore1"
+            app:layout_constraintWidth_percent="0.25"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/leaderBoardScore3"
+
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            android:fontFamily="@font/vt323"
+
+            android:gravity="center_vertical"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/leaderBoardText3"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore2"
+            app:layout_constraintWidth_percent="0.25"
+            tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

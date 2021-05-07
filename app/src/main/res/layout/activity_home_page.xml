@@ -9,19 +9,6 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="#2D2A2E"
-        android:id="@+id/nav_view"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu"
-        app:itemTextColor="@color/yellow"
-        app:itemIconTint="@color/purple"
-        android:layout_gravity="start" >
-
-    </com.google.android.material.navigation.NavigationView>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,10 +23,24 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="673dp">
+            android:layout_height="match_parent">
 
         </FrameLayout>
+
     </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#2D2A2E"
+        app:headerLayout="@layout/header"
+        app:itemIconTint="@color/purple"
+        app:itemTextColor="@color/yellow"
+        app:menu="@menu/main_menu">
+
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
