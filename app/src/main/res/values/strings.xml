@@ -42,5 +42,22 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="leaderboard_top_5">LEADERBOARD TOP 5</string>
     <string name="score">score</string>
+    <string name="settingsText">SETTINGS</string>
+    <string name="money">1.000.000</string>
+    <string name="hangar"><u>HANGAR</u></string>
+    <string name="userName">Kheseyroon</string>
+    <string name="usernameText">Username:</string>
+    <string name="userIDText">1111111</string>
+    <string name="useridText">UserID :</string>
+    <string name="planet">Kepler</string>
+    <string name="planetText">Planet :</string>
+    <string name="rank">Silver</string>
+    <string name="rankText">Rank :</string>
+    <string name="shipCount">2</string>
+    <string name="shipsText">Ships :</string>
+    <string name="enter_userid">Enter UserID</string>
+    <string name="add_friend">ADD FRIEND</string>
+    <string name="friends">FRIENDS</string>
+    <string name="invites">INVITES</string>
 
 </resources>

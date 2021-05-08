@@ -1,14 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:background="@color/black"
+    tools:context=".ProfileFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/moneyProfile"
+            android:layout_width="106dp"
+            android:layout_height="30sp"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/money"
+            android:textColor="@color/cyan"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="22dp"
+            android:layout_height="30sp"
+            android:layout_marginStart="28dp"
+            android:src="@drawable/ethereum_brands_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_hangar_text"
+            android:layout_width="77dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="28dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/hangar"
+            android:textColor="@color/white.absolute"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="32dp"
+            android:layout_height="39dp"
+            android:src="@drawable/rocket_solid_1"
+            app:layout_constraintEnd_toStartOf="@+id/profile_hangar_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/userName"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_username"
+            app:layout_constraintTop_toTopOf="@+id/text_username" />
+
+        <TextView
+            android:id="@+id/text_username"
+            android:layout_width="120sp"
+            android:layout_height="35sp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/usernameText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moneyProfile" />
+
+        <TextView
+            android:id="@+id/profile_userID"
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/userIDText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_userID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_userID"
+            app:layout_constraintTop_toTopOf="@+id/text_userID" />
+
+        <TextView
+            android:id="@+id/text_userID"
+            android:layout_width="120sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/useridText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_userID"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_username" />
+
+        <TextView
+            android:id="@+id/profile_planet"
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/planet"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_planet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_planet"
+            app:layout_constraintTop_toTopOf="@+id/text_planet" />
+
+        <TextView
+            android:id="@+id/text_planet"
+            android:layout_width="120sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/planetText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_planet"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_userID" />
+
+        <TextView
+            android:id="@+id/profile_rank"
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/rank"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_rank"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_rank"
+            app:layout_constraintTop_toTopOf="@+id/text_rank" />
+
+        <TextView
+            android:id="@+id/text_rank"
+            android:layout_width="120sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/rankText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_rank"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_planet" />
+
+        <TextView
+            android:id="@+id/profile_ships"
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/shipCount"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_Ships"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_Ships"
+            app:layout_constraintTop_toTopOf="@+id/text_Ships" />
+
+        <TextView
+            android:id="@+id/text_Ships"
+            android:layout_width="120sp"
+            android:layout_height="35sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/shipsText"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_ships"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_rank" />
+
+        <EditText
+            android:id="@+id/invite_player_editText"
+            android:layout_width="169dp"
+            android:layout_height="50sp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/yellow"
+            android:ems="10"
+            android:fontFamily="@font/vt323"
+            android:foregroundTint="@color/transparent"
+            android:hint="@string/enter_userid"
+            android:inputType="textEmailAddress"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:textColor="@color/yellow"
+            android:textColorHighlight="@color/black"
+            android:textColorHint="@color/green"
+            android:textColorLink="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/signInBut2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_Ships" />
+
+        <Button
+            android:id="@+id/signInBut2"
+            android:layout_width="137dp"
+            android:layout_height="50sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/add_friend"
+            android:textSize="20sp"
+            app:backgroundTint="@color/purple"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="@+id/invite_player_editText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/invite_player_editText"
+            app:layout_constraintTop_toTopOf="@+id/invite_player_editText" />
+
+        <Button
+            android:id="@+id/profile_friends_button"
+            android:layout_width="0dp"
+            android:layout_height="50sp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/vt323"
+            android:selectAllOnFocus="false"
+            android:text="@string/friends"
+            android:textColor="@color/black.absolute"
+            android:textSize="20sp"
+            app:backgroundTint="@color/yellow"
+            app:cornerRadius="0sp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_invites_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/invite_player_editText"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <Button
+            android:id="@+id/profile_invites_button"
+            android:layout_width="0dp"
+            android:layout_height="50sp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/invites"
+            android:textColor="@color/black.absolute"
+            android:textSize="20sp"
+            app:backgroundTint="@color/yellow"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_friends_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profile_friends_button"
+            app:layout_constraintTop_toTopOf="@+id/profile_friends_button"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.35"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_invites_button"
+            app:layout_constraintWidth_percent="0.8">
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -14,17 +14,32 @@
         android:layout_height="match_parent"
         android:background="#2D2A2E">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+        <TextView
+            android:id="@+id/leaderBoardTitle2"
+            android:layout_width="290dp"
+            android:layout_height="79dp"
+            android:fontFamily="@font/vt323"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:text="@string/settingsText"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="55sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.8" />
 
         <Button
             android:id="@+id/changeUserNameButton"
             android:layout_width="0sp"
-            android:layout_height="0dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="36dp"
+
             android:cursorVisible="false"
             android:fontFamily="@font/vt323"
-
             android:includeFontPadding="false"
             android:shadowColor="@color/black.absolute"
             android:text="@string/change_username"
@@ -34,20 +49,19 @@
             android:textSize="35sp"
             app:backgroundTint="@color/black.dark"
             app:cornerRadius="0sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.12"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.143"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle2"
             app:layout_constraintWidth_percent="0.85"
             tools:ignore="TextViewEdits" />
 
         <Button
             android:id="@+id/changePasswordButton"
             android:layout_width="0sp"
-            android:layout_height="0dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/vt323"
             android:shadowColor="@color/black"
             android:text="@string/change_password"
@@ -57,20 +71,19 @@
             android:textSize="35sp"
             app:backgroundTint="@color/black.dark"
             app:cornerRadius="0sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.12"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.318"
+            app:layout_constraintTop_toBottomOf="@+id/changeUserNameButton"
             app:layout_constraintWidth_percent="0.85"
             tools:ignore="TextViewEdits" />
 
         <Button
             android:id="@+id/changeEmailButton"
             android:layout_width="0sp"
-            android:layout_height="0dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/vt323"
             android:shadowColor="@color/black"
             android:text="@string/change_email"
@@ -80,13 +93,11 @@
             android:textSize="35sp"
             app:backgroundTint="@color/black.dark"
             app:cornerRadius="0sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.494"
+            app:layout_constraintTop_toBottomOf="@+id/changePasswordButton"
             app:layout_constraintWidth_percent="0.85"
             tools:ignore="TextViewEdits" />
 
