@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1078205186136",
+    "firebase_url": "https://interstellarenemies-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "interstellarenemies",
     "storage_bucket": "interstellarenemies.appspot.com"
   },

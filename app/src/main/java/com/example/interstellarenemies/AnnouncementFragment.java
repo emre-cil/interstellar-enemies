@@ -11,6 +11,9 @@ import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -84,6 +87,8 @@ public class AnnouncementFragment extends Fragment {
         //  where AnnouncementAdapter only shows header in the list.
         //  but when we click on an item in the list,
         //  it should show content and header. (Not implemented yet.)
+
+
         for (int i = 0; i < 1000; i++) {
             annList.add(new AnnouncementObject(i + ": HEADER", i + ": CONTENT", new Date()));
         }
@@ -91,21 +96,27 @@ public class AnnouncementFragment extends Fragment {
         adapter.addAll(annList);
 
         lv.setOnItemClickListener((parent, view, position, id) -> {
-            AnnouncementObject ao = listItems.get(position);
-            //TODO:
-            // Show popup information about announcement.
-            Toast.makeText(getActivity(),
-                    String.format(
-                            "Header: %s\n" +
-                                    "Content: %s\n" +
-                                    "UUID: %s\n" +
-                                    "Date: %s\n",
-                            ao.getHeader(),
-                            ao.getContent(),
-                            ao.getUUID().toString(),
-                            ao.getDate().toString()
-                    ), Toast.LENGTH_SHORT).show();
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            System.out.println("FirebaseDatabase Instance:" + db.toString());
+            DatabaseReference dbRef = db.getReference("users");
+            System.out.println("Database Reference Instance:" + dbRef.toString());
+            dbRef.setValue("Hello");
+//            AnnouncementObject ao = listItems.get(position);
+//            //TODO:
+//            // Show popup information about announcement.
+//            Toast.makeText(getActivity(),
+//                    String.format(
+//                            "Header: %s\n" +
+//                                    "Content: %s\n" +
+//                                    "UUID: %s\n" +
+//                                    "Date: %s\n",
+//                            ao.getHeader(),
+//                            ao.getContent(),
+//                            ao.getUUID().toString(),
+//                            ao.getDate().toString()
+//                    ), Toast.LENGTH_SHORT).show();
         });
+
 
     }
 
