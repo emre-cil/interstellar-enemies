@@ -44,20 +44,28 @@
     <string name="score">score</string>
     <string name="settingsText">SETTINGS</string>
     <string name="money">1.000.000</string>
-    <string name="hangar"><u>HANGAR</u></string>
+    <string name="hangarUnderlined"><u>HANGAR</u></string>
+    <string name="hangar">HANGAR</string>
     <string name="userName">Kheseyroon</string>
     <string name="usernameText">Username:</string>
-    <string name="userIDText">1111111</string>
-    <string name="useridText">UserID :</string>
+    <string name="userID">1111111</string>
+    <string name="userid">UserID:</string>
     <string name="planet">Kepler</string>
-    <string name="planetText">Planet :</string>
+    <string name="planetText">Planet:</string>
     <string name="rank">Silver</string>
-    <string name="rankText">Rank :</string>
+    <string name="rankText">Rank:</string>
     <string name="shipCount">2</string>
-    <string name="shipsText">Ships :</string>
+    <string name="shipsText">Ships:</string>
     <string name="enter_userid">Enter UserID</string>
     <string name="add_friend">ADD FRIEND</string>
     <string name="friends">FRIENDS</string>
     <string name="invites">INVITES</string>
+    <string name="first">1. First</string>
+    <string name="second">2. Second</string>
+    <string name="third">3. Third</string>
+    <string name="fourth">4. Fourth</string>
+    <string name="fifth">5. Fifth</string>
+    <string name="shopUpperCase">SHOP</string>
+
 
 </resources>

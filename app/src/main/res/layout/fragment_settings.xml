@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2D2A2E">
+        android:background="@color/black">
 
         <TextView
             android:id="@+id/leaderBoardTitle2"
@@ -35,7 +35,7 @@
         <Button
             android:id="@+id/changeUserNameButton"
             android:layout_width="0sp"
-            android:layout_height="88dp"
+            android:layout_height="0dp"
             android:layout_marginTop="36dp"
 
             android:cursorVisible="false"
@@ -60,7 +60,7 @@
         <Button
             android:id="@+id/changePasswordButton"
             android:layout_width="0sp"
-            android:layout_height="88dp"
+            android:layout_height="0dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/vt323"
             android:shadowColor="@color/black"
@@ -82,7 +82,7 @@
         <Button
             android:id="@+id/changeEmailButton"
             android:layout_width="0sp"
-            android:layout_height="88dp"
+            android:layout_height="0dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/vt323"
             android:shadowColor="@color/black"

@@ -1,5 +1,8 @@
 package com.example.interstellarenemies;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.navigation.NavigationView;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    NavigationView navigationView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,6 +59,35 @@ public class ProfileFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        navigationView = getActivity().findViewById(R.id.nav_view);
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
+                    new FriendsFragment()).commit();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //click to friends button
+        getActivity().findViewById(R.id.profile_friends_button).setOnClickListener((View v) -> {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
+                    new FriendsFragment()).commit();
+        });
+
+        //click to invites button
+        getActivity().findViewById(R.id.profile_invites_button).setOnClickListener((View v) -> {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
+                    new InvitesFragment()).commit();
+        });
+
+        getActivity().findViewById(R.id.profile_hangar_text).setOnClickListener((View v) ->
+        {
+            navigationView.setCheckedItem(R.id.nav_shop);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new ShopFragment()).commit();
+        });
     }
 
     @Override

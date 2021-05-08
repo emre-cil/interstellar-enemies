@@ -1,15 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopFragment">
+    android:background="@color/black"
+    tools:context=".ShopFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="80sp" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/shopBackgroundText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black.light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.90" />
+
+        <TextView
+            android:id="@+id/hangarBackgroundText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/black.light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shopBackgroundText"
+            app:layout_constraintWidth_percent="0.90" />
+
+        <Button
+            android:id="@+id/ship1_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:text="250,000"
+            android:textSize="17sp"
+            app:backgroundTint="@color/green.light"
+            app:cornerRadius="0sp"
+            app:layout_constraintEnd_toStartOf="@+id/ship2_button"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ship1Image"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/ship1_button3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:text="750,000"
+            android:textSize="17sp"
+            app:backgroundTint="@color/green.light"
+            app:cornerRadius="0sp"
+            app:layout_constraintEnd_toStartOf="@+id/ship2_button2"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ship3Image"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/ship2_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:text="500,000"
+            android:textSize="17sp"
+            app:backgroundTint="@color/green.light"
+            app:cornerRadius="0sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ship1_button"
+            app:layout_constraintTop_toBottomOf="@+id/ship2Image"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/ship2_button2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:text="1,000,000"
+            android:textSize="17sp"
+            app:backgroundTint="@color/green.light"
+            app:cornerRadius="0sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ship1_button3"
+            app:layout_constraintTop_toTopOf="@+id/ship1_button3"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/moneyProfile3"
+            android:layout_width="106dp"
+            android:layout_height="30sp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/money"
+            android:textColor="@color/cyan"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/shopMoneyImage"
+            android:layout_width="22dp"
+            android:layout_height="30sp"
+            android:layout_marginEnd="4dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/ethereum_brands_1"
+            app:layout_constraintEnd_toStartOf="@+id/moneyProfile3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/shopImage"
+            android:layout_width="42dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="3dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/ic_shop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shopText"
+            android:layout_width="57dp"
+            android:layout_height="39dp"
+            android:fontFamily="@font/vt323"
+            android:gravity="center"
+            android:text="@string/shopUpperCase"
+            android:textColor="@color/white.absolute"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/shopImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ship1Image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:background="@color/grey"
+            android:src="@drawable/space_ship_1"
+            app:layout_constraintEnd_toStartOf="@+id/ship2Image"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shopText"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/ship3Image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/grey"
+            android:src="@drawable/space_ship_1"
+            app:layout_constraintEnd_toStartOf="@+id/ship4Image"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ship1_button"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/ship2Image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/grey"
+            android:src="@drawable/spaceship__2__1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ship1Image"
+            app:layout_constraintTop_toTopOf="@+id/ship1Image"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/ship4Image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/grey"
+            android:src="@drawable/spaceship__2__1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ship3Image"
+            app:layout_constraintTop_toTopOf="@+id/ship3Image"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/shopHangarText"
+            android:layout_width="84dp"
+            android:layout_height="39dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/hangar"
+            android:textColor="@color/white.absolute"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/shopHangarImage"
+            app:layout_constraintStart_toEndOf="@+id/shopHangarImage" />
+
+        <ImageView
+            android:id="@+id/shopHangarImage"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/rocket_solid_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hangarBackgroundText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
