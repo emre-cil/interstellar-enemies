@@ -17,8 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.HashMap;
 
 /**
  * This class is not actually HomePage anymore.
@@ -34,7 +37,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        /**
+        /*
          * TODO: fullscreen bakilacak
          */
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -68,37 +71,34 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+    private void goFragment(Fragment f) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+    }
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HomeFragment()).commit();
+                goFragment(new HomeFragment());
                 break;
             case R.id.nav_shop:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ShopFragment()).commit();
+                goFragment(new ShopFragment());
                 break;
             case R.id.nav_announcements:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AnnouncementFragment()).commit();
+                goFragment(new AnnouncementFragment());
                 break;
             case R.id.nav_messages:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new MessagesFragment()).commit();
+                goFragment(new MessagesFragment());
                 break;
             case R.id.nav_leaderboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new LeaderboardFragment()).commit();
+                goFragment(new LeaderboardFragment());
                 break;
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ProfileFragment()).commit();
+                goFragment(new ProfileFragment());
                 break;
             case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new SettingsFragment()).commit();
+                goFragment(new SettingsFragment());
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
