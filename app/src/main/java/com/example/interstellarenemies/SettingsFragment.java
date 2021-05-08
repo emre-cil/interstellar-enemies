@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +57,18 @@ public class SettingsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Button chPass = (Button) getActivity().findViewById(R.id.changePasswordButton);
+        chPass.setOnClickListener((View v) -> {
+            FirebaseAuth mAuth = MainActivity.getmAuth();
+            mAuth.sendPasswordResetEmail(mAuth.getCurrentUser().getEmail());
+            Snackbar.make(v, "A Password Reset Mail Has Sent", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        });
     }
 
     @Override

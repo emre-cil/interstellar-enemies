@@ -35,6 +35,9 @@
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
     <string name="settings">Settings</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_username">Change Username</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="leaderboard_top_5">LEADERBOARD TOP 5</string>

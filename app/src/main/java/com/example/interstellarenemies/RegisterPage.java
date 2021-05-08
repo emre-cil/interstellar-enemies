@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterPage extends AppCompatActivity {
@@ -41,7 +42,8 @@ public class RegisterPage extends AppCompatActivity {
         Intent mainIntent = new Intent(this, HomePage.class);
 
         if (!pass.equals(passConf)) {
-            Toast.makeText(RegisterPage.this, "Passwords does not match!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(this.findViewById(android.R.id.content), "Passwords does not match!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         } else {
             mAuth.createUserWithEmailAndPassword(email, pass).
                     addOnCompleteListener(this, task -> {
@@ -51,7 +53,8 @@ public class RegisterPage extends AppCompatActivity {
                             startActivity(mainIntent);
                         }
                         else
-                            Toast.makeText(RegisterPage.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Snackbar.make(this.findViewById(android.R.id.content), task.getException().getMessage(), Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
                     });
         }
 

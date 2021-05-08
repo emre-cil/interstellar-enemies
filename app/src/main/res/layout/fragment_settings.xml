@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".HomePage"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#2D2A2E">
 
-</FrameLayout>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <Button
+            android:id="@+id/changeUserNameButton"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:cursorVisible="false"
+            android:fontFamily="@font/vt323"
+
+            android:includeFontPadding="false"
+            android:shadowColor="@color/black.absolute"
+            android:text="@string/change_username"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.143"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+        <Button
+            android:id="@+id/changePasswordButton"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:shadowColor="@color/black"
+            android:text="@string/change_password"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.318"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+        <Button
+            android:id="@+id/changeEmailButton"
+            android:layout_width="0sp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/vt323"
+            android:shadowColor="@color/black"
+            android:text="@string/change_email"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:textSize="35sp"
+            app:backgroundTint="@color/black.dark"
+            app:cornerRadius="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.494"
+            app:layout_constraintWidth_percent="0.85"
+            tools:ignore="TextViewEdits" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -56,7 +57,8 @@ public class SignInPage extends AppCompatActivity {
                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(mainIntent);
             } else
-                Toast.makeText(SignInPage.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Snackbar.make(this.findViewById(android.R.id.content), task.getException().getMessage(), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
         });
     }
 }

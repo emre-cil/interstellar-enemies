@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPassPage extends AppCompatActivity {
@@ -37,10 +38,12 @@ public class ResetPassPage extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(emailAddress)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(ResetPassPage.this, "Password reset link sent your email address", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(this.findViewById(android.R.id.content), "Password reset link sent your email address", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
                         startActivity(signInPage);
                     } else
-                        Toast.makeText(ResetPassPage.this, "Email address not found.", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(this.findViewById(android.R.id.content), "Email address not found!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
                 });
     }
 }
