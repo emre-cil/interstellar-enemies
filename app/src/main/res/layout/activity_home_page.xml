@@ -39,6 +39,24 @@
         app:itemIconTint="@color/purple"
         app:itemTextColor="@color/yellow"
         app:menu="@menu/main_menu">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vt323"
+                android:gravity="center"
+                android:text="@string/log_out"
+                android:textColor="@color/yellow"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>
 

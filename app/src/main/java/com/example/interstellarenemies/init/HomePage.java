@@ -2,8 +2,11 @@ package com.example.interstellarenemies.init;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.*;
 import android.view.*;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.*;
@@ -18,6 +21,7 @@ import com.example.interstellarenemies.profile.ProfileFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * This class is not actually HomePage anymore.
@@ -34,9 +38,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        /*
-         * TODO: fullscreen bakilacak
-         */
+
+        Intent goMain = new Intent(this, MainActivity.class);
+        TextView logout = findViewById(R.id.logout);
+
+        logout.setOnClickListener((View v) -> {
+            MainActivity.getmAuth().signOut();
+            MainActivity.getmGoogleSignInClient().signOut();
+            FirebaseAuth.getInstance().signOut();
+            startActivity(goMain);
+        });
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         /*---Hooks---*/

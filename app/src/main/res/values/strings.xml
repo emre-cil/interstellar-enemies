@@ -66,6 +66,12 @@
     <string name="fourth">4. Fourth</string>
     <string name="fifth">5. Fifth</string>
     <string name="shopUpperCase">SHOP</string>
+    <string name="ship1price">25,000</string>
+    <string name="ship2price">50,000</string>
+    <string name="ship4price">100,000</string>
+    <string name="ship3price">75,000</string>
+    <string name="hangarCount">1/5</string>
+    <string name="log_out"><u>Log out</u></string>
 
 
 </resources>

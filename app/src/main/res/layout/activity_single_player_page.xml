@@ -8,7 +8,7 @@
     tools:context=".SinglePlayerPage">
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/singlePlayerPageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="single player page"
@@ -17,20 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signOutBut" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/signOutBut"
-        android:layout_width="120dp"
-        android:layout_height="130dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="@color/purple"
-        android:text="Sign out"
-        app:cornerRadius="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#FFFFFF" />
 </androidx.constraintlayout.widget.ConstraintLayout>
