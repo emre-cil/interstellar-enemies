@@ -1,56 +1,28 @@
 package com.example.interstellarenemies;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.UUID;
 
 class AnnouncementObject {
-    private String header;
-    private String content;
+    public String header;
+    public String content;
+    public String date;
+    public String id;
 
-    @NonNull
-    private final Date date;
-    @NonNull
-    private final UUID uuid;
-
-    public AnnouncementObject(String header, String content, Date date) {
+    public AnnouncementObject(String id, String header, String content, String date) {
+        this.id = id;
         this.header = header;
         this.content = content;
-        this.uuid = UUID.randomUUID();
         this.date = date;
-    }
-
-    public String getHeader() {
-        return header;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public UUID getUUID() {
-        return uuid;
-    }
-
-    public Date getDate() {
-        return date;
     }
 }
 
@@ -71,7 +43,7 @@ class AnnouncementAdapter extends ArrayAdapter<AnnouncementObject> {
             view = convertView;
         }
         TextView textView = (TextView) view;
-        textView.setText(getItem(position).getHeader());
+        textView.setText(getItem(position).header);
 
         return view;
     }
