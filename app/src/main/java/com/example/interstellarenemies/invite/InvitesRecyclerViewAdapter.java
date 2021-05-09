@@ -1,20 +1,15 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.invite;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.TextView;
 
+import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class InvitesRecyclerViewAdapter extends RecyclerView.Adapter<InvitesRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;

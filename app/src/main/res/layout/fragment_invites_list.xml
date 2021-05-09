@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
 
     app:layoutManager="LinearLayoutManager"
-    tools:context=".InvitesFragment"
+    tools:context=".invite.InvitesFragment"
     tools:listitem="@layout/fragment_invites" />

@@ -1,19 +1,12 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.announcements;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.interstellarenemies.R;
+import com.google.firebase.database.*;
 
 public class AnnouncementContentFragment extends Fragment {
     DatabaseReference dbRef;
@@ -49,7 +42,6 @@ public class AnnouncementContentFragment extends Fragment {
                             contentView.setText((String) table.getValue());
                             break;
                     }
-                    System.out.println("announcementTable.key => " + table.getKey() + "\nvalue: " + table.getValue());
                 }
             }
 
@@ -60,11 +52,13 @@ public class AnnouncementContentFragment extends Fragment {
         });
 
         contentView.setOnClickListener((View v) -> {
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AnnouncementFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.fragment_container, new AnnouncementFragment()).commit();
         });
 
         headerView.setOnClickListener((View v) -> {
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AnnouncementFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.fragment_container, new AnnouncementFragment()).commit();
         });
 
         return ret_view;

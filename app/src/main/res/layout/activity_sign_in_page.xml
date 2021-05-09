@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     app:layout_constraintHeight_percent="0.20"
-    tools:context=".SignInPage">
+    tools:context=".init.SignInPage">
 
     <TextView
         android:id="@+id/textNoAccount2"

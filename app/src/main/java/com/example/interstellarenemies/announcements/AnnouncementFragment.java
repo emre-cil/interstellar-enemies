@@ -1,10 +1,12 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.announcements;
 
 import android.os.*;
 import android.view.*;
 import android.widget.*;
 import androidx.annotation.*;
 import androidx.fragment.app.Fragment;
+
+import com.example.interstellarenemies.R;
 import com.google.firebase.database.*;
 import java.util.*;
 
@@ -15,7 +17,6 @@ public class AnnouncementFragment extends Fragment {
     private ListView mListView;
 
     public AnnouncementFragment() {
-
     }
 
     @Override

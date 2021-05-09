@@ -2,12 +2,10 @@ package com.example.interstellarenemies;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.interstellarenemies.init.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SinglePlayerPage extends AppCompatActivity {

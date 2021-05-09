@@ -1,23 +1,22 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.init;
 
 
 import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.MenuItem;
-import android.view.WindowManager;
+import android.os.*;
+import android.view.*;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.*;
+import androidx.appcompat.app.*;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.interstellarenemies.*;
+import com.example.interstellarenemies.profile.ProfileFragment;
+import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.announcements.AnnouncementFragment;
 import com.google.android.material.navigation.NavigationView;
 
 /**

@@ -1,15 +1,12 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.init;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
+import android.os.*;
+import android.view.*;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.interstellarenemies.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -38,11 +35,13 @@ public class ResetPassPage extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(emailAddress)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Snackbar.make(this.findViewById(android.R.id.content), "Password reset link sent your email address", Snackbar.LENGTH_LONG)
+                        Snackbar.make(this.findViewById(android.R.id.content),
+                                "Password reset link sent your email address", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         startActivity(signInPage);
                     } else
-                        Snackbar.make(this.findViewById(android.R.id.content), "Email address not found!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(this.findViewById(android.R.id.content),
+                                "Email address not found!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                 });
     }

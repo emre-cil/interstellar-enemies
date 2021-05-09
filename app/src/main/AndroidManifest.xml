@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
 
-        <activity android:name=".CreatePlanetPage"
+        <activity android:name=".planet.create.CreatePlanetPage"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".SinglePlayerPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ResetPassPage"
+            android:name=".init.ResetPassPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HomePage"
+            android:name=".init.HomePage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignInPage"
+            android:name=".init.SignInPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegisterPage"
+            android:name=".init.RegisterPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".init.MainActivity"
             android:screenOrientation="portrait" >
 
             <intent-filter>

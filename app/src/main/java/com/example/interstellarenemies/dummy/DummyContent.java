@@ -1,9 +1,6 @@
 package com.example.interstellarenemies.dummy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Helper class for providing sample content for user interfaces created by
