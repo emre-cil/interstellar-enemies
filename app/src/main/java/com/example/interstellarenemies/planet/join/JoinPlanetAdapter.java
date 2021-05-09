@@ -25,7 +25,7 @@ public class JoinPlanetAdapter extends ArrayAdapter<JoinListObject> {
         }
         TextView textView = (TextView) view;
         JoinListObject jlo = getItem(position);
-        textView.setText(String.format("%d/%d: %s", jlo.getCurrPlayers(), jlo.getMaxPlayers(), jlo.getHeader()));
+        textView.setText(String.format("%d/%s: %s", jlo.users.size(), jlo.max_users, jlo.name));
 
         return view;
     }

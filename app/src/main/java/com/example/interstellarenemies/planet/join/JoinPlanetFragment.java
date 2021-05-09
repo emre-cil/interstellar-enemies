@@ -2,15 +2,25 @@ package com.example.interstellarenemies.planet.join;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.*;
 import com.example.interstellarenemies.R;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.*;
 
 public class JoinPlanetFragment extends Fragment {
 
-    ArrayList<JoinListObject> planetList = new ArrayList<>();
+    LinkedList<JoinListObject> planetList = new LinkedList<>();
     ArrayList<JoinListObject> listItems = new ArrayList<>();
     ArrayAdapter<JoinListObject> adapter;
     SearchView searchView;
@@ -24,55 +34,64 @@ public class JoinPlanetFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_join_planet, container, false);
-    }
-
-    @SuppressLint("DefaultLocale")
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        ListView lv = getActivity().findViewById(R.id.joinPlanet_PlanetList);
-        adapter = new JoinPlanetAdapter
-                (getActivity(), android.R.layout.simple_list_item_1, listItems);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View ret_view = inflater.inflate(R.layout.fragment_join_planet, container, false);
+        ListView lv = ret_view.findViewById(R.id.joinPlanet_PlanetList);
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("planets");
+        adapter = new JoinPlanetAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
         lv.setAdapter(adapter);
         lv.setTextFilterEnabled(true);
 
-        lv.setOnItemClickListener((parent, view, position, id) -> {
-            JoinListObject jlo = listItems.get(position);
-            // TODO:
-            //  Don't show toast
-            //      Instead join the list or something like that.
-            Toast.makeText(getActivity(),
-                    String.format(
-                            "Header: %s\n" +
-                                    "Content: %s\n" +
-                                    "UUID: %s\n" +
-                                    "Date: %s\n" +
-                                    "Players: %d/%d\n",
-                            jlo.getHeader(),
-                            jlo.getContent(),
-                            jlo.getUUID().toString(),
-                            jlo.getCreateDate().toString(),
-                            jlo.getCurrPlayers(),
-                            jlo.getMaxPlayers()
-                    ), Toast.LENGTH_SHORT).show();
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                LinkedList<JoinListObject> jlo = new LinkedList<>();
+                for (DataSnapshot planetTable : snapshot.getChildren()) {
+                    String max_users = "", name = "", playing = "", id = "";
+                    List<String> users = new LinkedList<>();
+                    for (DataSnapshot elem : planetTable.getChildren()) {
+                        switch (elem.getKey()) {
+                            case "max_users": max_users = elem.getValue().toString(); break;
+                            case "name": name = elem.getValue().toString(); break;
+                            case "playing": playing = elem.getValue().toString(); break;
+                            case "users":
+                                users = elem.getValue(new GenericTypeIndicator<List<String>>(){});
+                                break;
+                        }
+                    }
+                    if (playing.equals("false")) {
+                        id = planetTable.getKey();
+                        jlo.add(new JoinListObject(id, name, max_users, playing, users));
+                    }
+                }
+                adapter.clear();
+                planetList = jlo;
+                adapter.addAll(planetList);
+                lv.setAdapter(adapter);
+                getSearchResults("");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
 
-        //TODO:
-        // This is for testing purposes.
-        for (int i = 0; i < 1000; i++) {
-            planetList.add(new JoinListObject(i + ": Header", i + ": Content", new Date(), 4));
-        }
-
-        getSearchResults("");
-
-        searchView = getActivity().findViewById(R.id.joinPlanet_searchView);
+        searchView = ret_view.findViewById(R.id.joinPlanet_searchView);
         searchView.setIconifiedByDefault(false);
         searchView.setSubmitButtonEnabled(true);
         searchView.setQueryHint("Search");
+
+        lv.setOnItemClickListener((parent, view, position, id) -> {
+            JoinListObject jlo = listItems.get(position);
+            Snackbar.make(view,
+                    String.format("name: %s, id: %s, max_players: %s, playing: %s",
+                            jlo.name,
+                            jlo.id,
+                            jlo.max_users,
+                            jlo.playing
+                    ), Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -87,6 +106,13 @@ public class JoinPlanetFragment extends Fragment {
                 return false;
             }
         });
+
+        return ret_view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void getSearchResults(String query) {
@@ -96,7 +122,9 @@ public class JoinPlanetFragment extends Fragment {
         //  Add extra search result matching with current players.
         for (JoinListObject jlo : planetList) {
             // TODO: Not a must but fuzzy search would be really nice.
-            if (jlo.getHeader().toLowerCase().contains(query.toLowerCase())) {
+            if (jlo.name.toLowerCase().contains(query.toLowerCase())) {
+                filtered.add(jlo);
+            } else if (jlo.id.toLowerCase().contains(query.toLowerCase())) {
                 filtered.add(jlo);
             }
         }
