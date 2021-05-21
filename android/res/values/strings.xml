@@ -40,7 +40,7 @@
     <string name="change_username">Change Username</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="leaderboard_top_5">LEADERBOARD TOP 5</string>
+    <string name="leaderboard_top_5">LEADERBOARD</string>
     <string name="score">score</string>
     <string name="settingsText">SETTINGS</string>
     <string name="money">1.000.000</string>

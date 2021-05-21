@@ -22,7 +22,7 @@ public class AnnouncementFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View ret_view = inflater.inflate(R.layout.fragment_announcement, container, false);
-        mListView = (ListView) ret_view.findViewById(R.id.Announcements_ListView);
+        mListView = (ListView) ret_view.findViewById(R.id.Leaderboard_ListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("announcements/");
         adapter = new AnnouncementAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
         mListView.setAdapter(adapter);

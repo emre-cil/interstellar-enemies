@@ -25,7 +25,7 @@
         app:layout_constraintWidth_percent="0.9" />
 
     <ListView
-        android:id="@+id/Announcements_ListView"
+        android:id="@+id/Leaderboard_ListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"

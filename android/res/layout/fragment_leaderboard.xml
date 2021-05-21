@@ -5,11 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".LeaderboardFragment" >
+    tools:context=".leaderboard.LeaderboardFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/Leaderboard_ListView"
+            android:layout_width="327dp"
+            android:layout_height="413dp"
+            android:background="@color/black.light"
+            android:divider="@color/black"
+            android:dividerHeight="13.0sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.65"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
+            app:layout_constraintVertical_bias="0.313"
+            app:layout_constraintWidth_percent="0.8" />
 
         <TextView
             android:id="@+id/leaderBoardTitle"
@@ -28,226 +45,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.8" />
-
-        <TextView
-            android:id="@+id/leaderBoardText2"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingBottom="5sp"
-            android:text="@string/second"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText3"
-            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore2"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText1"
-            app:layout_constraintWidth_percent="0.60" />
-
-        <TextView
-            android:id="@+id/leaderBoardText3"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingBottom="5sp"
-            android:text="@string/third"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText4"
-            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore3"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText2"
-            app:layout_constraintWidth_percent="0.60" />
-
-        <TextView
-            android:id="@+id/leaderBoardScore4"
-
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-
-            android:gravity="center_vertical"
-            android:paddingBottom="5sp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leaderBoardText4"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore3"
-            app:layout_constraintWidth_percent="0.25"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:id="@+id/leaderBoardText4"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingBottom="5sp"
-            android:text="@string/fourth"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText5"
-            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore4"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText3"
-            app:layout_constraintWidth_percent="0.60" />
-
-        <TextView
-            android:id="@+id/leaderBoardText5"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingBottom="5sp"
-            android:text="@string/fifth"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/blankText"
-            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore5"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardText4"
-            app:layout_constraintWidth_percent="0.60" />
-
-        <TextView
-            android:id="@+id/leaderBoardScore1"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-
-            android:gravity="center_vertical"
-            android:paddingBottom="5sp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leaderBoardText1"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
-            app:layout_constraintWidth_percent="0.25"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:id="@+id/leaderBoardText1"
-
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingBottom="5sp"
-            android:text="@string/first"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardText2"
-            app:layout_constraintEnd_toStartOf="@+id/leaderBoardScore1"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardTitle"
-            app:layout_constraintWidth_percent="0.60" />
-
-        <TextView
-            android:id="@+id/leaderBoardScore5"
-
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-
-            android:fontFamily="@font/vt323"
-            android:gravity="center_vertical"
-            android:paddingBottom="5sp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/blankText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leaderBoardText5"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore4"
-            app:layout_constraintWidth_percent="0.25"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:id="@+id/leaderBoardScore2"
-
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-
-            android:gravity="center_vertical"
-            android:paddingBottom="5sp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leaderBoardText2"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore1"
-            app:layout_constraintWidth_percent="0.25"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:id="@+id/leaderBoardScore3"
-
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:background="@color/black.light"
-            android:fontFamily="@font/vt323"
-
-            android:gravity="center_vertical"
-            android:paddingBottom="5sp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textColor="@color/yellow"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/leaderBoardScore4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leaderBoardText3"
-            app:layout_constraintTop_toBottomOf="@+id/leaderBoardScore2"
-            app:layout_constraintWidth_percent="0.25"
-            tools:ignore="RtlCompat" />
 
         <TextView
             android:id="@+id/blankText"

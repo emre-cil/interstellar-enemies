@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.*;
 import android.view.*;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.interstellarenemies.*;
+import com.example.interstellarenemies.leaderboard.LeaderboardFragment;
 import com.example.interstellarenemies.profile.ProfileFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementFragment;

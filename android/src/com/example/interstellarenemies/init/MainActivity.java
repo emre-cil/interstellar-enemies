@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
+
             } catch (ApiException e) {
                 //NOTE: User did not select an account so do nothing.
             }
