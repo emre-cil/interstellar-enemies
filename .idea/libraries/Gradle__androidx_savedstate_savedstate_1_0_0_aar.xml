@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.savedstate:savedstate:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d2605c4aa56930ff6c6da778c82889b/jetified-savedstate-1.0.0/res" />
-      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/5d2605c4aa56930ff6c6da778c82889b/jetified-savedstate-1.0.0/res" />
-      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/5d2605c4aa56930ff6c6da778c82889b/jetified-savedstate-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/5d2605c4aa56930ff6c6da778c82889b/jetified-savedstate-1.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31eaec781ed0bd15802df5790a571807/jetified-savedstate-1.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31eaec781ed0bd15802df5790a571807/jetified-savedstate-1.0.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31eaec781ed0bd15802df5790a571807/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/df6a1b8603e005261fe106ab5590c6eb/savedstate-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
