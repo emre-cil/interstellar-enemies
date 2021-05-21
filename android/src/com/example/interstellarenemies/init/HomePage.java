@@ -38,6 +38,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        System.out.println("USERID::" + FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         Intent goMain = new Intent(this, MainActivity.class);
         TextView logout = findViewById(R.id.logout);

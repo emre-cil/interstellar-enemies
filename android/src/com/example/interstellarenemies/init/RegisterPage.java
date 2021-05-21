@@ -7,6 +7,7 @@ import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.interstellarenemies.FirebaseRealtimeUserAddition;
 import com.example.interstellarenemies.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,17 +51,7 @@ public class RegisterPage extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, pass).
                     addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            dbRef = FirebaseDatabase.getInstance().getReference();
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            DatabaseReference childRef = dbRef.child("users").child(user.getUid());
-                            childRef.child("friends").child("0").setValue("supportCenterId");
-                            childRef.child("games_won").setValue("0");
-                            String username = user.getEmail();
-                            if (username == null) username = "";
-                            username = username.substring(0, username.indexOf("@"));
-                            childRef.child("name").setValue(username);
-                            childRef.child("rank").setValue("0");
-                            childRef.child("ships").child("0").setValue("ship1");
+                            FirebaseRealtimeUserAddition.userAdd();
 
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

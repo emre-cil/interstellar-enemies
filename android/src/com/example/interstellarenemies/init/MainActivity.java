@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.interstellarenemies.FirebaseRealtimeUserAddition;
 import com.example.interstellarenemies.R;
 import com.google.android.gms.auth.api.signin.*;
 import com.google.android.gms.common.api.ApiException;
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
+                        FirebaseRealtimeUserAddition.userAdd();
                         startActivity(homePage);
                     } else {
                         // If sign in fails, display a message to the user.
