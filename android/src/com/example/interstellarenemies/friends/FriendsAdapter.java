@@ -2,14 +2,18 @@ package com.example.interstellarenemies.friends;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.interstellarenemies.R;
 
 import java.util.ArrayList;
 
@@ -24,12 +28,18 @@ public class FriendsAdapter  extends ArrayAdapter<FriendsObject> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.listview_image_item, parent, false);
         } else {
             view = convertView;
         }
-        TextView textView = (TextView) view;
-        textView.setText(getItem(position).username+ "      " + getItem(position).status);
+        ImageView imageView = view.findViewById(R.id.ofllineImage);
+        TextView textView = view.findViewById(R.id.listviewTextView);
+        FriendsObject fo = getItem(position);
+        if (fo.status.equals("online"))
+            imageView.setImageResource(R.drawable.online);
+        else
+        imageView.setImageResource(R.drawable.offline);
+        textView.setText(getItem(position).username);
 
         return view;
     }

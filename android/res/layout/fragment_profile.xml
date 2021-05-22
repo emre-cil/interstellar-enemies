@@ -206,7 +206,7 @@
             android:ems="10"
             android:fontFamily="@font/vt323"
             android:foregroundTint="@color/transparent"
-            android:hint="@string/enter_userid"
+            android:hint="@string/enter_username"
             android:inputType="textEmailAddress"
             android:shadowDx="0"
             android:shadowDy="0"
