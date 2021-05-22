@@ -5,13 +5,11 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.Button;
-import android.widget.TextView;
 
+import com.example.interstellarenemies.planet.create.CreatePlanetFragment;
 import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.SinglePlayerPage;
-import com.example.interstellarenemies.planet.create.CreatePlanetPage;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeFragment extends Fragment {
 
@@ -42,7 +40,6 @@ public class HomeFragment extends Fragment {
          *
          */
         Intent goSinglePlayer = new Intent(getActivity().getApplicationContext(), SinglePlayerPage.class);
-        Intent goCreatePlanet = new Intent(getActivity().getApplicationContext(), CreatePlanetPage.class);
 
         Button singlePlayerBut = getActivity().findViewById(R.id.singlePlayerBut);
         Button createPlanetBut = getActivity().findViewById(R.id.createAPlanetBut);
@@ -60,6 +57,9 @@ public class HomeFragment extends Fragment {
         });
 
         //go create a planet page
-        createPlanetBut.setOnClickListener((View v) -> startActivity(goCreatePlanet));
+        createPlanetBut.setOnClickListener((View v) -> {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new CreatePlanetFragment()).commit();
+        });
     }
 }

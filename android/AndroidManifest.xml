@@ -11,9 +11,6 @@
         android:theme="@style/Theme.InterstellarEnemies">
 
 
-        <activity android:name=".planet.create.CreatePlanetPage"
-            android:screenOrientation="portrait">
-        </activity>
         <activity android:name=".SinglePlayerPage"
             android:screenOrientation="portrait" />
         <activity
