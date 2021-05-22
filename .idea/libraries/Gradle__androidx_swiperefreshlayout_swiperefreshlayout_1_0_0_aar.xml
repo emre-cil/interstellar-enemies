@@ -2,15 +2,16 @@
   <library name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/annotations.zip!/" />
-      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/66920b9ed8b67d4bf7f52555298637da/swiperefreshlayout-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/res" />
-      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/a7d4f8e5e35ca175219a15c056ceb8c9/swiperefreshlayout-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/66920b9ed8b67d4bf7f52555298637da/swiperefreshlayout-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/66920b9ed8b67d4bf7f52555298637da/swiperefreshlayout-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/66920b9ed8b67d4bf7f52555298637da/swiperefreshlayout-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
