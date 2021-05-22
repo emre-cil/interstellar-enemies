@@ -132,4 +132,5 @@ public class JoinPlanetFragment extends Fragment {
         adapter.clear();
         adapter.addAll(filtered);
     }
+
 }

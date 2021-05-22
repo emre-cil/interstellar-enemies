@@ -56,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/profileUserName"
             android:layout_width="150sp"
             android:layout_height="0sp"
             android:fontFamily="@font/vt323"
@@ -78,7 +78,7 @@
             android:text="@string/usernameText"
             android:textColor="@color/green"
             android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView17"
+            app:layout_constraintEnd_toStartOf="@+id/profileUserName"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"

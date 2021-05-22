@@ -31,14 +31,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    boolean doubleBackToExitPressedOnce = false;
+    static boolean doubleBackToExitPressedOnce = false;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        System.out.println("USERID::" + FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         Intent goMain = new Intent(this, MainActivity.class);
         TextView logout = findViewById(R.id.logout);
@@ -64,7 +63,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.bringToFront();
 
 
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.getDrawerArrowDrawable().setColor(getColor(R.color.yellow));
@@ -84,8 +82,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
     }
-
-
 
 
     private void goFragment(Fragment f) {
@@ -128,8 +124,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-            new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
-        }
+
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            } else
+                goFragment(new HomeFragment());
+
+            this.doubleBackToExitPressedOnce = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() { doubleBackToExitPressedOnce = false; }}, 2000); }
     }
 }

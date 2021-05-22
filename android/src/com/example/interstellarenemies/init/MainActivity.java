@@ -15,6 +15,8 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.*;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public static GoogleSignInClient getmGoogleSignInClient() {
         return mGoogleSignInClient;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

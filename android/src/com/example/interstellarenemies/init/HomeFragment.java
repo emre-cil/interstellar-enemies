@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment {
 
         //go join a planet page
         getActivity().findViewById(R.id.joinAPlanetBut).setOnClickListener((View v) -> {
+            HomePage.doubleBackToExitPressedOnce = false;
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new JoinPlanetFragment()).commit();
         });
