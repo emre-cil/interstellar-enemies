@@ -7,7 +7,7 @@ import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.interstellarenemies.FirebaseRealtimeUserAddition;
+import com.example.interstellarenemies.FirebaseRealtimeUserIntegration;
 import com.example.interstellarenemies.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,7 +51,7 @@ public class RegisterPage extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, pass).
                     addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            FirebaseRealtimeUserAddition.userAdd();
+                            FirebaseRealtimeUserIntegration.userAdd();
 
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -5,11 +5,13 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.SinglePlayerPage;
 import com.example.interstellarenemies.planet.create.CreatePlanetPage;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeFragment extends Fragment {
 
@@ -30,6 +32,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+
         /*
          * TODO: sayfalarda geri donus olmayacak.
          *  Bazi intentleri fragment ile degistir

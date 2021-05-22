@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/InterstellarEnemies.iml" filepath="$PROJECT_DIR$/.idea/modules/InterstellarEnemies.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/InterstellarEnemies.android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/InterstellarEnemies.android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/InterstellarEnemies.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/InterstellarEnemies.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ienemies.iml" filepath="$PROJECT_DIR$/.idea/modules/Ienemies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/Ienemies.android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/Ienemies.android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/Ienemies.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/Ienemies.core.iml" />
     </modules>
   </component>
 </project>

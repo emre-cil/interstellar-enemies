@@ -63,6 +63,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         /*---Navigation Drawer Menu---*/
         navigationView.bringToFront();
 
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.getDrawerArrowDrawable().setColor(getColor(R.color.yellow));
@@ -70,6 +72,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         toggle.getDrawerArrowDrawable().setBarLength(75);
 
         toggle.syncState();
+        TextView headerUserName = navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
+        String username = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        headerUserName.setText(FirebaseRealtimeUserIntegration.email2userName(username));
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -77,7 +82,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             goFragment(new HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
         }
+
     }
+
+
+
 
     private void goFragment(Fragment f) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
@@ -86,6 +95,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.nav_home:
                 goFragment(new HomeFragment());

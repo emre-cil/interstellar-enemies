@@ -15,9 +15,9 @@
         android:src="@drawable/planet_svg_1" />
 
     <TextView
-        android:layout_width="117dp"
+        android:id="@+id/toolbarHeaderUserName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test@sdfsdf"
         android:textColor="#FED123"
         android:textSize="24sp"
         app:fontFamily="@font/vt323" />
