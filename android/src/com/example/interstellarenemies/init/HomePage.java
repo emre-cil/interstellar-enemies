@@ -22,6 +22,12 @@ import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * This class is not actually HomePage anymore.
@@ -71,8 +77,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         toggle.syncState();
         TextView headerUserName = navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
-        String username = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        headerUserName.setText(FirebaseRealtimeUserIntegration.email2userName(username));
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    headerUserName.setText(snapshot.child("name").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
 
         navigationView.setNavigationItemSelectedListener(this);
 

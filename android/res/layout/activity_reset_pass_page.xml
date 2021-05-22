@@ -37,7 +37,7 @@
         android:textColor="@color/white.absolute"
         android:textColorHint="@color/green"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/resetPassBut"
+        app:layout_constraintBottom_toTopOf="@+id/changeUsernameFragmentBut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.51" />
 
     <Button
-        android:id="@+id/resetPassBut"
+        android:id="@+id/changeUsernameFragmentBut"
         android:layout_width="195dp"
         android:layout_height="71dp"
         android:layout_marginBottom="144dp"

@@ -18,6 +18,8 @@
 
     <color name="purple">#F92672</color>
     <color name="yellow">#FED123</color>
+    <color name="orange">#ED8200</color>
+
     <color name="green">#83ac5d</color>
     <color name="green.light">#FF0C8C1E</color>
     <color name="cyan">#009688</color>

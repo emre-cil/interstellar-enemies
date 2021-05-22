@@ -36,7 +36,7 @@ public class FriendsFragment extends Fragment {
         View ret_view = inflater.inflate(R.layout.fragment_friends, container, false);
         mListView = (ListView) ret_view.findViewById(R.id.friendsListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("friends");
-        adapter = new FriendsAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
+        adapter = new FriendsAdapter(getActivity(),R.layout.listview_image_item, listItems);
         mListView.setAdapter(adapter);
 
         dbRef.addValueEventListener(new ValueEventListener() {

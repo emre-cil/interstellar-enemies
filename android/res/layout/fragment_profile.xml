@@ -244,12 +244,12 @@
             android:layout_width="0dp"
             android:layout_height="50sp"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/orange"
             android:fontFamily="@font/vt323"
             android:selectAllOnFocus="false"
             android:text="@string/friends"
             android:textColor="@color/black.absolute"
             android:textSize="20sp"
-            app:backgroundTint="@color/yellow"
             app:cornerRadius="0sp"
             app:layout_constraintEnd_toStartOf="@+id/profile_invites_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -273,6 +273,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/profile_friends_button"
             app:layout_constraintTop_toTopOf="@+id/profile_friends_button"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent="0.4" />
 
         <FrameLayout

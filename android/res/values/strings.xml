@@ -56,7 +56,7 @@
     <string name="rankText">Rank:</string>
     <string name="shipCount">2</string>
     <string name="shipsText">Ships:</string>
-    <string name="enter_username">Enter Username</string>
+    <string name="enter_username">Username</string>
     <string name="add_friend">ADD FRIEND</string>
     <string name="friends">FRIENDS</string>
     <string name="invites">INVITES</string>
@@ -72,6 +72,8 @@
     <string name="ship3price">75,000</string>
     <string name="hangarCount">1/5</string>
     <string name="log_out"><u>Log out</u></string>
+    <string name="reset_username">Reset Username</string>
+    <string name="new_username">New Username</string>
 
 
 </resources>

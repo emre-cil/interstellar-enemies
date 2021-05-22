@@ -24,7 +24,7 @@ public class ResetPassPage extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mAuth = FirebaseAuth.getInstance();
-        Button resetButton = findViewById(R.id.resetPassBut);
+        Button resetButton = findViewById(R.id.changeUsernameFragmentBut);
         resetButton.setOnClickListener((View v) -> sendEmail());
     }
 

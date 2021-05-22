@@ -1,12 +1,14 @@
 package com.example.interstellarenemies.profile;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.*;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.interstellarenemies.R;
@@ -29,6 +31,7 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
     NavigationView navigationView;
     TextView userName;
+    Button friendsButt, invitesButt;
 
     public ProfileFragment() {
     }
@@ -37,23 +40,31 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         navigationView = getActivity().findViewById(R.id.nav_view);
+        //friendsButt.setBackgroundColor(Color.parseColor("#ED8200"));
         getActivity().getSupportFragmentManager().beginTransaction().replace(
                 R.id.profileFragmentContainer, new FriendsFragment()).commit();
     }
+
 
     @Override
     public void onResume() {
         super.onResume();
         userName = (getActivity()).findViewById(R.id.profileUserName);
+        friendsButt = getActivity().findViewById(R.id.profile_friends_button);
+        invitesButt = getActivity().findViewById(R.id.profile_invites_button);
 
         //click to friends button
         getActivity().findViewById(R.id.profile_friends_button).setOnClickListener((View v) -> {
+            friendsButt.setBackgroundColor(Color.parseColor("#ED8200"));
+            invitesButt.setBackgroundColor(Color.parseColor("#FED123"));
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
                     new FriendsFragment()).commit();
         });
 
         //click to invites button
         getActivity().findViewById(R.id.profile_invites_button).setOnClickListener((View v) -> {
+            invitesButt.setBackgroundColor(Color.parseColor("#ED8200"));
+            friendsButt.setBackgroundColor(Color.parseColor("#FED123"));
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
                     new InvitesFragment()).commit();
         });
@@ -75,12 +86,14 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        userName.setText(snapshot.child("name").getValue().toString());
+                userName.setText(snapshot.child("name").getValue().toString());
 
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-            }});
+            }
+        });
 
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }

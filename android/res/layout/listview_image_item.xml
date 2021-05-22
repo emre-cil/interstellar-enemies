@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/ofllineImage"
         android:layout_width="5sp"
-        android:layout_height="40sp"
+        android:layout_height="50sp"
         android:layout_weight="1"
         android:paddingLeft="4sp"
         android:paddingTop="10sp"
@@ -17,13 +17,12 @@
         app:srcCompat="@drawable/offline" />
 
     <TextView
-        android:id="@+id/listviewTextView"
+        android:id="@+id/friendsTextView"
         android:layout_width="250sp"
-        android:layout_height="40sp"
+        android:layout_height="50sp"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:paddingLeft="10sp"
-        android:text="TextView"
         android:textColor="@color/yellow"
         android:textSize="20sp" />
 

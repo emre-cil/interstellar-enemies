@@ -2,7 +2,6 @@ package com.example.interstellarenemies.friends;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,7 @@ public class FriendsAdapter  extends ArrayAdapter<FriendsObject> {
             view = convertView;
         }
         ImageView imageView = view.findViewById(R.id.ofllineImage);
-        TextView textView = view.findViewById(R.id.listviewTextView);
+        TextView textView = view.findViewById(R.id.friendsTextView);
         FriendsObject fo = getItem(position);
         if (fo.status.equals("online"))
             imageView.setImageResource(R.drawable.online);

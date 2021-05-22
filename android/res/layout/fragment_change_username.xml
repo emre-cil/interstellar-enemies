@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeUsernameFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+
+        <TextView
+            android:id="@+id/resetUNameHeaderText"
+            android:layout_width="0sp"
+            android:layout_height="144dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/vt323"
+            android:text="@string/reset_username"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="60sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+            android:id="@+id/resetUsernameEdit"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            android:layout_marginTop="52dp"
+            android:ems="10"
+            android:fontFamily="@font/vt323"
+            android:hint="@string/new_username"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:textColor="@color/white.absolute"
+            android:textColorHint="@color/green"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resetUNameHeaderText"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <Button
+            android:id="@+id/changeUsernameFragmentBut"
+            android:layout_width="0dp"
+            android:layout_height="0sp"
+            android:layout_marginTop="52dp"
+            android:backgroundTint="@color/purple"
+            android:fontFamily="@font/vt323"
+            android:text="@string/change_username"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resetUsernameEdit"
+            app:layout_constraintVertical_bias="0.089"
+            app:layout_constraintWidth_percent="0.65" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
