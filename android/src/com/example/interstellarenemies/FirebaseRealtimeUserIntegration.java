@@ -9,8 +9,8 @@ public class FirebaseRealtimeUserIntegration {
     public static void userAdd() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference childRef = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
-        childRef.child("friends").child("0").setValue("supportCenterId");
-        childRef.child("invites").child("0").setValue("supportCenterId");
+        //childRef.child("friends").child("0").setValue("supportCenterId");
+        //childRef.child("invites").child("0").setValue("supportCenterId");
         childRef.child("status").setValue("offline");
         childRef.child("high_score").setValue("0");
         childRef.child("games_won").setValue("0");
