@@ -29,14 +29,12 @@ public class InvitesAdapter extends ArrayAdapter<InvitesObject> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(R.layout.listview_invite_item, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
         } else {
             view = convertView;
         }
-        ImageView accept = view.findViewById(R.id.accept);
-        ImageView reject = view.findViewById(R.id.reject);
-        TextView textView = view.findViewById(R.id.invitesTextView);
 
+        TextView textView = (TextView) view;
         textView.setText(getItem(position).username);
 
         return view;

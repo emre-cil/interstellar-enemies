@@ -28,20 +28,35 @@ public class InvitesFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         View ret_view = inflater.inflate(R.layout.fragment_invites, container, false);
         mListView = (ListView) ret_view.findViewById(R.id.invitesListView);
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("invites");
-        adapter = new InvitesAdapter(getActivity(), R.layout.listview_invite_item, listItems);
+        adapter = new InvitesAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
         mListView.setAdapter(adapter);
 
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                LinkedList<InvitesObject> annListNew = new LinkedList<>();
-                for (DataSnapshot invitesTable : snapshot.getChildren()) {
-                    String username = "", userID = "";
-                    username= invitesTable.getKey();
-                    userID= invitesTable.getValue().toString();
 
-                    annListNew.add(new InvitesObject(username));
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference messagesRef = rootRef.child(user.getUid()).child("invites");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                LinkedList<InvitesObject> annListNew = new LinkedList<>();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String key = ds.getKey();
+                    System.out.println(key+"test");
+
+                    DatabaseReference keyRef = rootRef.child(key).child("name");
+                    ValueEventListener valueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot ds1 : dataSnapshot.getChildren()) {
+                                String name = ds1.getValue().toString();
+                                System.out.println(name+"test");
+                                annListNew.add(new InvitesObject(name));
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {}
+                    };
+                    keyRef.addListenerForSingleValueEvent(valueEventListener);
                 }
                 adapter.clear();
                 invList = annListNew;
@@ -50,9 +65,8 @@ public class InvitesFragment extends Fragment {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        messagesRef.addListenerForSingleValueEvent(eventListener);
         return ret_view;  }
 }

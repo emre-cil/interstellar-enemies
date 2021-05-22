@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
+
                         FirebaseRealtimeUserIntegration.userAdd();
                         startActivity(homePage);
                     } else {
