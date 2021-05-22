@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
         initGoogleSign();
     }
 
-    /**
-     * TODO: make fullscreen with no black bars.
-     */
     @Override
     protected void onResume() {
         super.onResume();
