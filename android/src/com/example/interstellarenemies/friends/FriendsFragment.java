@@ -1,61 +1,68 @@
 package com.example.interstellarenemies.friends;
 
-import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.*;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import com.example.interstellarenemies.R;
-import com.example.interstellarenemies.dummy.DummyContent;
+import com.example.interstellarenemies.announcements.AnnouncementContentFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-/**
- * A fragment representing a list of Items.
- */
 public class FriendsFragment extends Fragment {
-
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private final ArrayList<FriendsObject> listItems = new ArrayList<>();
+    private LinkedList<FriendsObject> frList = new LinkedList<>();
+    private FriendsAdapter adapter;
+    private ListView mListView;
 
     public FriendsFragment() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static FriendsFragment newInstance(int columnCount) {
-        FriendsFragment fragment = new FriendsFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_friends_list, container, false);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        View ret_view = inflater.inflate(R.layout.fragment_friends, container, false);
+        mListView = (ListView) ret_view.findViewById(R.id.friendsListView);
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("friends");
+        adapter = new FriendsAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
+        mListView.setAdapter(adapter);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                LinkedList<FriendsObject> annListNew = new LinkedList<>();
+                for (DataSnapshot friendsTable : snapshot.getChildren()) {
+                    String username = "", userID = "";
+                    username= friendsTable.getKey();
+                    userID= friendsTable.getValue().toString();
+
+                    annListNew.add(new FriendsObject(username,"offline",userID));
+                }
+                adapter.clear();
+                frList = annListNew;
+                adapter.addAll(frList);
+                mListView.setAdapter(adapter);
             }
-            recyclerView.setAdapter(new FriendsRecyclerViewAdapter(DummyContent.ITEMS));
-        }
-        return view;
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        return ret_view;
     }
 }

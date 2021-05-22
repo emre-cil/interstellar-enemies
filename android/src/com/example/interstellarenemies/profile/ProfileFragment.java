@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment;
 
 import android.view.*;
 
-import com.example.interstellarenemies.invite.InvitesFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.ShopFragment;
 import com.example.interstellarenemies.friends.FriendsFragment;
+import com.example.interstellarenemies.invite.InvitesFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class ProfileFragment extends Fragment {
