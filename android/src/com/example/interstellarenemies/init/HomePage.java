@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    static NavigationView navigationView;
     Toolbar toolbar;
     static boolean doubleBackToExitPressedOnce = false;
 
@@ -76,21 +76,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         toggle.getDrawerArrowDrawable().setBarLength(75);
 
         toggle.syncState();
-        TextView headerUserName = navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    headerUserName.setText(snapshot.child("name").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
+        refreshHeader();
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -137,6 +123,22 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
+    public static void refreshHeader() {
+
+        TextView headerUserName =  navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                headerUserName.setText(snapshot.child("name").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -152,6 +154,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             this.doubleBackToExitPressedOnce = true;
             new Handler().postDelayed(new Runnable() {
                 @Override
-                public void run() { doubleBackToExitPressedOnce = false; }}, 2000); }
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        }
     }
 }

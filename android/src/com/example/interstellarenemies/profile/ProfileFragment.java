@@ -2,12 +2,15 @@ package com.example.interstellarenemies.profile;
 
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
 import android.view.*;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.ShopFragment;
 import com.example.interstellarenemies.friends.FriendsFragment;
@@ -27,6 +30,13 @@ public class ProfileFragment extends Fragment {
     TextView userName;
     Button friendsButt, invitesButt;
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
     public ProfileFragment() {
     }
 
@@ -34,58 +44,50 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         navigationView = getActivity().findViewById(R.id.nav_view);
-        //friendsButt.setBackgroundColor(Color.parseColor("#ED8200"));
         getActivity().getSupportFragmentManager().beginTransaction().replace(
                 R.id.profileFragmentContainer, new FriendsFragment()).commit();
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
-        userName = (getActivity()).findViewById(R.id.profileUserName);
+        refreshMoney();
+        refreshName();
+
+        userName = getActivity().findViewById(R.id.profileUserName);
         friendsButt = getActivity().findViewById(R.id.profile_friends_button);
         invitesButt = getActivity().findViewById(R.id.profile_invites_button);
 
         //click to friends button
-        getActivity().findViewById(R.id.profile_friends_button).setOnClickListener((View v) -> {
-            friendsButt.setBackgroundColor(Color.parseColor("#ED8200"));
-            invitesButt.setBackgroundColor(Color.parseColor("#FED123"));
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
-                    new FriendsFragment()).commit();
-        });
-
+        changeButtonColor("#ED8200", "#FED123", R.id.profile_friends_button, new FriendsFragment());
         //click to invites button
-        getActivity().findViewById(R.id.profile_invites_button).setOnClickListener((View v) -> {
-            invitesButt.setBackgroundColor(Color.parseColor("#ED8200"));
-            friendsButt.setBackgroundColor(Color.parseColor("#FED123"));
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
-                    new InvitesFragment()).commit();
-        });
+        changeButtonColor("#FED123", "#ED8200", R.id.profile_invites_button, new InvitesFragment());
 
+        //Hangar text click function
         getActivity().findViewById(R.id.profile_hangar_text).setOnClickListener((View v) -> {
             navigationView.setCheckedItem(R.id.nav_shop);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new ShopFragment()).commit();
         });
 
+        //add friend button function
         getActivity().findViewById(R.id.addFriendBut).setOnClickListener((View v) -> {
             EditText enterUsername = getActivity().findViewById(R.id.invite_player_editText);
             String playerName = enterUsername.getText().toString();
 
+
+            /**
+             * TODO: burda ne oluyo kullanilmayanlar var duzenlemesi lazim dikkatli
+             */
             DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users");
             dbRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot usersTable : snapshot.getChildren()) {
                         String key = usersTable.getKey();
-                        for (DataSnapshot elem : usersTable.getChildren()) {
-                           if (playerName.equals(usersTable.child("name").getValue()))
-                               FirebaseDatabase.getInstance().getReference().child("users").child(key).child("invites").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue("request done");
-
-                        }
+                        if (playerName.equals(usersTable.child("name").getValue()) && !playerName.equals(userName.getText().toString()))
+                            FirebaseDatabase.getInstance().getReference().child("users").child(key).child("invites").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue("request done");
                     }
-
                 }
 
                 @Override
@@ -95,25 +97,19 @@ public class ProfileFragment extends Fragment {
             });
 
 
-
-
         });
 
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void refreshName() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 userName.setText(snapshot.child("name").getValue().toString());
-
             }
 
             @Override
@@ -121,6 +117,33 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
+
+    public void refreshMoney() {
+        TextView money = getActivity().findViewById(R.id.moneyProfile);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                money.setText(snapshot.child("money").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
+    //changes buttons color on profile page
+    public void changeButtonColor(String friendsColor, String invitesColor, int buttonId, Fragment fragment) {
+        getActivity().findViewById(buttonId).setOnClickListener((View v) -> {
+            friendsButt.setBackgroundColor(Color.parseColor(friendsColor));
+            invitesButt.setBackgroundColor(Color.parseColor(invitesColor));
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.profileFragmentContainer,
+                    fragment).commit();
+        });
+    }
+
+
 }

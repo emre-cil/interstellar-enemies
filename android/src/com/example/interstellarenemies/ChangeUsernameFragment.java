@@ -22,9 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
 
+import static com.example.interstellarenemies.init.HomePage.refreshHeader;
+
 
 public class ChangeUsernameFragment extends Fragment {
     private LinkedList<String> usernames = new LinkedList<>();
+
 
     public ChangeUsernameFragment() {
     }
@@ -51,6 +54,7 @@ public class ChangeUsernameFragment extends Fragment {
                             switch (elem.getKey()) {
                                 case "name":
                                     usernames.add(elem.getValue().toString());
+                                    refreshHeader();
                                     break;
                             }
                         }
@@ -81,6 +85,7 @@ public class ChangeUsernameFragment extends Fragment {
         });
 
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

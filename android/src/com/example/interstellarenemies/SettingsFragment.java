@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.Button;
 import com.example.interstellarenemies.init.MainActivity;
-import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 

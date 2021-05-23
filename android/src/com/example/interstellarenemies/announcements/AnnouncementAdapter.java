@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.*;
 import android.widget.*;
 import androidx.annotation.*;
+
+import com.example.interstellarenemies.R;
+
 import java.util.*;
 
 public class AnnouncementAdapter extends ArrayAdapter<AnnouncementObject> {
@@ -17,11 +20,11 @@ public class AnnouncementAdapter extends ArrayAdapter<AnnouncementObject> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         } else {
             view = convertView;
         }
-        TextView textView = (TextView) view;
+        TextView textView = view.findViewById(R.id.listItemText);
         textView.setText(getItem(position).header);
 
         return view;

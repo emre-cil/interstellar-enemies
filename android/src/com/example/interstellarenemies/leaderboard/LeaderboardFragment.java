@@ -40,7 +40,7 @@ public class LeaderboardFragment extends Fragment {
         View ret_view = inflater.inflate(R.layout.fragment_leaderboard, container, false);
         mListView = ret_view.findViewById(R.id.Leaderboard_ListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/");
-        adapter = new LeaderboardAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
+        adapter = new LeaderboardAdapter(getActivity(), R.layout.list_item, listItems);
         mListView.setAdapter(adapter);
 
         dbRef.addValueEventListener(new ValueEventListener() {

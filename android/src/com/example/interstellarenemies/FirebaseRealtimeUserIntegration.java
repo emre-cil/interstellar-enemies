@@ -21,6 +21,7 @@ public class FirebaseRealtimeUserIntegration {
                     DatabaseReference childRef = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
                     //childRef.child("friends").child("0").setValue("supportCenterId");
                     //childRef.child("invites").child("0").setValue("supportCenterId");
+                    childRef.child("money").setValue("1000");
                     childRef.child("status").setValue("offline");
                     childRef.child("high_score").setValue("0");
                     childRef.child("games_won").setValue("0");

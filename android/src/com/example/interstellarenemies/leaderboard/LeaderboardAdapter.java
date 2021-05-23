@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.interstellarenemies.R;
+
 import java.util.List;
 
 public class LeaderboardAdapter extends ArrayAdapter<LeaderboardObject> {
@@ -24,11 +26,11 @@ public class LeaderboardAdapter extends ArrayAdapter<LeaderboardObject> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         } else {
             view = convertView;
         }
-        TextView textView = (TextView) view;
+        TextView textView = view.findViewById(R.id.listItemText);
         textView.setText(getItem(position).gamesWon.toString() + ": " + getItem(position).name);
 
         return view;

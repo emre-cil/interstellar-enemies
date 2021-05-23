@@ -13,8 +13,8 @@
 
         <ListView
             android:id="@+id/Leaderboard_ListView"
-            android:layout_width="327dp"
-            android:layout_height="413dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@color/black.light"
             android:divider="@color/black"
             android:dividerHeight="13.0sp"
