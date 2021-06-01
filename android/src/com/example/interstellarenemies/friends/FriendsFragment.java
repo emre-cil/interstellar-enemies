@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementContentFragment;
+import com.example.interstellarenemies.messages.userlist.MessagesUserListFragment;
+import com.example.interstellarenemies.messages.userlist.MessagesUserListObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,24 +46,35 @@ public class FriendsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 LinkedList<FriendsObject> annListNew = new LinkedList<>();
                 for (DataSnapshot friendsTable : snapshot.getChildren()) {
-                    String username = "", userID = "";
-                    username= friendsTable.getKey();
-                    userID= friendsTable.getValue().toString();
+                    String ID = friendsTable.getKey();
+                    DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference("users/").child(ID + "/").child("name");
+                    keyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshotInside) {
+                            String name = snapshotInside.getValue().toString();
+                            annListNew.add(new FriendsObject(name, "offline", ID));
+                            adapter.clear();
+                            frList = annListNew;
+                            adapter.addAll(frList);
+                            mListView.setAdapter(adapter);
+                        }
 
-                    annListNew.add(new FriendsObject(username,"offline",userID));
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {}
+                    });
                 }
-                adapter.clear();
-                frList = annListNew;
-                adapter.addAll(frList);
-                mListView.setAdapter(adapter);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
 
+        mListView.setOnItemClickListener((parent, view, position, id) -> {
+            getActivity().getIntent().putExtra(
+                    "fragment::friends::user::id", frList.get(position).userID);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.fragment_container, new MessagesUserListFragment()).commit();
+        });
 
         return ret_view;
     }

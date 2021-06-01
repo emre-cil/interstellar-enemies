@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/Leaderboard_ListView"
+            android:id="@+id/MessagesUserList_ListView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/black.light"

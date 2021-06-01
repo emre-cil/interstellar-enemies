@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MessagesFragment" />
+    tools:context=".messages.userlist.MessagesUserListFragment">
+
+    <TextView
+        android:id="@+id/textMessagesUserList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/vt323"
+        android:gravity="center"
+        android:text="Messages"
+        android:textColor="@color/yellow"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9"
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="0dp" />
+
+    <ListView
+        android:id="@+id/MessagesUserList_ListView"
+        android:layout_width="294dp"
+        android:layout_height="456dp"
+        android:layout_marginTop="40dp"
+
+        android:background="@color/black.light"
+        android:divider="@color/black"
+        android:dividerHeight="13.0sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMessagesUserList"
+        app:layout_constraintVertical_bias="0.23"
+        app:layout_constraintWidth_percent="0.8"
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.*;
 import android.view.*;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.*;
@@ -17,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.interstellarenemies.*;
 import com.example.interstellarenemies.leaderboard.LeaderboardFragment;
+import com.example.interstellarenemies.messages.userlist.MessagesUserListFragment;
 import com.example.interstellarenemies.profile.ProfileFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementFragment;
@@ -107,7 +107,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 goFragment(new AnnouncementFragment());
                 break;
             case R.id.nav_messages:
-                goFragment(new MessagesFragment());
+                goFragment(new MessagesUserListFragment());
                 break;
             case R.id.nav_leaderboard:
                 goFragment(new LeaderboardFragment());
