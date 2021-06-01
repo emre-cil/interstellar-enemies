@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.*;
 import android.view.*;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.*;
@@ -76,7 +77,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         toggle.getDrawerArrowDrawable().setBarLength(75);
 
         toggle.syncState();
-        refreshHeader();
+
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -90,6 +91,21 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     private void goFragment(Fragment f) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+    }
+    public static void refreshHeader(){
+        TextView headerUserName =  navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                headerUserName.setText(snapshot.child("name").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -120,29 +136,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
+        //refresh header
+        refreshHeader();
         return true;
     }
 
-    public static void refreshHeader() {
 
-        TextView headerUserName =  navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                headerUserName.setText(snapshot.child("name").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
+            //refresh header
+            refreshHeader();
         } else {
 
             if (doubleBackToExitPressedOnce) {
