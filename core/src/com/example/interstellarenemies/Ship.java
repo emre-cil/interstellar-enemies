@@ -1,33 +1,73 @@
 package com.example.interstellarenemies;
 
+
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 
-public class Ship {
-    float speed;
-    int shield;
-    float xPos,yPos;
-    float width, height;
+abstract class Ship {
 
-    TextureRegion shipTR,shieldTR;
+    //ship characteristics
+    float shipSpeed;  //world units per second
+    int armor;
 
-    public Ship(float speed, int shield,float width, float height, float xPos, float yPos, TextureRegion shipTR, TextureRegion shieldTR) {
-        this.speed = speed;
-        this.shield = shield;
-        this.xPos = xPos - width/2;
-        this.yPos = yPos - height/2;
-        this.width = width;
-        this.height = height;
+    //position & dimension
+    Rectangle objectShape;
+
+    //laser information
+    float gunWidth, gunHeight;
+    float gunSpeed;
+    float shootTime;
+    float lastShootTime = 0;
+
+    //graphics
+    TextureRegion shipTR, armorTR, gunTR;
+
+    public Ship(float middleX, float middleY, float width, float height, float speed, int armor,
+                float laserWidth, float gunHeight, float gunSpeed, float shootTime,
+                TextureRegion shipTR, TextureRegion armorTR, TextureRegion gunTR) {
+        this.shipSpeed = speed;
+        this.armor = armor;
+        this.gunSpeed = gunSpeed;
+        this.shootTime = shootTime;
         this.shipTR = shipTR;
-        this.shieldTR = shieldTR;
+        this.armorTR = armorTR;
+        this.gunTR = gunTR;
+        this.gunWidth = laserWidth;
+        this.gunHeight = gunHeight;
+        this.objectShape = new Rectangle(middleX - width / 2, middleY - height / 2, width, height);
     }
 
-    public void print(Batch batch){
-        batch.draw(shipTR,xPos,yPos,width,height);
-        if (shield > 0){
-            batch.draw(shieldTR,xPos,yPos,width,height);
+    public void syncTime(float deltaTime) {
+        lastShootTime += deltaTime;
+    }
+
+    public boolean canFireLaser() {
+        return (lastShootTime - shootTime >= 0);
+    }
+
+    public abstract Gun[] guns();
+
+    public boolean intersects(Rectangle otherRectangle) {
+        return objectShape.overlaps(otherRectangle);
+    }
+
+    public boolean checkArmor() {
+        if (armor > 0) {
+            armor--;
+            return false;
         }
-
+        return true;
     }
 
+    public void changePosition(float newX, float newY) {
+        objectShape.setPosition(objectShape.x + newX, objectShape.y + newY);
+    }
+
+    public void draw(Batch batch) {
+        batch.draw(shipTR, objectShape.x, objectShape.y, objectShape.width, objectShape.height);
+        if (armor > 0) {
+            batch.draw(armorTR, objectShape.x, objectShape.y, objectShape.width, objectShape.height);
+        }
+    }
 }

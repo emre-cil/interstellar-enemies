@@ -1,6 +1,7 @@
 package com.example.interstellarenemies.init;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
@@ -23,6 +24,10 @@ public class RegisterPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+
+        }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
     }

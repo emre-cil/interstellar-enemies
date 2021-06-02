@@ -40,7 +40,7 @@ public class LeaderboardFragment extends Fragment {
         View ret_view = inflater.inflate(R.layout.fragment_leaderboard, container, false);
         mListView = ret_view.findViewById(R.id.MessagesUserList_ListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/");
-        adapter = new LeaderboardAdapter(getActivity(), R.layout.list_item, listItems);
+        adapter = new LeaderboardAdapter(getActivity(), R.layout.leaderboard_item, listItems);
         mListView.setAdapter(adapter);
 
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -48,24 +48,24 @@ public class LeaderboardFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 LinkedList<LeaderboardObject> annListNew = new LinkedList<>();
                 for (DataSnapshot leaderTable : snapshot.getChildren()) {
-                    String name = "", gamesWon = "";
+                    String name = "", highScore = "";
                     for (DataSnapshot elem : leaderTable.getChildren()) {
                         switch (elem.getKey()) {
                             case "name":
                                 name = elem.getValue().toString();
                                 break;
-                            case "games_won":
-                                gamesWon = elem.getValue().toString();
+                            case "high_score":
+                                highScore = elem.getValue().toString();
                                 break;
                         }
                     }
-                    Integer games_won = Integer.parseInt(gamesWon);
-                    annListNew.add(new LeaderboardObject(name, games_won));
+                    Integer score = Integer.parseInt(highScore);
+                    annListNew.add(new LeaderboardObject(name, score));
                 }
                 adapter.clear();
                 annList = annListNew;
                 annList.sort(Comparator.comparing(LeaderboardObject::getGamesWon));
-                Collections.sort(annList, (LeaderboardObject a, LeaderboardObject b) -> Integer.compare(b.gamesWon, a.gamesWon));
+                Collections.sort(annList, (LeaderboardObject a, LeaderboardObject b) -> Integer.compare(b.score, a.score));
                 adapter.addAll(annList);
                 mListView.setAdapter(adapter);
             }

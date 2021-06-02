@@ -26,13 +26,14 @@ public class LeaderboardAdapter extends ArrayAdapter<LeaderboardObject> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.leaderboard_item, parent, false);
         } else {
             view = convertView;
         }
-        TextView textView = view.findViewById(R.id.listItemText);
-        textView.setText(getItem(position).gamesWon.toString() + ": " + getItem(position).name);
-
+        TextView name = view.findViewById(R.id.listItemText);
+        TextView score = view.findViewById(R.id.listItemText2);
+        name.setText(getItem(position).name);
+        score.setText(getItem(position).score.toString() );
         return view;
     }
 }

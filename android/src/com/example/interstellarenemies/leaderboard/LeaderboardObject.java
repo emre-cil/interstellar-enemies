@@ -2,14 +2,14 @@ package com.example.interstellarenemies.leaderboard;
 
 public class LeaderboardObject {
     String name;
-    Integer gamesWon;
+    Integer score;
 
-    public LeaderboardObject(String name, Integer gamesWon) {
+    public LeaderboardObject(String name, Integer highScore) {
         this.name = name;
-        this.gamesWon = gamesWon;
+        this.score = highScore;
     }
 
     public Integer getGamesWon() {
-        return gamesWon;
+        return score;
     }
 }
