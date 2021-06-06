@@ -35,6 +35,8 @@ import com.google.firebase.database.ValueEventListener;
  * Bu sayfa artik fragmentlarin kontrolu icin kullaniliyor.
  */
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+   static FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+   static DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
     DrawerLayout drawerLayout;
     static NavigationView navigationView;
     Toolbar toolbar;

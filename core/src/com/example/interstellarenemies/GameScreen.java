@@ -1,6 +1,5 @@
 package com.example.interstellarenemies;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
@@ -22,8 +21,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Locale;
-
-import sun.awt.windows.ThemeReader;
 
 public class GameScreen implements Screen {
 
@@ -96,7 +93,7 @@ public class GameScreen implements Screen {
         //set up game objects
         userShip = new UserShip(spaceWidth / 2, spaceHeight / 4,
                 10, 10,
-                10, 52, 3,
+                100, 52, 3,
                 0.4f, 4, 50, 0.5f,
                 userShipTR, userArmorTR, userLaserTR);
 
@@ -310,10 +307,7 @@ public class GameScreen implements Screen {
                 gunListIterator.remove();
                 if (userShip.getHealth() <= 0) {
                     destroyings.add(new Destroying(explosionTexture, new Rectangle(userShip.objectShape), 1.6f));
-
-                    pause();
-
-
+                    dispose();
                 }
             }
         }
