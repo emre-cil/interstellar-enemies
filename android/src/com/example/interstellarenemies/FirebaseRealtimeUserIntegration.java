@@ -21,16 +21,17 @@ public class FirebaseRealtimeUserIntegration {
                     DatabaseReference childRef = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
                     //childRef.child("friends").child("0").setValue("supportCenterId");
                     //childRef.child("invites").child("0").setValue("supportCenterId");
-                    childRef.child("money").setValue("1000");
+                    childRef.child("money").setValue("500000");
+                    childRef.child("ship_count").setValue("1");
                     childRef.child("status").setValue("offline");
                     childRef.child("high_score").setValue("0");
-                    childRef.child("games_won").setValue("0");
                     String username = user.getEmail();
                     if (username == null) username = "";
                     username = email2userName(username);
                     childRef.child("name").setValue(username);
                     childRef.child("rank").setValue("0");
-                    childRef.child("ships").child("default_ship").setValue("using");
+                    childRef.child("current_ship").setValue("ship");
+                    childRef.child("ships").child("ship").setValue("700004");
                 }
             }
 

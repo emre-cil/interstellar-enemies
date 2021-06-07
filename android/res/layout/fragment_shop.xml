@@ -330,12 +330,13 @@
             android:paddingTop="1dp"
             android:paddingRight="5dp"
             android:paddingBottom="1dp"
-            android:src="@drawable/space_ship_1"
+            android:src="@drawable/ship"
             app:layout_constraintBottom_toBottomOf="@+id/hangarBackgroundText"
             app:layout_constraintHeight_percent="0.08"
             app:layout_constraintStart_toStartOf="@+id/hangarBackgroundText"
             app:layout_constraintTop_toTopOf="@+id/hangarBackgroundText"
-            app:layout_constraintWidth_percent="0.14" />
+            app:layout_constraintWidth_percent="0.14"
+           />
 
         <ImageView
             android:id="@+id/hangar2"

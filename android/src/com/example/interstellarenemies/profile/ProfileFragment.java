@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
     NavigationView navigationView;
-    TextView userName,userID;
+    TextView userName,userID,shipCount;
     Button friendsButt, invitesButt;
 
     @Override
@@ -58,6 +58,7 @@ public class ProfileFragment extends Fragment {
         userID = getActivity().findViewById(R.id.profile_userID);
         friendsButt = getActivity().findViewById(R.id.profile_friends_button);
         invitesButt = getActivity().findViewById(R.id.profile_invites_button);
+        shipCount = getActivity().findViewById(R.id.profile_ships);
 
         //click to friends button
         changeButtonColor("#ED8200", "#FED123", R.id.profile_friends_button, new FriendsFragment());
@@ -112,6 +113,7 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userName.setText(snapshot.child("name").getValue().toString());
                 userID.setText(user.getUid().substring(0,8));
+                shipCount.setText(snapshot.child("ship_count").getValue().toString());
             }
 
             @Override
