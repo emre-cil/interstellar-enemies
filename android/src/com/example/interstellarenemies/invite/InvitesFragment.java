@@ -90,7 +90,9 @@ public class InvitesFragment extends Fragment {
             dialogText = addFriendDialog.findViewById(R.id.DialogText);
             dialogText.setText("Do you want to add\n " + invList.get(position).username + " as a friend?");
             acceptBut.setOnClickListener((View v) -> {
-                rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(UUID.randomUUID().toString());
+                String newID = UUID.randomUUID().toString();
+                rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(newID);
+                rootRef.child(invList.get(position).userID).child("friends").child(user.getUid()).setValue(newID);
                 rootRef.child(user.getUid()).child("invites").child(invList.get(position).userID).removeValue();
                 invList.remove(invList.get(position));
                 adapter.addAll(invList);
