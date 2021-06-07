@@ -53,7 +53,7 @@ public class CreatePlanetFragment extends Fragment {
             } else {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                String id = UUID.randomUUID().toString().substring(0, 16);
+                String id = FirebaseDatabase.getInstance().getReference("planets/").push().getKey();
                 DatabaseReference childRef = FirebaseDatabase.getInstance().getReference().child("planets/" + id);
                 childRef.child("max_users").setValue(Integer.toString(intMaxUsers));
                 childRef.child("name").setValue(strPlanetName);
