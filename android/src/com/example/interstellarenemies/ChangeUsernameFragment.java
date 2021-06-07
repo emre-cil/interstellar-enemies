@@ -77,7 +77,7 @@ public class ChangeUsernameFragment extends Fragment {
             if (foundSameName)
                 Snackbar.make(getView(), "The username has already taken.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            else if (name.length() > 6) {
+            else if (name.length() > 6 && name.length() < 20) {
                 childRef.child("name").setValue(name);
             } else
                 Snackbar.make(getView(), "The username is too small.", Snackbar.LENGTH_LONG)
