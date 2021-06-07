@@ -8,6 +8,7 @@ import android.view.*;
 import android.widget.ListView;
 
 import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.messages.conv.MessagesConvFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -73,9 +74,11 @@ public class MessagesUserListFragment extends Fragment {
 
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             getActivity().getIntent().putExtra(
-                    "fragment::messages::user::id", messagesList.get(position).userid);
-//            getActivity().getSupportFragmentManager().beginTransaction().replace(
-//                    R.id.fragment_container, new MessagesConversationFragment()).commit();
+                    "fragment::messages::receiver::id", messagesList.get(position).userid);
+            getActivity().getIntent().putExtra(
+                    "fragment::messages::planet::id", "");
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.fragment_container, new MessagesConvFragment()).commit();
         });
 
         return ret_view;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/messages_profile_image"
+        android:src="@mipmap/ic_launcher"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/messages_profile_image"
+        android:layout_marginLeft="5dp"
+        android:text="Hello World"
+        android:id="@+id/messages_show_message"
+        android:background="@color/black.dark"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:color="@color/ic_background_color"/>
+
+</RelativeLayout>

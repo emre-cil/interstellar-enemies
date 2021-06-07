@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.*;
 import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.messages.conv.MessagesConvFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,13 +86,10 @@ public class JoinPlanetFragment extends Fragment {
 
         lv.setOnItemClickListener((parent, view, position, id) -> {
             JoinListObject jlo = listItems.get(position);
-            Snackbar.make(view,
-                    String.format("name: %s, id: %s, max_players: %s, playing: %s",
-                            jlo.name,
-                            jlo.id,
-                            jlo.max_users,
-                            jlo.playing
-                    ), Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            getActivity().getIntent().putExtra("fragment::messages::receiver::id", FirebaseAuth.getInstance().getCurrentUser().getUid());
+            getActivity().getIntent().putExtra("fragment::messages::planet::id", jlo.id);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new MessagesConvFragment()).commit();
         });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

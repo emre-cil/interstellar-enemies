@@ -18,6 +18,7 @@ import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.UUID;
 
 public class InvitesFragment extends Fragment {
 
@@ -89,7 +90,7 @@ public class InvitesFragment extends Fragment {
             dialogText = addFriendDialog.findViewById(R.id.DialogText);
             dialogText.setText("Do you want to add\n " + invList.get(position).username + " as a friend?");
             acceptBut.setOnClickListener((View v) -> {
-                rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue("accepted");
+                rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(UUID.randomUUID().toString());
                 rootRef.child(user.getUid()).child("invites").child(invList.get(position).userID).removeValue();
                 invList.remove(invList.get(position));
                 adapter.addAll(invList);
