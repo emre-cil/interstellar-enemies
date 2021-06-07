@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.messages.conv.MessagesConvFragment;
+import com.example.interstellarenemies.planet.join.JoinListObject;
 import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -58,9 +60,10 @@ public class CreatePlanetFragment extends Fragment {
                 childRef.child("playing").setValue("false");
                 childRef.child("users").child("0").setValue(user.getUid());
 
-                // TODO: Go to waiting room.
+                getActivity().getIntent().putExtra("fragment::messages::receiver::id", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                getActivity().getIntent().putExtra("fragment::messages::planet::id", id);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new JoinPlanetFragment()).commit();
+                        new MessagesConvFragment()).commit();
             }
 
         });
