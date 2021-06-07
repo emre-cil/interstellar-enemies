@@ -30,7 +30,7 @@ public class FirebaseRealtimeUserIntegration {
                     username = email2userName(username);
                     childRef.child("name").setValue(username);
                     childRef.child("rank").setValue("0");
-                    childRef.child("ships").child("0").setValue("ship1");
+                    childRef.child("ships").child("default_ship").setValue("using");
                 }
             }
 

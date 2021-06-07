@@ -149,7 +149,7 @@
             app:layout_constraintWidth_percent="0.35" />
 
         <Button
-            android:id="@+id/ship2_button2"
+            android:id="@+id/ship4_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/vt323"
@@ -163,12 +163,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.07"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/ship1_button3"
+            app:layout_constraintStart_toEndOf="@+id/ship3_button"
             app:layout_constraintTop_toBottomOf="@+id/ship4background"
             app:layout_constraintWidth_percent="0.35" />
 
         <Button
-            android:id="@+id/ship1_button3"
+            android:id="@+id/ship3_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/vt323"
@@ -179,7 +179,7 @@
             app:cornerRadius="0sp"
             app:icon="@drawable/ethereum_brands_1"
             app:iconTint="@color/yellow"
-            app:layout_constraintEnd_toStartOf="@+id/ship2_button2"
+            app:layout_constraintEnd_toStartOf="@+id/ship4_button"
             app:layout_constraintHeight_percent="0.07"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
