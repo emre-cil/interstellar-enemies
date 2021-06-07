@@ -12,7 +12,6 @@
         android:id="@+id/textMessagesUserList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:fontFamily="@font/vt323"
         android:gravity="center"
         android:text="Messages"
@@ -29,19 +28,19 @@
 
     <ListView
         android:id="@+id/MessagesUserList_ListView"
-        android:layout_width="294dp"
-        android:layout_height="456dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
 
         android:background="@color/black.light"
         android:divider="@color/black"
         android:dividerHeight="13.0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.65"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMessagesUserList"
-        app:layout_constraintVertical_bias="0.23"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.8"
         tools:layout_conversion_absoluteHeight="0dp"
         tools:layout_conversion_absoluteWidth="0dp" />

@@ -8,8 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 abstract class Ship {
 
     //ship characteristics
-    float shipSpeed;  //world units per second
-    int armor;
+    float shipSpeed,armor;  //world units per second
 
     //position & dimension
     Rectangle objectShape;
@@ -23,7 +22,7 @@ abstract class Ship {
     //graphics
     TextureRegion shipTR, armorTR, gunTR;
 
-    public Ship(float middleX, float middleY, float width, float height, float speed, int armor,
+    public Ship(float middleX, float middleY, float width, float height, float speed, float armor,
                 float laserWidth, float gunHeight, float gunSpeed, float shootTime,
                 TextureRegion shipTR, TextureRegion armorTR, TextureRegion gunTR) {
         this.shipSpeed = speed;

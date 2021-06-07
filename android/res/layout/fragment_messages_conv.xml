@@ -18,16 +18,17 @@
         />
 
     <EditText
+        android:id="@+id/messages_edit_text"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/white"
-        android:hint="Type a message.."
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey"
+        android:contentDescription="type message"
+        android:hint="Type a message..."
         android:paddingLeft="10dp"
         android:paddingRight="50dp"
-        android:id="@+id/messages_edit_text"
-        android:layout_alignParentBottom="true"
-        android:contentDescription="type message"
-        />
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/black" />
 
     <ImageButton
         android:layout_width="40dp"

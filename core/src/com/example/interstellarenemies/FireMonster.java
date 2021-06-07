@@ -12,7 +12,7 @@ public class FireMonster extends Ship {
     float directionChangeFrequency = 0.75f;
 
 
-    public FireMonster(float middleX, float middleY, float width, float height, float monsterSpeed, int armor,
+    public FireMonster(float middleX, float middleY, float width, float height, float monsterSpeed, float armor,
                      float fireWidth, float fireHeight, float fireSpeed, float shootTime,
                      TextureRegion monsterTR, TextureRegion armorTR, TextureRegion fireTR) {
         super(middleX, middleY, width, height, monsterSpeed, armor, fireWidth, fireHeight, fireSpeed,

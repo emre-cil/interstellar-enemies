@@ -16,7 +16,15 @@ public class SinglePlayerPage extends AndroidApplication{
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-        initialize(new GamePage(), config);
+
+        //will be change for now it is static
+        String shipName = "ship4";
+        int laserCount = 2;
+        int health = 100;
+        int armor= 2;
+        int shipSpeed= 65;
+
+        initialize(new GamePage(shipName,laserCount,health,armor,shipSpeed), config);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 

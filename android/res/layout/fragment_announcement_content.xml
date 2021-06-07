@@ -15,26 +15,28 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/vt323"
         android:text="TextView"
+        android:textAlignment="center"
         android:textColor="@color/yellow"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/ann_content_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ann_content_content"
-        android:layout_width="333dp"
-        android:layout_height="514dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/vt323"
         android:text="@string/hello_blank_fragment"
-        android:textColor="@color/white"
+        android:textColor="@color/white.absolute"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
+        app:layout_constraintTop_toBottomOf="@+id/ann_content_header"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

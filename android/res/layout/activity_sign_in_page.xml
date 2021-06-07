@@ -151,6 +151,7 @@
         android:fontFamily="@font/vt323"
         android:text="@string/sign_in"
         android:textSize="23sp"
+        app:cornerRadius="0sp"
         app:backgroundTint="@color/purple"
         app:layout_constraintBottom_toTopOf="@+id/textNoAccount2"
         app:layout_constraintEnd_toEndOf="parent"

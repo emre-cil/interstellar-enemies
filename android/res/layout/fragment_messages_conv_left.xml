@@ -10,17 +10,18 @@
         android:layout_height="40dp"
         android:id="@+id/messages_profile_image"
         android:src="@mipmap/ic_launcher"/>
-    
+
     <TextView
+        android:id="@+id/messages_show_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/messages_profile_image"
         android:layout_marginLeft="5dp"
-        android:text="Hello World"
-        android:id="@+id/messages_show_message"
-        android:background="@color/black.dark"
-        android:textColor="@color/white"
+        android:layout_toRightOf="@id/messages_profile_image"
+        android:background="@color/purple"
+        android:color="@color/ic_background_color"
         android:padding="10dp"
-        android:color="@color/ic_background_color"/>
+        android:text="Hello World"
+        android:textColor="@color/yellow"
+        android:textStyle="bold" />
 
 </RelativeLayout>

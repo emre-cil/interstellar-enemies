@@ -3,12 +3,12 @@ package com.example.interstellarenemies;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 class UserShip extends Ship {
-    private int health;
+    private float health;
 
-    public UserShip(float middleX, float middleY, float width, float height, int health,float shipSpeed,
-                    int shield, float laserWidth, float laserHeight, float laserSpeed,
+    public UserShip(float middleX, float middleY, float width, float height, float health,float shipSpeed,
+                    float armor, float laserWidth, float laserHeight, float laserSpeed,
                     float shootTime, TextureRegion shipTR, TextureRegion armorTR, TextureRegion laserTR) {
-        super(middleX, middleY, width, height, shipSpeed, shield, laserWidth, laserHeight,
+        super(middleX, middleY, width, height, shipSpeed, armor, laserWidth, laserHeight,
                 laserSpeed, shootTime, shipTR, armorTR, laserTR);
         this.health =health;
     }
@@ -25,10 +25,10 @@ class UserShip extends Ship {
         lastShootTime = 0;
         return laser;
     }
-    public int getHealth() {
+    public float getHealth() {
         return health;
     }
-    public void setHealth(int health) {
+    public void setHealth(float health) {
         this.health = health;
     }
 }

@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
     NavigationView navigationView;
-    TextView userName;
+    TextView userName,userID;
     Button friendsButt, invitesButt;
 
     @Override
@@ -55,6 +55,7 @@ public class ProfileFragment extends Fragment {
         refreshName();
 
         userName = getActivity().findViewById(R.id.profileUserName);
+        userID = getActivity().findViewById(R.id.profile_userID);
         friendsButt = getActivity().findViewById(R.id.profile_friends_button);
         invitesButt = getActivity().findViewById(R.id.profile_invites_button);
 
@@ -110,6 +111,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userName.setText(snapshot.child("name").getValue().toString());
+                userID.setText(user.getUid().substring(0,8));
             }
 
             @Override

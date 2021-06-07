@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".planet.create.CreatePlanetFragment">
 
     <TextView
@@ -78,6 +79,7 @@
         android:text=" create planet"
         android:textSize="24sp"
         app:backgroundTint="@color/purple"
+        app:cornerRadius="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.09"

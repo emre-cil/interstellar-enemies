@@ -79,28 +79,6 @@
             app:layout_constraintWidth_percent="0.85"
             tools:ignore="TextViewEdits" />
 
-        <Button
-            android:id="@+id/changeEmailButton"
-            android:layout_width="0sp"
-            android:layout_height="0dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/vt323"
-            android:shadowColor="@color/black"
-            android:text="@string/change_email"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/yellow"
-            android:textSize="35sp"
-            app:backgroundTint="@color/black.dark"
-            app:cornerRadius="0sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/changePasswordButton"
-            app:layout_constraintWidth_percent="0.85"
-            tools:ignore="TextViewEdits" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

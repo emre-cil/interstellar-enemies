@@ -24,6 +24,10 @@ import java.util.Locale;
 
 public class GameScreen implements Screen {
 
+   private  String shipName;
+    private float laserCount,health,armor,shipSpeed;
+
+
 
     //objects
     private UserShip userShip;
@@ -63,8 +67,12 @@ public class GameScreen implements Screen {
     BitmapFont font;
     float hudVerticalMargin, hudLeftX, hudRightX, hudCentreX, hudRow1Y, hudRow2Y, hudSectionWidth;
 
-    GameScreen() {
-
+    GameScreen(String shipName, float laserCount, float health, float armor,float shipSpeed) {
+        this.shipName = shipName;
+        this.laserCount = laserCount;
+        this.health = health;
+        this.armor = armor;
+        this.shipSpeed = shipSpeed;
         screenCamera = new OrthographicCamera();
         vPort = new StretchViewport(spaceWidth, spaceHeight, screenCamera);
 
@@ -80,7 +88,7 @@ public class GameScreen implements Screen {
         backgrounds[1] = textureAtlas.findRegion("Starscape01");
 
         //object images.
-        userShipTR = textureAtlas.findRegion("ship4");
+        userShipTR = textureAtlas.findRegion(shipName);
         monsterTR = textureAtlas.findRegion("santelmo");
         userArmorTR = textureAtlas.findRegion("shield2");
         monsterArmorTR = textureAtlas.findRegion("shield1");
@@ -92,8 +100,8 @@ public class GameScreen implements Screen {
 
         //set up game objects
         userShip = new UserShip(spaceWidth / 2, spaceHeight / 4,
-                10, 10,
-                100, 52, 3,
+                10, 10,health,shipSpeed
+                , armor,
                 0.4f, 4, 50, 0.5f,
                 userShipTR, userArmorTR, userLaserTR);
 
@@ -142,8 +150,8 @@ public class GameScreen implements Screen {
         font.draw(batch, "Health", hudRightX, hudRow1Y, hudSectionWidth, Align.right, false);
         //render second row values
         font.draw(batch, String.format(Locale.getDefault(), "%06d", score), hudLeftX, hudRow2Y, hudSectionWidth, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%02d", userShip.armor), hudCentreX, hudRow2Y, hudSectionWidth, Align.center, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%02d", userShip.getHealth()), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%02d", (int) userShip.armor), hudCentreX, hudRow2Y, hudSectionWidth, Align.center, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%02d",(int) userShip.getHealth()), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
 
     }
 

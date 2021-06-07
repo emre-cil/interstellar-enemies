@@ -94,6 +94,7 @@ public class InvitesFragment extends Fragment {
                 rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(newID);
                 rootRef.child(invList.get(position).userID).child("friends").child(user.getUid()).setValue(newID);
                 rootRef.child(user.getUid()).child("invites").child(invList.get(position).userID).removeValue();
+            //need to change
                 invList.remove(invList.get(position));
                 adapter.addAll(invList);
                 mListView.setAdapter(adapter);

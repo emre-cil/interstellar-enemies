@@ -27,6 +27,7 @@
         android:id="@+id/resetEmailEdit"
         android:layout_width="300sp"
         android:layout_height="60sp"
+        android:backgroundTint="@color/yellow"
         android:ems="10"
         android:fontFamily="@font/vt323"
         android:hint="@string/e_mail"
@@ -34,7 +35,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:textColor="@color/white.absolute"
+        android:textColor="@color/yellow"
         android:textColorHint="@color/green"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/changeUsernameFragmentBut"
@@ -46,14 +47,17 @@
 
     <Button
         android:id="@+id/changeUsernameFragmentBut"
-        android:layout_width="195dp"
-        android:layout_height="71dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="144dp"
         android:fontFamily="@font/vt323"
         android:text="@string/send_code"
-        android:textSize="30sp"
+        android:textSize="27sp"
         app:backgroundTint="@color/purple"
+        app:cornerRadius="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
