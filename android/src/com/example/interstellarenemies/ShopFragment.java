@@ -90,7 +90,6 @@ public class ShopFragment extends Fragment {
                     hangarList.get(i).setImageResource(getResources().getIdentifier(shipList.get(i), "drawable", getActivity().getPackageName()));
                 }
                 shipCount = shipList.size();
-                System.out.println(shipCount+"ondatachange ship count");
                 dbRef.child("ship_count").setValue(shipCount+1);
                 shipList.clear();
 
@@ -141,7 +140,7 @@ public class ShopFragment extends Fragment {
         getActivity().findViewById(R.id.hangar1).setOnClickListener((View v) -> {
             selectShip(dbRef, "ship");
         });
-        System.out.println(shipCount);
+
 
 
     }

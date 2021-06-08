@@ -80,19 +80,19 @@ public class GameScreen implements Screen {
         bgrMaxScrollSpeed = (float) (spaceHeight) / 4;
 
         //image importing.
-        textureAtlas = new TextureAtlas("images.atlas");
+        textureAtlas = new TextureAtlas("objects.atlas");
 
         //background images
         backgrounds = new TextureRegion[2];
-        backgrounds[0] = textureAtlas.findRegion("blackSpace");
-        backgrounds[1] = textureAtlas.findRegion("Starscape01");
+        backgrounds[0] = textureAtlas.findRegion("blackBackGround");
+        backgrounds[1] = textureAtlas.findRegion("stars");
 
         //object images.
         userShipTR = textureAtlas.findRegion(shipName);
-        monsterTR = textureAtlas.findRegion("santelmo");
+        monsterTR = textureAtlas.findRegion("fireMonster");
         userArmorTR = textureAtlas.findRegion("shield2");
         monsterArmorTR = textureAtlas.findRegion("shield1");
-        userLaserTR = textureAtlas.findRegion("laserGreen03");
+        userLaserTR = textureAtlas.findRegion("laserGreen");
         monsterFire = textureAtlas.findRegion("fire");
         explosionTexture = new Texture("destroy.png");
 
