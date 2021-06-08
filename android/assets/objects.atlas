@@ -1,0 +1,104 @@
+
+objects.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+blackBackGround
+  rotate: false
+  xy: 1084, 1529
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+fire
+  rotate: false
+  xy: 1084, 1787
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+fireMonster
+  rotate: false
+  xy: 1342, 1529
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+laserGreen
+  rotate: false
+  xy: 1084, 954
+  size: 9, 57
+  orig: 9, 57
+  offset: 0, 0
+  index: -1
+laserRed
+  rotate: false
+  xy: 1342, 1232
+  size: 9, 37
+  orig: 9, 37
+  offset: 0, 0
+  index: -1
+shield1
+  rotate: false
+  xy: 1858, 1935
+  size: 133, 108
+  orig: 133, 108
+  offset: 0, 0
+  index: -1
+shield2
+  rotate: false
+  xy: 2, 2
+  size: 143, 119
+  orig: 143, 119
+  offset: 0, 0
+  index: -1
+shield3
+  rotate: false
+  xy: 1600, 1648
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+ship
+  rotate: false
+  xy: 1600, 1787
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+ship1
+  rotate: false
+  xy: 1084, 1013
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+ship2
+  rotate: false
+  xy: 1342, 1787
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+ship3
+  rotate: false
+  xy: 1342, 1271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+ship4
+  rotate: false
+  xy: 1084, 1271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+stars
+  rotate: false
+  xy: 2, 123
+  size: 1080, 1920
+  orig: 1080, 1920
+  offset: 0, 0
+  index: -1
