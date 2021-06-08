@@ -15,19 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1078205186136-21ppaqhfc6nf494clea0oiho0fkgcurg.apps.googleusercontent.com",
+          "client_id": "1078205186136-16kc16u69qrh7jr3mn877k32j6e64t06.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.interstellarenemies",
-            "certificate_hash": "3b45056e6f7628df44e98f389f5c0711840ec160"
-          }
-        },
-        {
-          "client_id": "1078205186136-m90eu0p04rcb3cchi5hckqip5hikifcs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.interstellarenemies",
-            "certificate_hash": "464f80d3849db29a9531ac09cf3be02fc2bc9706"
+            "certificate_hash": "292367812435f6afa9f7c6922387cf7b8e35b954"
           }
         },
         {

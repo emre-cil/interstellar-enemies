@@ -41,6 +41,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     static NavigationView navigationView;
     Toolbar toolbar;
     static boolean doubleBackToExitPressedOnce = false;
+    String lastId;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -48,14 +49,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        Intent goMain = new Intent(this, MainActivity.class);
+
         TextView logout = findViewById(R.id.logout);
 
         logout.setOnClickListener((View v) -> {
+            lastId = MainActivity.getmAuth().getUid();
+            Intent goMain = new Intent(this, MainActivity.class);
             MainActivity.getmAuth().signOut();
             MainActivity.getmGoogleSignInClient().signOut();
             FirebaseAuth.getInstance().signOut();
             startActivity(goMain);
+
         });
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -146,8 +150,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     protected void onPause() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("offline");
+        FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
         super.onPause();
     }
 

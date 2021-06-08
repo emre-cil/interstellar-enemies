@@ -45,15 +45,10 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
 
-        Intent homePage = new Intent(this, HomePage.class);
-        homePage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        homePage.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
 
         //checks if user already sign in
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(homePage);
-            finish();
-        }
+
         initGoogleSign();
     }
 
@@ -72,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
 
         View view = getWindow().getDecorView();
         view.setSystemUiVisibility(SYSTEM_UI_FLAG_FULLSCREEN);
+
+        Intent homePage = new Intent(this, HomePage.class);
+
+        if (mAuth.getCurrentUser() != null) {
+            homePage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            homePage.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(homePage);
+            finish();
+        }
     }
 
     public void goToPage(Class<?> o) {

@@ -2,15 +2,12 @@ package com.example.interstellarenemies.profile;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.*;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.ShopFragment;
 import com.example.interstellarenemies.friends.FriendsFragment;
@@ -24,11 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class ProfileFragment extends Fragment {
     NavigationView navigationView;
     TextView userName,userID,shipCount;
     Button friendsButt, invitesButt;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,33 +72,25 @@ public class ProfileFragment extends Fragment {
         //add friend button function
         getActivity().findViewById(R.id.addFriendBut).setOnClickListener((View v) -> {
             EditText enterUsername = getActivity().findViewById(R.id.invite_player_editText);
-            String playerName = enterUsername.getText().toString();
+            final String[] playerName = {enterUsername.getText().toString()};
 
-
-            /**
-             * TODO: burda ne oluyo kullanilmayanlar var duzenlemesi lazim dikkatli
-             */
             DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users");
             dbRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot usersTable : snapshot.getChildren()) {
                         String key = usersTable.getKey();
-                        if (playerName.equals(usersTable.child("name").getValue()) && !playerName.equals(userName.getText().toString()))
+                        if (playerName[0].equals(usersTable.child("name").getValue()) && !playerName[0].equals(userName.getText().toString())) {
+                        playerName[0] = "";
                             FirebaseDatabase.getInstance().getReference().child("users").child(key).child("invites").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue("request done");
-                    }
-                }
 
+                        }}
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
                 }
             });
-
-
         });
-
-
     }
 
     public void refreshName() {
