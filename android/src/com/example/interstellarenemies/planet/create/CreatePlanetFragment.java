@@ -50,6 +50,9 @@ public class CreatePlanetFragment extends Fragment {
             } else if (strPlanetName.length() <= 5) {
                 Snackbar.make(ret_view, "Please enter a longer name for your planet.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();}
+            else if (strPlanetName.length() > 40) {
+                Snackbar.make(ret_view, "Please enter a shorter name for your planet.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();}
               else if (intMaxUsers > 16) {
                     Snackbar.make(ret_view, "Max user is 16.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();

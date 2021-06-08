@@ -43,7 +43,7 @@ public class FireMonster extends Ship {
 
 
     @Override
-    public Gun[] guns() {
+    public Gun[] guns(int laserCount) {
         Gun[] fire = new Gun[1];
         fire[0] = new Gun(objectShape.x + objectShape.width / 2 , objectShape.y - gunHeight,
                 gunWidth, gunHeight,

@@ -37,7 +37,7 @@ public class FriendsFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         View ret_view = inflater.inflate(R.layout.fragment_friends, container, false);
         mListView = (ListView) ret_view.findViewById(R.id.friendsListView);
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("friends");
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
         adapter = new FriendsAdapter(getActivity(),R.layout.listview_image_item, listItems);
         mListView.setAdapter(adapter);
 
@@ -45,14 +45,17 @@ public class FriendsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 LinkedList<FriendsObject> annListNew = new LinkedList<>();
-                for (DataSnapshot friendsTable : snapshot.getChildren()) {
+
+                for (DataSnapshot friendsTable : snapshot.child("friends").getChildren()) {
                     String ID = friendsTable.getKey();
-                    DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference("users/").child(ID + "/").child("name");
+
+                    DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference("users").child(ID);
                     keyRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshotInside) {
-                            String name = snapshotInside.getValue().toString();
-                            annListNew.add(new FriendsObject(name, "offline", ID));
+                            String name = snapshotInside.child("name").getValue().toString();
+                            String status = snapshotInside.child("status").getValue().toString();
+                            annListNew.add(new FriendsObject(name, status, ID));
                             adapter.clear();
                             frList = annListNew;
                             adapter.addAll(frList);

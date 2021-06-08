@@ -35,8 +35,8 @@ import com.google.firebase.database.ValueEventListener;
  * Bu sayfa artik fragmentlarin kontrolu icin kullaniliyor.
  */
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-   static FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-   static DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
+    static FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    static DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
     DrawerLayout drawerLayout;
     static NavigationView navigationView;
     Toolbar toolbar;
@@ -94,10 +94,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     private void goFragment(Fragment f) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
     }
-    public static void refreshHeader(){
-        TextView headerUserName =  navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
+
+    public static void refreshHeader() {
+        TextView headerUserName = navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/"+user.getUid());
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -143,6 +144,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
+    @Override
+    protected void onPause() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("offline");
+        super.onPause();
+    }
 
     @Override
     public void onBackPressed() {
@@ -153,6 +160,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         } else {
 
             if (doubleBackToExitPressedOnce) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("offline");
                 super.onBackPressed();
                 return;
             } else

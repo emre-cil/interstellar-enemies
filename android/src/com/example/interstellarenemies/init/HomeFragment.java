@@ -40,7 +40,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("online");
 
         /*
          * TODO: sayfalarda geri donus olmayacak.
@@ -56,14 +57,12 @@ public class HomeFragment extends Fragment {
 
         //go single player page
         singlePlayerBut.setOnClickListener((View v) -> {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseDatabase rootRef = FirebaseDatabase.getInstance();
-
             rootRef.getReference("users").child(user.getUid()).child("current_ship").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String shipName = snapshot.getValue().toString();
-                    System.out.println(shipName + "------------------------------------value");
+
                     rootRef.getReference().child("ships").child(shipName).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,16 +75,13 @@ public class HomeFragment extends Fragment {
                             goSinglePlayer.putExtra("armor", armor);
                             goSinglePlayer.putExtra("ship_speed", shipSpeed);
                             goSinglePlayer.putExtra("ship_name", shipName);
-
                             startActivity(goSinglePlayer);
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
-
                 }
 
                 @Override
@@ -108,5 +104,15 @@ public class HomeFragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new CreatePlanetFragment()).commit();
         });
+
+        getActivity().findViewById(R.id.walkthroughBut).setOnClickListener((View v) -> {
+            goSinglePlayer.putExtra("laser_count", "1");
+            goSinglePlayer.putExtra("health", "50");
+            goSinglePlayer.putExtra("armor", "3");
+            goSinglePlayer.putExtra("ship_speed", "50");
+            goSinglePlayer.putExtra("ship_name", "ship");
+            startActivity(goSinglePlayer);
+        });
+
     }
 }

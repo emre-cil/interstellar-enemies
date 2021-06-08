@@ -3,29 +3,21 @@ package com.example.interstellarenemies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
-import android.widget.Button;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.example.interstellarenemies.init.MainActivity;
-import com.example.interstellarenemies.invite.InvitesObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.LinkedList;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SinglePlayerPage extends AndroidApplication {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("online");
+
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         Intent i = getIntent();
         String shipName = i.getStringExtra("ship_name");
@@ -40,6 +32,14 @@ public class SinglePlayerPage extends AndroidApplication {
         initialize(new GamePage(shipName, laserCount, health, armor, shipSpeed), config);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+    }
+
+    @Override
+    protected void onPause() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("offline");
+
+        super.onPause();
     }
 
 

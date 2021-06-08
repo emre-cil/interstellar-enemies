@@ -45,7 +45,7 @@ abstract class Ship {
         return (lastShootTime - shootTime >= 0);
     }
 
-    public abstract Gun[] guns();
+    public abstract Gun[] guns(int laserCount);
 
     public boolean intersects(Rectangle otherRectangle) {
         return objectShape.overlaps(otherRectangle);

@@ -24,9 +24,8 @@ import java.util.Locale;
 
 public class GameScreen implements Screen {
 
-   private  String shipName;
-    private float laserCount,health,armor,shipSpeed;
-
+    private String shipName;
+    private float laserCount, health, armor, shipSpeed;
 
 
     //objects
@@ -67,7 +66,7 @@ public class GameScreen implements Screen {
     BitmapFont font;
     float hudVerticalMargin, hudLeftX, hudRightX, hudCentreX, hudRow1Y, hudRow2Y, hudSectionWidth;
 
-    GameScreen(String shipName, float laserCount, float health, float armor,float shipSpeed) {
+    GameScreen(String shipName, float laserCount, float health, float armor, float shipSpeed) {
         this.shipName = shipName;
         this.laserCount = laserCount;
         this.health = health;
@@ -100,7 +99,7 @@ public class GameScreen implements Screen {
 
         //set up game objects
         userShip = new UserShip(spaceWidth / 2, spaceHeight / 4,
-                10, 10,health,shipSpeed
+                10, 10, health, shipSpeed
                 , armor,
                 0.4f, 4, 50, 0.5f,
                 userShipTR, userArmorTR, userLaserTR);
@@ -151,7 +150,7 @@ public class GameScreen implements Screen {
         //render second row values
         font.draw(batch, String.format(Locale.getDefault(), "%06d", score), hudLeftX, hudRow2Y, hudSectionWidth, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%02d", (int) userShip.armor), hudCentreX, hudRow2Y, hudSectionWidth, Align.center, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%02d",(int) userShip.getHealth()), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%02d", (int) userShip.getHealth()), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
 
     }
 
@@ -339,7 +338,7 @@ public class GameScreen implements Screen {
     private void renderGuns(float deltaTime) {
         //add user guns
         if (userShip.canFireLaser()) {
-            Gun[] lasers = userShip.guns();
+            Gun[] lasers = userShip.guns((int) laserCount);
             userLasers.addAll(Arrays.asList(lasers));
         }
 
@@ -348,7 +347,7 @@ public class GameScreen implements Screen {
         while (monsterListIterator.hasNext()) {
             FireMonster fireMonster = monsterListIterator.next();
             if (fireMonster.canFireLaser()) {
-                Gun[] fires = fireMonster.guns();
+                Gun[] fires = fireMonster.guns(1);
                 fireMonsterFires.addAll(Arrays.asList(fires));
             }
         }

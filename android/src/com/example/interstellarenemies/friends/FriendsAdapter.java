@@ -34,6 +34,7 @@ public class FriendsAdapter  extends ArrayAdapter<FriendsObject> {
         ImageView imageView = view.findViewById(R.id.ofllineImage);
         TextView textView = view.findViewById(R.id.friendsTextView);
         FriendsObject fo = getItem(position);
+        System.out.println(fo.status+"asdfffffffffffffffffff");
         if (fo.status.equals("online"))
             imageView.setImageResource(R.drawable.online);
         else
