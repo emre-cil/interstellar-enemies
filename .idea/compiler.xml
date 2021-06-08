@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="cse234-term-project-37.android" target="11" />
+      <module name="game.android" target="11" />
       <module name="gameTest.android" target="11" />
       <module name="ie.android" target="11" />
       <module name="Ienemies.android" target="11" />
