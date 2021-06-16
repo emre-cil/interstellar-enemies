@@ -96,6 +96,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
     private void goFragment(Fragment f) {
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
     }
 
@@ -150,7 +151,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     protected void onPause() {
-        FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
+//        FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
         super.onPause();
     }
 

@@ -1,18 +1,21 @@
 package com.example.interstellarenemies;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import java.util.Random;
 
-public class GamePage extends Game {
+public class GamePage extends Game implements ApplicationListener {
 	String shipName;
+	Transfer transfer;
 	float laserCount,health,armor,shipSpeed;
 
-	public GamePage(String shipName, float laserCount, float health, float armor,float shipSpeed) {
+	public GamePage(String shipName, float laserCount, float health, float armor,float shipSpeed,Transfer transfer) {
 		this.shipName = shipName;
 		this.laserCount = laserCount;
 		this.health = health;
 		this.armor = armor;
 		this.shipSpeed = shipSpeed;
+		this.transfer = transfer;
 	}
 
 	GameScreen gameScreen;
@@ -20,7 +23,7 @@ public class GamePage extends Game {
 
 	@Override
 	public void create() {
-		gameScreen = new GameScreen(shipName,laserCount,health,armor,shipSpeed);
+		gameScreen = new GameScreen(shipName,laserCount,health,armor,shipSpeed,transfer);
 		setScreen(gameScreen);
 
 	}
@@ -30,6 +33,7 @@ public class GamePage extends Game {
 	@Override
 	public void dispose() {
 		gameScreen.dispose();
+
 	}
 
 	@Override

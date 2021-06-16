@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -21,9 +22,12 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Locale;
+import java.util.Random;
+import java.util.UUID;
 
 public class GameScreen implements Screen {
-
+    Transfer transfer;
+    UUID uuid;
     private String shipName;
     private float laserCount, health, armor, shipSpeed;
 
@@ -58,15 +62,15 @@ public class GameScreen implements Screen {
     private final float spaceHeight = 128;
     private float bgrHeight = spaceHeight * 2;
 
-    private boolean isPaused = false;
-
 
     //Screen HUD
     private int score = 0;
     BitmapFont font;
     float hudVerticalMargin, hudLeftX, hudRightX, hudCentreX, hudRow1Y, hudRow2Y, hudSectionWidth;
 
-    GameScreen(String shipName, float laserCount, float health, float armor, float shipSpeed) {
+    GameScreen(String shipName, float laserCount, float health, float armor, float shipSpeed, Transfer transfer) {
+        this.transfer = transfer;
+        uuid = UUID.randomUUID();
         this.shipName = shipName;
         this.laserCount = laserCount;
         this.health = health;
@@ -158,40 +162,40 @@ public class GameScreen implements Screen {
     @Override
     public void render(float deltaTime) {
         screenCamera.update();
-        if (!isPaused) {
-            batch.begin();
-            //scrolling background
-            renderBackground(deltaTime);
-            //screen touch.
-            touch(deltaTime);
-            userShip.syncTime(deltaTime);
 
-            spawnMonster(deltaTime);
+        batch.begin();
+        //scrolling background
+        renderBackground(deltaTime);
+        //screen touch.
+        touch(deltaTime);
+        userShip.syncTime(deltaTime);
 
-            ListIterator<FireMonster> monsterListIterator = fireMonsters.listIterator();
-            while (monsterListIterator.hasNext()) {
-                FireMonster fireMonster = monsterListIterator.next();
-                enemyMovement(fireMonster, deltaTime);
-                fireMonster.syncTime(deltaTime);
-                fireMonster.draw(batch);
-            }
-            //show user ship in screen.
-            userShip.draw(batch);
+        spawnMonster(deltaTime);
 
-            //lasers
-            renderGuns(deltaTime);
-
-            //when hit the ship do calculations
-            whenHitToShip();
-
-            //destroying.
-            renderDestroying(deltaTime);
-
-            //hud rendering
-            updateAndRenderHUD();
-
-            batch.end();
+        ListIterator<FireMonster> monsterListIterator = fireMonsters.listIterator();
+        while (monsterListIterator.hasNext()) {
+            FireMonster fireMonster = monsterListIterator.next();
+            enemyMovement(fireMonster, deltaTime);
+            fireMonster.syncTime(deltaTime);
+            fireMonster.draw(batch);
         }
+        //show user ship in screen.
+        userShip.draw(batch);
+
+        //lasers
+        renderGuns(deltaTime);
+
+        //when hit the ship do calculations
+        whenHitToShip();
+
+        //destroying.
+        renderDestroying(deltaTime);
+
+        //hud rendering
+        updateAndRenderHUD();
+
+        batch.end();
+
 
     }
 
@@ -307,14 +311,12 @@ public class GameScreen implements Screen {
                 //if destroyed.
                 if (userShip.checkArmor()) {
                     userShip.setHealth(userShip.getHealth() - 10);
-
                 }
-
-
                 gunListIterator.remove();
                 if (userShip.getHealth() <= 0) {
                     destroyings.add(new Destroying(explosionTexture, new Rectangle(userShip.objectShape), 1.6f));
-                    dispose();
+                    transfer.submitScore(score);
+                    batch.dispose();
                 }
             }
         }
@@ -394,19 +396,19 @@ public class GameScreen implements Screen {
 
     @Override
     public void pause() {
-        isPaused = true;
+
     }
 
 
     @Override
     public void dispose() {
-        batch.dispose();
+//        batch.dispose();
     }
 
 
     @Override
     public void resume() {
-        isPaused = false;
+
     }
 
     @Override
@@ -419,4 +421,13 @@ public class GameScreen implements Screen {
 
     }
 
+
 }
+
+
+
+interface Transfer {
+    public void submitScore( int score);
+}
+
+

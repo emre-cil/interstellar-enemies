@@ -74,6 +74,7 @@
     <string name="log_out"><u>Log out</u></string>
     <string name="reset_username">Reset Username</string>
     <string name="new_username">New Username</string>
+    <string name="playagain">Play Again</string>
 
 
 </resources>

@@ -1,55 +1,48 @@
-package com.example.interstellarenemies.init;
-
-import android.content.Intent;
-import android.os.Bundle;
+package com.example.interstellarenemies;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.*;
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.example.interstellarenemies.planet.create.CreatePlanetFragment;
-import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
-import com.example.interstellarenemies.R;
-import com.example.interstellarenemies.SinglePlayerPage;
+import com.example.interstellarenemies.init.HomePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class HomeFragment extends Fragment {
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-    public HomeFragment() {
-    }
+public class GameEndDialog extends AppCompatActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
+        setContentView(R.layout.activity_game_end_dialog);
+        int score = Integer.parseInt(getIntent().getStringExtra("score"));
+        Intent goSinglePlayer = new Intent(this, SinglePlayerPage.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("online");
 
-        Intent goSinglePlayer = new Intent(getActivity().getApplicationContext(), SinglePlayerPage.class);
+        Dialog gameEndDialog = new Dialog(this);
+        gameEndDialog.setContentView(R.layout.game_end_dialog);
+        Button acceptBut = gameEndDialog.findViewById(R.id.AcceptButton);
+        acceptBut.setText("play again");
+        //if click to accept button
+        TextView dialogText = gameEndDialog.findViewById(R.id.dialogText1);
+        TextView dialogText2 = gameEndDialog.findViewById(R.id.dialogText2);
+        dialogText2.setText("Your ship has been destroyed\nYour score is " + score );
+        dialogText.setText(  " Would you like to\n play another game?");
+        acceptBut.setOnClickListener((View v) -> {
 
-        Button singlePlayerBut = getActivity().findViewById(R.id.singlePlayerBut);
-        Button createPlanetBut = getActivity().findViewById(R.id.createAPlanetBut);
-
-        //go single player page
-        singlePlayerBut.setOnClickListener((View v) -> {
             FirebaseDatabase rootRef = FirebaseDatabase.getInstance();
             rootRef.getReference("users").child(user.getUid()).child("current_ship").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -82,23 +75,16 @@ public class HomeFragment extends Fragment {
                 }
 
             });
-
+            gameEndDialog.dismiss();
         });
 
-        //go join a planet page
-        getActivity().findViewById(R.id.joinAPlanetBut).setOnClickListener((View v) -> {
-            HomePage.doubleBackToExitPressedOnce = false;
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new JoinPlanetFragment()).commit();
+        //if click to cancel
+        gameEndDialog.findViewById(R.id.CancelButton).setOnClickListener((View v) -> {
+            Intent i = new Intent(this, HomePage.class);
+            i.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            gameEndDialog.dismiss();
         });
-
-        //go create a planet page
-        createPlanetBut.setOnClickListener((View v) -> {
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new CreatePlanetFragment()).commit();
-        });
-
-
-
+        gameEndDialog.show();
     }
 }

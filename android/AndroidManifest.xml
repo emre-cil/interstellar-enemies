@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
-
-
-        <activity android:name=".SinglePlayerPage"
+        <activity android:name=".GameEndDialog"></activity>
+        <activity
+            android:name=".SinglePlayerPage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".init.ResetPassPage"
@@ -27,27 +27,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".init.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
-
-    <!--        <activity-->
-    <!--            android:name=".AndroidLauncher"-->
-    <!--            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"-->
-    <!--            android:label="@string/app_name"-->
-    <!--            android:screenOrientation="landscape">-->
-    <!--            <intent-filter>-->
-    <!--                <action android:name="android.intent.action.MAIN" />-->
-
-    <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-    <!--            </intent-filter>-->
-    <!--        </activity>-->
-    <!--        android:theme="@style/GdxTheme">-->
-    <!--        android:appCategory="game"-->
-    <!--        android:isGame="true"-->
-
