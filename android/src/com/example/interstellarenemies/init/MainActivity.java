@@ -6,6 +6,7 @@ import android.view.*;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.interstellarenemies.FirebaseRealtimeUserIntegration;
@@ -15,8 +16,11 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 
@@ -45,10 +49,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
 
-
-
         //checks if user already sign in
-
         initGoogleSign();
     }
 
@@ -125,8 +126,23 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        FirebaseRealtimeUserIntegration.userAdd();
-                        startActivity(homePage);
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
+                        keyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshotInside) {
+                                if (snapshotInside.child("name").getValue() == null) {
+                                    FirebaseRealtimeUserIntegration.userAdd();
+                                }
+                                startActivity(homePage);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
+
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Snackbar.make(this.findViewById(android.R.id.content), task.getException().getMessage(), Snackbar.LENGTH_LONG)

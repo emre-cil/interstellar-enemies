@@ -78,8 +78,8 @@ public class SinglePlayerPage extends AndroidApplication implements Transfer {
                 int finalScore = Integer.parseInt(Objects.requireNonNull(snapshot.child("high_score").getValue(String.class)));
                 if (score > finalScore)
                     keyRef.child("high_score").setValue(score + "");
-                int totalMoney = Objects.requireNonNull(snapshot.child("money").getValue(Integer.class));
-                keyRef.child("money").setValue((totalMoney + score));
+                int totalMoney = Integer.parseInt(snapshot.child("money").getValue(String.class));
+                keyRef.child("money").setValue((totalMoney + score)+"");
             }
 
             @Override
