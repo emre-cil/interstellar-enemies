@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.os.*;
 import android.view.*;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.*;
 import androidx.appcompat.app.*;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-
 import com.example.interstellarenemies.*;
 import com.example.interstellarenemies.leaderboard.LeaderboardFragment;
 import com.example.interstellarenemies.messages.userlist.MessagesUserListFragment;
@@ -30,18 +27,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * This class is not actually HomePage anymore.
- * Bu sayfa artik fragmentlarin kontrolu icin kullaniliyor.
- */
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    static FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    static DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
-    DrawerLayout drawerLayout;
     static NavigationView navigationView;
-    Toolbar toolbar;
     static boolean doubleBackToExitPressedOnce = false;
-    String lastId;
+    private DrawerLayout drawerLayout;
+    private String lastId;
+    private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -49,17 +40,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-
         TextView logout = findViewById(R.id.logout);
-
+        lastId = MainActivity.getmAuth().getUid();
         logout.setOnClickListener((View v) -> {
-            lastId = MainActivity.getmAuth().getUid();
+            FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
             Intent goMain = new Intent(this, MainActivity.class);
             MainActivity.getmAuth().signOut();
             MainActivity.getmGoogleSignInClient().signOut();
             FirebaseAuth.getInstance().signOut();
             startActivity(goMain);
-
         });
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -84,22 +73,23 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         toggle.syncState();
 
-
+        //set homepage as a default on navigation.
         navigationView.setNavigationItemSelectedListener(this);
-
         if (savedInstanceState == null) {
             goFragment(new HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
+        //refresh the header username.
+        refreshHeader();
     }
 
-
+    //displays fragments.
     private void goFragment(Fragment f) {
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
     }
 
+    //refresh the user name on toolbar header.
     public static void refreshHeader() {
         TextView headerUserName = navigationView.getHeaderView(0).findViewById(R.id.toolbarHeaderUserName);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -144,14 +134,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
-        //refresh header
+
+        //refresh username.
         refreshHeader();
         return true;
     }
 
     @Override
     protected void onPause() {
-//        FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
+        FirebaseDatabase.getInstance().getReference().child("users").child(lastId).child("status").setValue("offline");
         super.onPause();
     }
 

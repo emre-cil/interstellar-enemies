@@ -18,7 +18,6 @@ import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.UUID;
 
 public class InvitesFragment extends Fragment {
 
@@ -30,10 +29,6 @@ public class InvitesFragment extends Fragment {
     private TextView dialogText;
     private Button acceptBut;
 
-
-    public InvitesFragment() {
-    }
-
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,13 +36,12 @@ public class InvitesFragment extends Fragment {
         addFriendDialog = new Dialog(getActivity());
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         View ret_view = inflater.inflate(R.layout.fragment_invites, container, false);
-        mListView = (ListView) ret_view.findViewById(R.id.invitesListView);
+        mListView = ret_view.findViewById(R.id.invitesListView);
         adapter = new InvitesAdapter(getActivity(), R.layout.list_item, listItems);
         mListView.setAdapter(adapter);
 
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("users");
-
         DatabaseReference messagesRef = rootRef.child(user.getUid()).child("invites");
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
@@ -71,7 +65,6 @@ public class InvitesFragment extends Fragment {
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                         }
-
                     });
                 }
             }
@@ -94,12 +87,11 @@ public class InvitesFragment extends Fragment {
                 rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(newID);
                 rootRef.child(invList.get(position).userID).child("friends").child(user.getUid()).setValue(newID);
                 rootRef.child(user.getUid()).child("invites").child(invList.get(position).userID).removeValue();
-            //need to change
+
                 adapter.clear();
                 invList.remove(invList.get(position));
                 adapter.addAll(invList);
                 mListView.setAdapter(adapter);
-
                 addFriendDialog.dismiss();
             });
 
@@ -112,8 +104,4 @@ public class InvitesFragment extends Fragment {
         return ret_view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 }

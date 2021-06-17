@@ -1,15 +1,15 @@
 package com.example.interstellarenemies.init;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.*;
 import android.view.*;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.interstellarenemies.FirebaseRealtimeUserIntegration;
+import com.example.interstellarenemies.LoadingPage;
 import com.example.interstellarenemies.R;
 import com.google.android.gms.auth.api.signin.*;
 import com.google.android.gms.common.api.ApiException;
@@ -21,13 +21,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
 
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1337;
     private static FirebaseAuth mAuth;
     private static GoogleSignInClient mGoogleSignInClient;
+    private String dbVersion, version;
 
     public static FirebaseAuth getmAuth() {
         return mAuth;
@@ -41,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //assign version from gradle.
+        try {
+            version = this.getPackageManager()
+                    .getPackageInfo(this.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
@@ -48,35 +59,13 @@ public class MainActivity extends AppCompatActivity {
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
-
-        //checks if user already sign in
         initGoogleSign();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-
-        //Email signIn Image
-        ImageView emailSignIn = findViewById(R.id.emailView);
-        emailSignIn.setOnClickListener((View v) -> goToPage(SignInPage.class));
-
-        //Google signIn Image
-        ImageView googleSignIn = findViewById(R.id.googleSignImage);
-        googleSignIn.setOnClickListener((View v) -> signInGoogle());
-
-        View view = getWindow().getDecorView();
-        view.setSystemUiVisibility(SYSTEM_UI_FLAG_FULLSCREEN);
-
-        Intent homePage = new Intent(this, HomePage.class);
-
-        if (mAuth.getCurrentUser() != null) {
-            homePage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            homePage.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(homePage);
-            finish();
-        }
+        isAlreadySign();
     }
 
     public void goToPage(Class<?> o) {
@@ -117,6 +106,50 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //controls if the user already sign the game.
+    private void isAlreadySign() {
+        if (mAuth.getCurrentUser() != null) {
+            Intent loadingPage = new Intent(this, LoadingPage.class);
+            startActivity(loadingPage);
+        }
+        Intent homePage = new Intent(this, HomePage.class);
+        //get version
+        DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference("version");
+        keyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snap) {
+                dbVersion = snap.getValue().toString();
+                //check if it is already login and version of app.
+                if (version.equals(dbVersion)) {
+                    if (mAuth.getCurrentUser() != null) {
+                        homePage.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(homePage);
+                        finish();
+                    }
+                    imageFunctions();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    //set images functions
+    private void imageFunctions() {
+        //Email signIn Image
+        ImageView emailSignIn = findViewById(R.id.emailView);
+        emailSignIn.setOnClickListener((View v) -> goToPage(SignInPage.class));
+
+        //Google signIn Image
+        ImageView googleSignIn = findViewById(R.id.googleSignImage);
+        googleSignIn.setOnClickListener((View v) -> signInGoogle());
+
+        View view = getWindow().getDecorView();
+        view.setSystemUiVisibility(SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         Intent homePage = new Intent(this, HomePage.class);
@@ -150,5 +183,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-    //===========================================================
+
 }

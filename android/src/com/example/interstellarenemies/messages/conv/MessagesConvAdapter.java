@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.interstellarenemies.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -21,11 +18,10 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
     public static final int MSG_TYPE_LEFT = 0;
     public static final int MSG_TYPE_RIGHT = 1;
     private Context context;
-    private String imageURL;
     private ArrayList<MessagesConvObject> aoList;
     FirebaseUser fuser;
 
-    public MessagesConvAdapter(Context context, ArrayList<MessagesConvObject> aoList, String imageURL) {
+    public MessagesConvAdapter(Context context, ArrayList<MessagesConvObject> aoList) {
         this.aoList = aoList;
         this.context = context;
     }
@@ -46,7 +42,6 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             show_message = itemView.findViewById(R.id.messages_show_message);
             profile_image = itemView.findViewById(R.id.messages_profile_image);
             userName = itemView.findViewById(R.id.msg_receiver_name);
@@ -74,7 +69,6 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
         holder.show_message.setText(msg.message);
         if (holder.getItemViewType() == MSG_TYPE_LEFT)
         holder.userName.setText(msg.userName);
-        // TODO: If we want to put images, its here.
     }
 
 
@@ -94,4 +88,3 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
         return aoList.size();
     }
 }
-

@@ -1,12 +1,10 @@
 package com.example.interstellarenemies.messages.userlist;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.ListView;
-
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.messages.conv.MessagesConvFragment;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,7 +13,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -24,9 +21,6 @@ public class MessagesUserListFragment extends Fragment {
     private LinkedList<MessagesUserListObject> messagesList = new LinkedList<>();
     private MessagesUserListAdapter adapter;
     private ListView mListView;
-
-    public MessagesUserListFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +32,7 @@ public class MessagesUserListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View ret_view = inflater.inflate(R.layout.fragment_messages, container, false);
 
-        mListView = (ListView) ret_view.findViewById(R.id.MessagesUserList_ListView);
+        mListView = ret_view.findViewById(R.id.MessagesUserList_ListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" +  FirebaseAuth.getInstance().getCurrentUser().getUid() + "/friends/");
         adapter = new MessagesUserListAdapter(getActivity(), R.layout.list_item, listItems);
         mListView.setAdapter(adapter);

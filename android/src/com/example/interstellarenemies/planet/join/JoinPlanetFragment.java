@@ -1,15 +1,12 @@
 package com.example.interstellarenemies.planet.join;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.*;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.messages.conv.MessagesConvFragment;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,7 +14,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.*;
 
 public class JoinPlanetFragment extends Fragment {
@@ -116,11 +112,7 @@ public class JoinPlanetFragment extends Fragment {
 
     private void getSearchResults(String query) {
         ArrayList<JoinListObject> filtered = new ArrayList<>();
-
-        // TODO:
-        //  Add extra search result matching with current players.
         for (JoinListObject jlo : planetList) {
-            // TODO: Not a must but fuzzy search would be really nice.
             if (jlo.name.toLowerCase().contains(query.toLowerCase())) {
                 filtered.add(jlo);
             } else if (jlo.id.toLowerCase().contains(query.toLowerCase())) {

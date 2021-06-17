@@ -56,7 +56,7 @@ public class MessagesConvFragment extends Fragment {
         myID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mRecyclerView = ret_view.findViewById(R.id.conv_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        adapter = new MessagesConvAdapter(getActivity(), listItems, "url://" /*TODO: If we are going to add images to the user, this is here */);
+        adapter = new MessagesConvAdapter(getActivity(), listItems);
         mRecyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
         mRecyclerView.setLayoutManager(llm);
@@ -81,8 +81,6 @@ public class MessagesConvFragment extends Fragment {
         } else {
             receiverMessages(ret_view);
         }
-
-
 
 
         EditText ed = ret_view.findViewById(R.id.messages_edit_text);

@@ -2,22 +2,15 @@ package com.example.interstellarenemies;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.*;
-
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.interstellarenemies.init.HomePage;
-import com.example.interstellarenemies.invite.InvitesObject;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,9 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class ShopFragment extends Fragment {
     private Dialog buyDialog;
@@ -40,10 +31,6 @@ public class ShopFragment extends Fragment {
     private ArrayList<ImageView> hangarList;
     private String[] hangarLocations;
     private int shipCount;
-
-
-    public ShopFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

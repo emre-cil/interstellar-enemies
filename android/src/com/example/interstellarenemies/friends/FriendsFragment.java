@@ -4,14 +4,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
 import com.example.interstellarenemies.R;
-import com.example.interstellarenemies.announcements.AnnouncementContentFragment;
 import com.example.interstellarenemies.messages.userlist.MessagesUserListFragment;
-import com.example.interstellarenemies.messages.userlist.MessagesUserListObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -28,17 +29,14 @@ public class FriendsFragment extends Fragment {
     private FriendsAdapter adapter;
     private ListView mListView;
 
-    public FriendsFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         View ret_view = inflater.inflate(R.layout.fragment_friends, container, false);
-        mListView = (ListView) ret_view.findViewById(R.id.friendsListView);
+        mListView = ret_view.findViewById(R.id.friendsListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
-        adapter = new FriendsAdapter(getActivity(),R.layout.listview_image_item, listItems);
+        adapter = new FriendsAdapter(getActivity(), R.layout.listview_image_item, listItems);
         mListView.setAdapter(adapter);
 
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -63,13 +61,15 @@ public class FriendsFragment extends Fragment {
                         }
 
                         @Override
-                        public void onCancelled(DatabaseError databaseError) {}
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
                     });
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) { }
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
         });
 
         mListView.setOnItemClickListener((parent, view, position, id) -> {

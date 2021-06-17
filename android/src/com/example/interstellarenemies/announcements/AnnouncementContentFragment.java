@@ -9,10 +9,7 @@ import com.example.interstellarenemies.R;
 import com.google.firebase.database.*;
 
 public class AnnouncementContentFragment extends Fragment {
-    DatabaseReference dbRef;
-
-    public AnnouncementContentFragment() {
-    }
+    private DatabaseReference dbRef;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -4,9 +4,7 @@ import android.content.Context;
 import android.view.*;
 import android.widget.*;
 import androidx.annotation.*;
-
 import com.example.interstellarenemies.R;
-
 import java.util.*;
 
 public class AnnouncementAdapter extends ArrayAdapter<AnnouncementObject> {

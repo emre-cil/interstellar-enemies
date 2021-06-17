@@ -1,7 +1,5 @@
 package com.example.interstellarenemies.planet.join;
 
-import androidx.annotation.NonNull;
-
 import java.util.*;
 
 public class JoinListObject {

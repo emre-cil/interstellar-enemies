@@ -5,7 +5,6 @@ import android.os.*;
 import android.view.*;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.interstellarenemies.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +31,7 @@ public class ResetPassPage extends AppCompatActivity {
         resetButton.setOnClickListener((View v) -> sendEmail());
     }
 
+    //email reset password link operations.
     public void sendEmail() {
         String emailAddress = ((EditText) findViewById(R.id.resetEmailEdit)).getText().toString().trim();
         Intent signInPage = new Intent(this, SignInPage.class);

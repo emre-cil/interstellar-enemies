@@ -2,13 +2,10 @@ package com.example.interstellarenemies.init;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.*;
 import android.widget.Button;
-
 import com.example.interstellarenemies.planet.create.CreatePlanetFragment;
 import com.example.interstellarenemies.planet.join.JoinPlanetFragment;
 import com.example.interstellarenemies.R;
@@ -17,14 +14,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
-
-    public HomeFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,9 +35,9 @@ public class HomeFragment extends Fragment {
         super.onResume();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("status").setValue("online");
-
         Intent goSinglePlayer = new Intent(getActivity().getApplicationContext(), SinglePlayerPage.class);
 
+        //create button object
         Button singlePlayerBut = getActivity().findViewById(R.id.singlePlayerBut);
         Button createPlanetBut = getActivity().findViewById(R.id.createAPlanetBut);
 
@@ -76,13 +69,10 @@ public class HomeFragment extends Fragment {
                         }
                     });
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                 }
-
             });
-
         });
 
         //go join a planet page
@@ -97,7 +87,6 @@ public class HomeFragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new CreatePlanetFragment()).commit();
         });
-
 
 
     }

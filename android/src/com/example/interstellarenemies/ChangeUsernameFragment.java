@@ -1,16 +1,13 @@
 package com.example.interstellarenemies;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,10 +24,6 @@ import static com.example.interstellarenemies.init.HomePage.refreshHeader;
 
 public class ChangeUsernameFragment extends Fragment {
     private LinkedList<String> usernames = new LinkedList<>();
-
-
-    public ChangeUsernameFragment() {
-    }
 
     @Override
     public void onResume() {

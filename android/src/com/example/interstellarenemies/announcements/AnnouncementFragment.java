@@ -5,7 +5,6 @@ import android.view.*;
 import android.widget.*;
 import androidx.annotation.*;
 import androidx.fragment.app.Fragment;
-
 import com.example.interstellarenemies.R;
 import com.google.firebase.database.*;
 import java.util.*;
@@ -16,13 +15,10 @@ public class AnnouncementFragment extends Fragment {
     private AnnouncementAdapter adapter;
     private ListView mListView;
 
-    public AnnouncementFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View ret_view = inflater.inflate(R.layout.fragment_announcement, container, false);
-        mListView = (ListView) ret_view.findViewById(R.id.MessagesUserList_ListView);
+        mListView = ret_view.findViewById(R.id.MessagesUserList_ListView);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("announcements/");
         adapter = new AnnouncementAdapter(getActivity(), R.layout.list_item, listItems);
         mListView.setAdapter(adapter);
@@ -57,7 +53,6 @@ public class AnnouncementFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 

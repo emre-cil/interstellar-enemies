@@ -10,7 +10,4 @@ public class FriendsObject {
         this.status = status;
         this.userID = userID;
     }
-
-
-
 }
