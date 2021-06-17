@@ -56,6 +56,8 @@ public class GameScreen implements Screen {
     private float bgrMaxScrollSpeed;
     private float spawnTimeDifference = 1f;
     private float spawnTimer = 0;
+    private float globalTime = 0;
+    private int level = 1;
 
     //space settings
     private final float spaceWidth = 72;
@@ -105,7 +107,7 @@ public class GameScreen implements Screen {
         userShip = new UserShip(spaceWidth / 2, spaceHeight / 4,
                 10, 10, health, shipSpeed
                 , armor,
-                0.4f, 4, 50, 0.5f,
+                0.4f, 4, 75, 0.3f,
                 userShipTR, userArmorTR, userLaserTR);
 
         fireMonsters = new LinkedList<>();
@@ -149,12 +151,13 @@ public class GameScreen implements Screen {
     private void updateAndRenderHUD() {
         //render top row labels
         font.draw(batch, "Score", hudLeftX, hudRow1Y, hudSectionWidth, Align.left, false);
-        font.draw(batch, "Armor", hudCentreX, hudRow1Y, hudSectionWidth, Align.center, false);
-        font.draw(batch, "Health", hudRightX, hudRow1Y, hudSectionWidth, Align.right, false);
+        font.draw(batch, "Level", hudCentreX, hudRow1Y, hudSectionWidth, Align.center, false);
+        font.draw(batch, "Armor", hudRightX, hudRow1Y, hudSectionWidth, Align.right, false);
+
         //render second row values
-        font.draw(batch, String.format(Locale.getDefault(), "%06d", score), hudLeftX, hudRow2Y, hudSectionWidth, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%02d", (int) userShip.armor), hudCentreX, hudRow2Y, hudSectionWidth, Align.center, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%02d", (int) userShip.getHealth()), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", score), hudLeftX, hudRow2Y, hudSectionWidth, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d",  level), hudCentreX, hudRow2Y, hudSectionWidth, Align.center, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", (int) userShip.armor), hudRightX, hudRow2Y, hudSectionWidth, Align.right, false);
 
     }
 
@@ -180,7 +183,8 @@ public class GameScreen implements Screen {
             fireMonster.draw(batch);
         }
         //show user ship in screen.
-        userShip.draw(batch);
+
+        userShip.draw(batch,health);
 
         //lasers
         renderGuns(deltaTime);
@@ -202,6 +206,14 @@ public class GameScreen implements Screen {
 
     private void spawnMonster(float deltaTime) {
         spawnTimer += deltaTime;
+        globalTime += deltaTime;
+        if ((globalTime) > 10) {
+            globalTime -= 10f;
+            if (spawnTimeDifference > 0.3) {
+                spawnTimeDifference -= 0.05f;
+                level++;
+            }
+        }
 
         if (spawnTimer > spawnTimeDifference) {
             fireMonsters.add(new FireMonster(GamePage.random.nextFloat() * (spaceWidth - 10) + 5,
@@ -425,9 +437,8 @@ public class GameScreen implements Screen {
 }
 
 
-
 interface Transfer {
-    public void submitScore( int score);
+    public void submitScore(int score);
 }
 
 

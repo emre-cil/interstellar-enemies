@@ -76,6 +76,8 @@ public class MessagesUserListFragment extends Fragment {
             getActivity().getIntent().putExtra(
                     "fragment::messages::receiver::id", messagesList.get(position).userid);
             getActivity().getIntent().putExtra(
+                    "fragment::messages::receiver::userName", messagesList.get(position).username);
+            getActivity().getIntent().putExtra(
                     "fragment::messages::planet::id", "");
             getActivity().getSupportFragmentManager().beginTransaction().replace(
                     R.id.fragment_container, new MessagesConvFragment()).commit();

@@ -1,27 +1,21 @@
 package com.example.interstellarenemies.messages.conv;
 
 import android.content.Context;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.interstellarenemies.R;
-import com.example.interstellarenemies.friends.FriendsObject;
-import com.example.interstellarenemies.messages.userlist.MessagesUserListObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapter.ViewHolder> {
     public static final int MSG_TYPE_LEFT = 0;
@@ -48,12 +42,14 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView show_message;
         public ImageView profile_image;
+        public TextView userName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             show_message = itemView.findViewById(R.id.messages_show_message);
             profile_image = itemView.findViewById(R.id.messages_profile_image);
+            userName = itemView.findViewById(R.id.msg_receiver_name);
         }
     }
 
@@ -76,7 +72,8 @@ public class MessagesConvAdapter extends RecyclerView.Adapter<MessagesConvAdapte
     public void onBindViewHolder(@NonNull MessagesConvAdapter.ViewHolder holder, int position) {
         MessagesConvObject msg = aoList.get(position);
         holder.show_message.setText(msg.message);
-
+        if (holder.getItemViewType() == MSG_TYPE_LEFT)
+        holder.userName.setText(msg.userName);
         // TODO: If we want to put images, its here.
     }
 

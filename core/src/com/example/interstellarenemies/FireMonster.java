@@ -53,7 +53,6 @@ public class FireMonster extends Ship {
         return fire;
     }
 
-    @Override
     public void draw(Batch batch) {
         batch.draw(shipTR, objectShape.x, objectShape.y, objectShape.width, objectShape.height);
         if (armor > 0) {

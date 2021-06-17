@@ -34,6 +34,7 @@ public class MessagesConvFragment extends Fragment {
     String otherSide;
     String planetID = null;
     String myID;
+    String userName;
     private RecyclerView mRecyclerView;
     private MessagesConvAdapter adapter;
 
@@ -51,6 +52,7 @@ public class MessagesConvFragment extends Fragment {
         View ret_view = inflater.inflate(R.layout.fragment_messages_conv, container, false);
 
         otherSide = getActivity().getIntent().getStringExtra("fragment::messages::receiver::id");
+        userName = getActivity().getIntent().getStringExtra("fragment::messages::receiver::userName");
         myID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mRecyclerView = ret_view.findViewById(R.id.conv_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -88,7 +90,7 @@ public class MessagesConvFragment extends Fragment {
         btn.setOnClickListener(v -> {
             String msg = ed.getText().toString();
             if (!msg.isEmpty()) {
-                MessagesConvObject mco = new MessagesConvObject(myID, otherSide, msg);
+                MessagesConvObject mco = new MessagesConvObject(myID, otherSide, msg,userName);
                 sendMessage(mco);
                 ed.setText("");
             } else {
@@ -112,7 +114,7 @@ public class MessagesConvFragment extends Fragment {
                     String date = messagesTable.getKey();
                     String message = ((HashMap<String, String>)messagesTable.getValue()).get("message");
                     String sender = ((HashMap<String, String>)messagesTable.getValue()).get("sender");
-                    MessagesConvObject mco = new MessagesConvObject(sender, myID, message);
+                    MessagesConvObject mco = new MessagesConvObject(sender, myID, message,userName);
                     messagesListNew.add(mco);
 
                     adapter.clear();

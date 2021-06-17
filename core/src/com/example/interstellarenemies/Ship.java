@@ -63,10 +63,4 @@ abstract class Ship {
         objectShape.setPosition(objectShape.x + newX, objectShape.y + newY);
     }
 
-    public void draw(Batch batch) {
-        batch.draw(shipTR, objectShape.x, objectShape.y, objectShape.width, objectShape.height);
-        if (armor > 0) {
-            batch.draw(armorTR, objectShape.x, objectShape.y, objectShape.width, objectShape.height);
-        }
-    }
 }

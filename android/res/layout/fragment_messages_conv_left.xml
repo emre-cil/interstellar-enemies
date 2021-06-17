@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:padding="8dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingLeft="8dp">
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/messages_profile_image"
-        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/msg_receiver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:color="@color/ic_background_color"
+        android:maxWidth="250dp"
+        android:text="kheseyroon"
+        android:textColor="@color/purple"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/messages_show_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@id/messages_profile_image"
-        android:background="@color/purple"
+        android:layout_marginTop="1dp"
+        android:background="@color/black.dark"
         android:color="@color/ic_background_color"
+        android:maxWidth="250dp"
         android:padding="10dp"
         android:text="Hello World"
-        android:textColor="@color/yellow"
+        android:textColor="@color/green"
         android:textStyle="bold"
-        android:maxWidth="250dp"/>
+        app:layout_constraintStart_toStartOf="@+id/msg_receiver_name"
+        app:layout_constraintTop_toBottomOf="@+id/msg_receiver_name" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
