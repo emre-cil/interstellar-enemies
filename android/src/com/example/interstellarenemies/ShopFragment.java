@@ -90,7 +90,7 @@ public class ShopFragment extends Fragment {
                     hangarList.get(i).setImageResource(getResources().getIdentifier(shipList.get(i), "drawable", getActivity().getPackageName()));
                 }
                 shipCount = shipList.size();
-                dbRef.child("ship_count").setValue(shipCount+1);
+                dbRef.child("ship_count").setValue(String.valueOf(shipCount+1));
                 shipList.clear();
 
                 if (shipCount>0)
@@ -160,7 +160,7 @@ public class ShopFragment extends Fragment {
         buyDialog.findViewById(R.id.DialogGreenButton).setOnClickListener(view -> {
             if (money >= shipPrice) {
                 dbRef.child("ships").child(shipName).setValue(shipId);
-                dbRef.child("money").setValue(money - shipPrice);
+                dbRef.child("money").setValue(String.valueOf(money - shipPrice));
                 refreshMoney(dbRef, moneyText);
                 buyDialog.dismiss();
             } else {

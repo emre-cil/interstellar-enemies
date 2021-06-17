@@ -22,6 +22,7 @@
         android:padding="10dp"
         android:text="Hello World"
         android:textColor="@color/yellow"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:maxWidth="250dp"/>
 
 </RelativeLayout>
