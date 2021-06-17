@@ -75,6 +75,11 @@
     <string name="reset_username">Reset Username</string>
     <string name="new_username">New Username</string>
     <string name="playagain">Play Again</string>
+    <string name="health">Health:</string>
+    <string name="armor">Armor:</string>
+    <string name="laser_count">Laser Count:</string>
+    <string name="speed">Speed:</string>
+    <string name="_100">100</string>
 
 
 </resources>

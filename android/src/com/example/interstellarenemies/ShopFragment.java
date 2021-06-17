@@ -2,15 +2,20 @@ package com.example.interstellarenemies;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import android.provider.ContactsContract;
 import android.view.*;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,14 +24,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class ShopFragment extends Fragment {
-    private Dialog buyDialog;
+    private Dialog buyDialog, infoDialog;
     private int money;
     private Button acceptBut;
-    private TextView dialogText;
-    private ImageView hangar2, hangar3, hangar4, hangar5;
+    private TextView dialogText, ship1area, ship2area, ship3area, ship4area,
+            healthValue, armorValue, speedValue, laserCoValue;
+    private ImageView hangar2, hangar3, hangar4, hangar5,shipPicture;
     private ArrayList<String> shipList;
     private ArrayList<ImageView> hangarList;
     private String[] hangarLocations;
@@ -42,11 +49,17 @@ public class ShopFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
+
         shipList = new ArrayList<>();
         hangarList = new ArrayList<>();
         shipCount = 0;
         buyDialog = new Dialog(getActivity());
+
+        infoDialog = new Dialog(getActivity());
         TextView moneyText = getActivity().findViewById(R.id.moneyShop);
+
         hangar2 = getActivity().findViewById(R.id.hangar2);
         hangar3 = getActivity().findViewById(R.id.hangar3);
         hangar4 = getActivity().findViewById(R.id.hangar4);
@@ -57,8 +70,30 @@ public class ShopFragment extends Fragment {
         hangarList.add(hangar5);
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("users/" + user.getUid());
+        ship1area = getActivity().findViewById(R.id.ship1background);
+        ship2area = getActivity().findViewById(R.id.ship2background);
+        ship3area = getActivity().findViewById(R.id.ship3background);
+        ship4area = getActivity().findViewById(R.id.ship4background);
+
+
+        ship1area.setOnClickListener((View v) -> {
+            infoDialogInformation("ship1");
+        });
+
+        ship2area.setOnClickListener((View v) -> {
+            infoDialogInformation("ship2");
+        });
+
+        ship3area.setOnClickListener((View v) -> {
+            infoDialogInformation("ship3");
+        });
+
+        ship4area.setOnClickListener((View v) -> {
+            infoDialogInformation("ship4");
+        });
+
+
+
 
         refreshMoney(dbRef, moneyText);
 
@@ -77,26 +112,26 @@ public class ShopFragment extends Fragment {
                     hangarList.get(i).setImageResource(getResources().getIdentifier(shipList.get(i), "drawable", getActivity().getPackageName()));
                 }
                 shipCount = shipList.size();
-                dbRef.child("ship_count").setValue(String.valueOf(shipCount+1));
+                dbRef.child("ship_count").setValue(String.valueOf(shipCount + 1));
                 shipList.clear();
 
-                if (shipCount>0)
+                if (shipCount > 0)
                     hangar2.setOnClickListener((View v) -> {
                         selectShip(dbRef, hangarLocations[0]);
                     });
-                if (shipCount>1)
+                if (shipCount > 1)
                     hangar3.setOnClickListener((View v) -> {
 
                         selectShip(dbRef, hangarLocations[1]);
                     });
 
-                if (shipCount>2)
+                if (shipCount > 2)
                     hangar4.setOnClickListener((View v) -> {
 
                         selectShip(dbRef, hangarLocations[2]);
                     });
 
-                if (shipCount>3)
+                if (shipCount > 3)
                     hangar5.setOnClickListener((View v) -> {
 
                         selectShip(dbRef, hangarLocations[3]);
@@ -108,7 +143,6 @@ public class ShopFragment extends Fragment {
             }
         };
         messagesRef.addValueEventListener(eventListener);
-
 
 
         getActivity().findViewById(R.id.ship1_button).setOnClickListener((View v) -> {
@@ -129,13 +163,45 @@ public class ShopFragment extends Fragment {
         });
 
 
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_shop, container, false);
+    }
+
+    public void infoDialogInformation(String shipName) {
+        infoDialog.setContentView(R.layout.dialog_ship_information);
+        healthValue =  infoDialog. findViewById(R.id.shipHealthValueShop);
+        armorValue = infoDialog.findViewById(R.id.shipArmorValueShop);
+        speedValue = infoDialog.findViewById(R.id.shipSpeedValueShop);
+        laserCoValue = infoDialog.findViewById(R.id.shipLaserCountValueShop);
+        shipPicture= infoDialog.findViewById(R.id.shipInfoImageShop);
+        shipPicture.setImageResource(getResources().getIdentifier(shipName, "drawable", getActivity().getPackageName()));
+
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("ships/"+shipName);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                System.out.println(healthValue.getText());
+                healthValue.setText(snapshot.child("health").getValue(Integer.class).toString());
+                armorValue.setText(snapshot.child("armor").getValue(Integer.class).toString());
+                laserCoValue.setText(snapshot.child("laser_count").getValue(Integer.class).toString());
+                speedValue.setText(snapshot.child("ship_speed").getValue(Integer.class).toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        //if click to cancel
+        infoDialog.findViewById(R.id.closeButtonShipInfo).setOnClickListener(view -> {
+            infoDialog.dismiss();
+        });
+        infoDialog.show();
     }
 
     @SuppressLint("SetTextI18n")
@@ -200,7 +266,5 @@ public class ShopFragment extends Fragment {
         });
         buyDialog.show();
     }
-    public void selectShipOnDataChange(){
 
-    }
 }

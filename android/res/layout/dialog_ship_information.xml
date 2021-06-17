@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_gravity="center"
+    android:layout_height="188dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black.light">
+
+
+            <TextView
+                android:id="@+id/shopInfoBackground"
+                android:layout_width="170dp"
+                android:layout_height="135dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="39dp"
+                android:background="@color/black.dark"
+                app:layout_constraintStart_toEndOf="@+id/shopInfoBackground2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/shopInfoBackground2"
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="39dp"
+                android:background="@color/black.dark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/closeButtonShipInfo"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/reject" />
+
+            <ImageView
+                android:id="@+id/shipInfoImageShop"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                app:layout_constraintBottom_toTopOf="@+id/shopInfoBackground2"
+                app:layout_constraintEnd_toEndOf="@+id/shopInfoBackground2"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/shopInfoBackground2"
+                app:layout_constraintTop_toBottomOf="@+id/shopInfoBackground2"
+                app:layout_constraintVertical_bias="0.524"
+                app:srcCompat="@drawable/ship" />
+
+            <TextView
+                android:id="@+id/shipHealthShop"
+                android:layout_width="120sp"
+                android:layout_height="0sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/health"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipInfoImageShop"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/shipHealthValueShop"
+                android:layout_width="40sp"
+                android:layout_height="0sp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/_100"
+                android:textAlignment="textEnd"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipHealthShop"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/shipSpeedValueShop"
+                android:layout_width="40sp"
+                android:layout_height="0sp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/_100"
+                android:textAlignment="textEnd"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipSpeedShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipArmorValueShop" />
+
+            <TextView
+                android:id="@+id/shipArmorValueShop"
+                android:layout_width="40sp"
+                android:layout_height="0sp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/_100"
+                android:textAlignment="textEnd"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipArmorShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipHealthValueShop" />
+
+            <TextView
+                android:id="@+id/shipLaserCountValueShop"
+                android:layout_width="40sp"
+                android:layout_height="0sp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/_100"
+                android:textAlignment="textEnd"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipLaserCountShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipSpeedValueShop" />
+
+            <TextView
+                android:id="@+id/shipArmorShop"
+                android:layout_width="120sp"
+                android:layout_height="0sp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/armor"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipInfoImageShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipHealthShop" />
+
+            <TextView
+                android:id="@+id/shipLaserCountShop"
+                android:layout_width="120sp"
+                android:layout_height="0sp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/laser_count"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipInfoImageShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipSpeedShop" />
+
+            <TextView
+                android:id="@+id/shipSpeedShop"
+                android:layout_width="120sp"
+                android:layout_height="0sp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/vt323"
+                android:text="@string/speed"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/shipInfoImageShop"
+                app:layout_constraintTop_toBottomOf="@+id/shipArmorShop" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
