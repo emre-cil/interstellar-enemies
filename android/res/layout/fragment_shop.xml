@@ -190,11 +190,11 @@
             android:id="@+id/shopMoneyImage"
             android:layout_width="22dp"
             android:layout_height="30sp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="11dp"
             android:layout_marginTop="4dp"
             android:paddingTop="5dp"
             android:src="@drawable/ethereum_brands_1"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/shopBackgroundText"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -224,13 +224,13 @@
             android:id="@+id/shopText"
             android:layout_width="57dp"
             android:layout_height="34dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/vt323"
             android:gravity="center"
             android:text="@string/shopUpperCase"
             android:textColor="@color/white.absolute"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/shopBackgroundText"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -289,14 +289,14 @@
             android:id="@+id/shopHangarText"
             android:layout_width="84dp"
             android:layout_height="39dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/vt323"
             android:text="@string/hangar"
             android:textColor="@color/white.absolute"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/shopHangarImage"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/hangarBackgroundText" />
 
         <ImageView
             android:id="@+id/shopHangarImage"
@@ -312,12 +312,12 @@
             android:id="@+id/shipCountHangar"
             android:layout_width="49dp"
             android:layout_height="37dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="11dp"
             android:fontFamily="@font/vt323"
             android:text="@string/hangarCount"
             android:textColor="@color/white.absolute"
             android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/hangarBackgroundText"
             app:layout_constraintTop_toTopOf="@+id/hangarBackgroundText" />
 
         <ImageView

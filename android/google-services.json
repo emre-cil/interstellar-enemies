@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1078205186136-16kc16u69qrh7jr3mn877k32j6e64t06.apps.googleusercontent.com",
+          "client_id": "1078205186136-0peemiii074j3h5p70cj1k3l3i6ckdmu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.interstellarenemies",
-            "certificate_hash": "292367812435f6afa9f7c6922387cf7b8e35b954"
+            "certificate_hash": "e2c3aee52dde03a9f5f6274e3a2d90415d0a95fa"
           }
         },
         {
@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCGVU-Lu457VLgTq7dgBPwnG1jOB9JzRSE"
+          "current_key": "AIzaSyDqrl_fZxvdFMJvfC82Hcv-ZEKOj_mrFcI"
         }
       ],
       "services": {
