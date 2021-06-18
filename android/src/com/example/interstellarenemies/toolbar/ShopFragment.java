@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ShopFragment extends Fragment {
-    private Dialog buyDialog, infoDialog;
+    private Dialog buyDialog, infoDialog, selectDialog;
     private int money;
     private Button acceptBut;
     private TextView dialogText, ship1area, ship2area, ship3area, ship4area,
@@ -65,7 +65,10 @@ public class ShopFragment extends Fragment {
             infoDialogInformation("ship4");
         });
 
-        dbRef.child("ships").addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+        DatabaseReference shipRef = dbRef.child("ships");
+        ValueEventListener eventListener = new ValueEventListener()  {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -76,6 +79,7 @@ public class ShopFragment extends Fragment {
                     hangarLocations[i] = shipList.get(i);
                     hangarList.get(i).setImageResource(getResources().getIdentifier(shipList.get(i), "drawable", getActivity().getPackageName()));
                 }
+
                 shipCount = shipList.size();
                 dbRef.child("ship_count").setValue(String.valueOf(shipCount + 1));
                 shipList.clear();
@@ -105,8 +109,8 @@ public class ShopFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-        });
-
+        };
+        shipRef.addValueEventListener(eventListener);
         getActivity().findViewById(R.id.ship1_button).setOnClickListener((View v) -> {
             dialogOperations(money, 25000, "ship1", "700175", dbRef, getView(), moneyText);
         });
@@ -193,7 +197,7 @@ public class ShopFragment extends Fragment {
         buyDialog.setContentView(R.layout.sample_dialog);
         //if click to buy button
         dialogText = buyDialog.findViewById(R.id.DialogText);
-        dialogText.setText("Do you want to pay\n " + shipPrice + " coin?");
+        dialogText.setText(getString(R.string.doYouWantToPay) + shipPrice + getString(R.string.coin));
         buyDialog.findViewById(R.id.DialogGreenButton).setOnClickListener(view -> {
             if (money >= shipPrice) {
                 dbRef.child("ships").child(shipName).setValue(shipId);
@@ -203,7 +207,7 @@ public class ShopFragment extends Fragment {
             } else {
                 buyDialog.dismiss();
                 buyDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                Snackbar.make(v, "You do not have enough money to buy this ship", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, getString(R.string.notEnoughMoney), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -213,6 +217,7 @@ public class ShopFragment extends Fragment {
             buyDialog.dismiss();
         });
         buyDialog.show();
+
     }
 
     public void refreshMoney(DatabaseReference dbRef, TextView moneyText) {
@@ -232,21 +237,22 @@ public class ShopFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     public void selectShip(DatabaseReference dbRef, String shipName) {
-        buyDialog.setContentView(R.layout.sample_dialog);
-        acceptBut = buyDialog.findViewById(R.id.DialogGreenButton);
-        acceptBut.setText("ACCEPT");
-        dialogText = buyDialog.findViewById(R.id.DialogText);
-        dialogText.setText("Do you want to select\n " + "this ship?");
+        selectDialog = new Dialog(getActivity());
+        selectDialog.setContentView(R.layout.sample_dialog);
+        acceptBut = selectDialog.findViewById(R.id.DialogGreenButton);
+        acceptBut.setText(getString(R.string.accept));
+        dialogText = selectDialog.findViewById(R.id.DialogText);
+        dialogText.setText(getString(R.string.doYouWantToSelect));
         acceptBut.findViewById(R.id.DialogGreenButton).setOnClickListener(view -> {
             dbRef.child("current_ship").setValue(shipName);
-            buyDialog.dismiss();
+            selectDialog.dismiss();
         });
 
         //if click to cancel
-        buyDialog.findViewById(R.id.DialogCancelButton).setOnClickListener(view -> {
-            buyDialog.dismiss();
+        selectDialog.findViewById(R.id.DialogCancelButton).setOnClickListener(view -> {
+            selectDialog.dismiss();
         });
-        buyDialog.show();
+        selectDialog.show();
     }
 
 }

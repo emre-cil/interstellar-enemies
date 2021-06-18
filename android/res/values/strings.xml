@@ -97,6 +97,10 @@
     <string name="hasBeenDestroyed">\"Your ship has been destroyed\nYour score is \"</string>
     <string name="anotherGame">\" Would you like to\n play another game?\"</string>
     <string name="resetMailSent">A Password Reset Mail Has Sent</string>
+    <string name="doYouWantToSelect">Do you want to select\n this ship?</string>
+    <string name="notEnoughMoney">You do not have enough money to buy this ship</string>
+    <string name="doYouWantToPay">\"Do you want to pay\n \"</string>
+    <string name="coin">\" coin?\"</string>
 
 
 </resources>
