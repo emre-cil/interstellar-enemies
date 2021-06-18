@@ -2,15 +2,15 @@
   <library name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/annotations.zip!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5333f1b29e0b6e661eb50bde621c8a2e/coordinatorlayout-1.1.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/res" />
       <root url="jar://$USER_HOME$/.local/share/gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ee350cf5af56612127483fbdd1613c5/coordinatorlayout-1.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5333f1b29e0b6e661eb50bde621c8a2e/coordinatorlayout-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5333f1b29e0b6e661eb50bde621c8a2e/coordinatorlayout-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5333f1b29e0b6e661eb50bde621c8a2e/coordinatorlayout-1.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
