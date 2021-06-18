@@ -86,7 +86,7 @@ public class MessagesConvFragment extends Fragment {
                 sendMessage(mco);
                 ed.setText("");
             } else {
-                Snackbar.make(ret_view, "You cannot send an empty text.", Snackbar.LENGTH_LONG)
+                Snackbar.make(ret_view, getString(R.string.notSendEmptyText), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

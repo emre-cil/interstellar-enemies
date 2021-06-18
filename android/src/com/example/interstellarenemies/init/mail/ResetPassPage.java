@@ -1,4 +1,4 @@
-package com.example.interstellarenemies.init;
+package com.example.interstellarenemies.init.mail;
 
 import android.content.Intent;
 import android.os.*;
@@ -40,12 +40,12 @@ public class ResetPassPage extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Snackbar.make(this.findViewById(android.R.id.content),
-                                "Password reset link sent your email address", Snackbar.LENGTH_LONG)
+                                getString(R.string.passResetLink), Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         startActivity(signInPage);
                     } else
                         Snackbar.make(this.findViewById(android.R.id.content),
-                                "Email address not found!", Snackbar.LENGTH_LONG)
+                                getString(R.string.emailNotFound), Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                 });
     }

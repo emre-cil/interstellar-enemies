@@ -78,10 +78,10 @@ public class InvitesFragment extends Fragment {
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             addFriendDialog.setContentView(R.layout.sample_dialog);
             acceptBut = addFriendDialog.findViewById(R.id.DialogGreenButton);
-            acceptBut.setText("ACCEPT");
+            acceptBut.setText(getString(R.string.accept));
             //if click to accept button
             dialogText = addFriendDialog.findViewById(R.id.DialogText);
-            dialogText.setText("Do you want to add\n " + invList.get(position).username + " as a friend?");
+            dialogText.setText(getString(R.string.doYouWantAdd) + invList.get(position).username + getString(R.string.asAFriend));
             acceptBut.setOnClickListener((View v) -> {
                 String newID = FirebaseDatabase.getInstance().getReference("planets/").push().getKey();
                 rootRef.child(user.getUid()).child("friends").child(invList.get(position).userID).setValue(newID);

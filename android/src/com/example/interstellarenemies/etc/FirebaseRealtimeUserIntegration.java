@@ -1,4 +1,4 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.etc;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

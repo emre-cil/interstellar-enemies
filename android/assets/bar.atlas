@@ -1,0 +1,83 @@
+
+bar.png
+size: 128, 64
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+10
+  rotate: false
+  xy: 0, 0
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+100
+  rotate: false
+  xy: 96, 17
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+20
+  rotate: false
+  xy: 64, 34
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+30
+  rotate: false
+  xy: 64, 17
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+40
+  rotate: false
+  xy: 64, 0
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 32, 0
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+50
+  rotate: false
+  xy: 0, 34
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+60
+  rotate: false
+  xy: 0, 17
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+70
+  rotate: false
+  xy: 32, 34
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+80
+  rotate: false
+  xy: 32, 17
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+90
+  rotate: false
+  xy: 96, 34
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1

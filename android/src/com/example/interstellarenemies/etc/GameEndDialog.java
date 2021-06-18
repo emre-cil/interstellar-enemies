@@ -1,14 +1,19 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.etc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.interstellarenemies.init.HomePage;
+
+import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.SinglePlayerPage;
+import com.example.interstellarenemies.init.home.HomePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +26,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class GameEndDialog extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +38,12 @@ public class GameEndDialog extends AppCompatActivity {
         Dialog gameEndDialog = new Dialog(this);
         gameEndDialog.setContentView(R.layout.game_end_dialog);
         Button acceptBut = gameEndDialog.findViewById(R.id.AcceptButton);
-        acceptBut.setText("play again");
+        acceptBut.setText(getString(R.string.playAgain));
         //if click to accept button
         TextView dialogText = gameEndDialog.findViewById(R.id.dialogText1);
         TextView dialogText2 = gameEndDialog.findViewById(R.id.dialogText2);
-        dialogText2.setText("Your ship has been destroyed\nYour score is " + score );
-        dialogText.setText(  " Would you like to\n play another game?");
+        dialogText2.setText(getResources().getString(R.string.hasBeenDestroyed) + score );
+        dialogText.setText(  getResources().getString(R.string.anotherGame));
         acceptBut.setOnClickListener((View v) -> {
 
             FirebaseDatabase rootRef = FirebaseDatabase.getInstance();

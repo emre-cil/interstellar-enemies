@@ -1,7 +1,5 @@
 package com.example.interstellarenemies;
 
-
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 

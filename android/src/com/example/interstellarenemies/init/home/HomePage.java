@@ -1,4 +1,4 @@
-package com.example.interstellarenemies.init;
+package com.example.interstellarenemies.init.home;
 
 
 import android.annotation.SuppressLint;
@@ -12,12 +12,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import com.example.interstellarenemies.*;
+
+import com.example.interstellarenemies.init.MainActivity;
 import com.example.interstellarenemies.leaderboard.LeaderboardFragment;
 import com.example.interstellarenemies.messages.userlist.MessagesUserListFragment;
-import com.example.interstellarenemies.profile.ProfileFragment;
+import com.example.interstellarenemies.toolbar.ProfileFragment;
 import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.announcements.AnnouncementFragment;
+import com.example.interstellarenemies.toolbar.settings.SettingsFragment;
+import com.example.interstellarenemies.toolbar.ShopFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

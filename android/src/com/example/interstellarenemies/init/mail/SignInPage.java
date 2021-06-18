@@ -1,4 +1,4 @@
-package com.example.interstellarenemies.init;
+package com.example.interstellarenemies.init.mail;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,6 +9,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.init.home.HomePage;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 

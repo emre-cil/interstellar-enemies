@@ -10,24 +10,24 @@
         android:resizeableActivity="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.InterstellarEnemies">
-        <activity android:name=".LoadingPage"
+        <activity android:name=".etc.LoadingPage"
             android:screenOrientation="portrait"/>
-        <activity android:name=".GameEndDialog"
+        <activity android:name=".etc.GameEndDialog"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".SinglePlayerPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".init.ResetPassPage"
+            android:name=".init.mail.ResetPassPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".init.HomePage"
+            android:name=".init.home.HomePage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".init.SignInPage"
+            android:name=".init.mail.SignInPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".init.RegisterPage"
+            android:name=".init.mail.RegisterPage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".init.MainActivity"

@@ -1,9 +1,11 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.toolbar.settings;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.*;
 import android.widget.Button;
+
+import com.example.interstellarenemies.R;
 import com.example.interstellarenemies.init.MainActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +25,7 @@ public class SettingsFragment extends Fragment {
         chPass.setOnClickListener((View v) -> {
             FirebaseAuth mAuth = MainActivity.getmAuth();
             mAuth.sendPasswordResetEmail(mAuth.getCurrentUser().getEmail());
-            Snackbar.make(v, "A Password Reset Mail Has Sent", Snackbar.LENGTH_LONG)
+            Snackbar.make(v, getString(R.string.resetMailSent), Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         });
 

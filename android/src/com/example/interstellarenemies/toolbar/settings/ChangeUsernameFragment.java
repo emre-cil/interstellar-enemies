@@ -1,4 +1,4 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.toolbar.settings;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.interstellarenemies.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
 
-import static com.example.interstellarenemies.init.HomePage.refreshHeader;
+import static com.example.interstellarenemies.init.home.HomePage.refreshHeader;
 
 
 public class ChangeUsernameFragment extends Fragment {
@@ -68,12 +70,12 @@ public class ChangeUsernameFragment extends Fragment {
                 }
             }
             if (foundSameName)
-                Snackbar.make(getView(), "The username has already taken.", Snackbar.LENGTH_LONG)
+                Snackbar.make(getView(), getString(R.string.usernameAlreadyTaken), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             else if (name.length() > 6 && name.length() < 20) {
                 childRef.child("name").setValue(name);
             } else
-                Snackbar.make(getView(), "The username is too small.", Snackbar.LENGTH_LONG)
+                Snackbar.make(getView(), getString(R.string.usernameToSmall), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
         });
 

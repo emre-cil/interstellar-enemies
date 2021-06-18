@@ -1,8 +1,10 @@
-package com.example.interstellarenemies;
+package com.example.interstellarenemies.etc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.interstellarenemies.R;
 
 public class LoadingPage extends AppCompatActivity {
 

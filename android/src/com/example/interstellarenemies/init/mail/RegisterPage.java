@@ -1,5 +1,6 @@
-package com.example.interstellarenemies.init;
+package com.example.interstellarenemies.init.mail;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,8 +9,9 @@ import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.interstellarenemies.FirebaseRealtimeUserIntegration;
+import com.example.interstellarenemies.etc.FirebaseRealtimeUserIntegration;
 import com.example.interstellarenemies.R;
+import com.example.interstellarenemies.init.home.HomePage;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,6 +36,7 @@ public class RegisterPage extends AppCompatActivity {
         signUpButton.setOnClickListener((View v) -> createUser());
     }
 
+    @SuppressLint("ResourceType")
     public void createUser() {
         String email = ((EditText) findViewById(R.id.RegisterEmail)).getText().toString();
         String pass = ((EditText) findViewById(R.id.RegisterEmailPass)).getText().toString();
@@ -45,7 +48,7 @@ public class RegisterPage extends AppCompatActivity {
         Intent mainIntent = new Intent(this, HomePage.class);
 
         if (!pass.equals(passConf)) {
-            Snackbar.make(this.findViewById(android.R.id.content), "Passwords does not match!", Snackbar.LENGTH_LONG)
+            Snackbar.make(this.findViewById(android.R.id.content), getString(R.string.passwordNotMatch), Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else {
             mAuth.createUserWithEmailAndPassword(email, pass).

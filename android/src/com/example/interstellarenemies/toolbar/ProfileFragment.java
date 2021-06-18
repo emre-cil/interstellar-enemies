@@ -1,4 +1,4 @@
-package com.example.interstellarenemies.profile;
+package com.example.interstellarenemies.toolbar;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.interstellarenemies.R;
-import com.example.interstellarenemies.ShopFragment;
+import com.example.interstellarenemies.toolbar.ShopFragment;
 import com.example.interstellarenemies.friends.FriendsFragment;
 import com.example.interstellarenemies.invite.InvitesFragment;
 import com.google.android.material.navigation.NavigationView;
