@@ -46,7 +46,7 @@
     <string name="money">1.000.000</string>
     <string name="hangarUnderlined"><u>HANGAR</u></string>
     <string name="hangar">HANGAR</string>
-    <string name="userName">Kheseyroon</string>
+    <string name="userName">userName</string>
     <string name="usernameText">Username:</string>
     <string name="userID">1111111</string>
     <string name="userid">UserID:</string>
@@ -84,8 +84,8 @@
     <string name="passResetLink">Password reset link sent your email address</string>
     <string name="emailNotFound">Email address not found!</string>
     <string name="accept">ACCEPT</string>
-    <string name="doYouWantAdd">\"Do you want to add\n \"</string>
-    <string name="asAFriend">\" as a friend?\"</string>
+    <string name="doYouWantAdd">Do you want to add\n </string>
+    <string name="asAFriend"> as a friend?</string>
     <string name="notSendEmptyText">You cannot send an empty text.</string>
     <string name="enterBiggerNumber">Please enter bigger numbers for maximum users.</string>
     <string name="plsEnterLongerName">Please enter a longer name for your planet.</string>
@@ -94,13 +94,13 @@
     <string name="usernameAlreadyTaken">The username has already taken.</string>
     <string name="usernameToSmall">The username is too small.</string>
     <string name="playAgain">play again</string>
-    <string name="hasBeenDestroyed">\"Your ship has been destroyed\nYour score is \"</string>
-    <string name="anotherGame">\" Would you like to\n play another game?\"</string>
+    <string name="hasBeenDestroyed">Your ship has been destroyed\nYour score is </string>
+    <string name="anotherGame"> Would you like to\n play another game?</string>
     <string name="resetMailSent">A Password Reset Mail Has Sent</string>
     <string name="doYouWantToSelect">Do you want to select\n this ship?</string>
     <string name="notEnoughMoney">You do not have enough money to buy this ship</string>
-    <string name="doYouWantToPay">\"Do you want to pay\n \"</string>
-    <string name="coin">\" coin?\"</string>
+    <string name="doYouWantToPay">Do you want to pay\n </string>
+    <string name="coin">  coin?</string>
 
 
 </resources>

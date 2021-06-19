@@ -197,7 +197,7 @@ public class ShopFragment extends Fragment {
         buyDialog.setContentView(R.layout.sample_dialog);
         //if click to buy button
         dialogText = buyDialog.findViewById(R.id.DialogText);
-        dialogText.setText(getString(R.string.doYouWantToPay) + shipPrice + getString(R.string.coin));
+        dialogText.setText(getString(R.string.doYouWantToPay) + shipPrice + " "+ getString(R.string.coin));
         buyDialog.findViewById(R.id.DialogGreenButton).setOnClickListener(view -> {
             if (money >= shipPrice) {
                 dbRef.child("ships").child(shipName).setValue(shipId);

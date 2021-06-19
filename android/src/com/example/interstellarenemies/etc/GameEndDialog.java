@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -42,8 +43,8 @@ public class GameEndDialog extends AppCompatActivity {
         //if click to accept button
         TextView dialogText = gameEndDialog.findViewById(R.id.dialogText1);
         TextView dialogText2 = gameEndDialog.findViewById(R.id.dialogText2);
-        dialogText2.setText(getResources().getString(R.string.hasBeenDestroyed) + score );
-        dialogText.setText(  getResources().getString(R.string.anotherGame));
+        dialogText2.setText(getResources().getString(R.string.hasBeenDestroyed) + " " + score);
+        dialogText.setText(getResources().getString(R.string.anotherGame));
         acceptBut.setOnClickListener((View v) -> {
 
             FirebaseDatabase rootRef = FirebaseDatabase.getInstance();
